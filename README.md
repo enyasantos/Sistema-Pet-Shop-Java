@@ -1,2 +1,25 @@
-# Sistema-Pet-Shop-Java
-Repositório destinado à um trabalho em grupo, consiste no desenvolvimento de um sistema de gestão para petshop, da requerido pela cadeira BCC221 do curso de Ciência da Computação da Universidade Federal de Ouro Preto.
+<h1 align="center">
+Sistema-Pet-Shop-Java
+</h1>
+<p align="center">💡</p>
+<p align="center">
+Repositório destinado à um trabalho em grupo que consiste no desenvolvimento de um sistema de gestão para petshop,  requerido pela cadeira BCC221 do curso de Ciência da Computação da Universidade Federal de Ouro Preto (UFOP).
+</p>
+
+## 👥 Grupo
+<a href="https://github.com/enyasantos">👩‍💻 - Enya Santos</a>
+
+<a href="https://github.com/Nathannz11">👨‍💻 - Nathann Zini</a>
+
+<a href="https://github.com/vitoriabispo">👩‍💻 - Vitória Bispo</a>
+
+## 💻 Tecnologias usadas
+<ul>
+<li>Java</li>
+<li>GUI Swing</li>
+<li>Netbeans</li>
+<ul>
+
+## 📜 Licença 
+
+This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
