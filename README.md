@@ -19,7 +19,7 @@ Repositório destinado à um trabalho em grupo que consiste no desenvolvimento d
 <li>GUI Swing</li>
 <li>Netbeans</li>
 <ul>
-
+  
+  
 ## 📜 Licença 
-
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
