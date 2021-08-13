@@ -13,13 +13,12 @@ Repositório destinado à um trabalho em grupo que consiste no desenvolvimento d
 
 <a href="https://github.com/vitoriabispo">👩‍💻 - Vitória Bispo</a>
 
-## 💻 Tecnologias usadas
+<h2>💻 Tecnologias usadas</h2> 
 <ul>
 <li>Java</li>
 <li>GUI Swing</li>
 <li>Netbeans</li>
-<ul>
+</ul>
   
-  
-## 📜 Licença 
+<h2>📜 Licença</h2> 
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
