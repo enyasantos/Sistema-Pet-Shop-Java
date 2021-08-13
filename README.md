@@ -21,4 +21,4 @@ Repositório destinado à um trabalho em grupo que consiste no desenvolvimento d
 </ul>
   
 <h2>📜 Licença</h2> 
-This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
+<p>This project is licensed under the MIT License - see the <a href="https://opensource.org/licenses/MIT">page for details.</a></p>
