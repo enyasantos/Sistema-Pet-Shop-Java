@@ -5,8 +5,9 @@
  */
 package View;
 
-import Content.CadastrarFunciorario;
-import Content.Lista;
+import Content.CadastrarFuncionarios;
+import Content.ListarFuncionarios;
+import Content.PagarConta;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -451,7 +452,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     
     private void lbl_cadastrar_vendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cadastrar_vendedorMouseClicked
         // TODO add your handling code here:
-        CadastrarFunciorario cadastro = new CadastrarFunciorario();
+        CadastrarFuncionarios cadastro = new CadastrarFuncionarios();
         j_content.removeAll();
         j_content.add(cadastro).setVisible(true);
         
@@ -464,7 +465,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_gerenciar_funMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_gerenciar_funMouseClicked
         // TODO add your handling code here  
-        Lista lista = new Lista();
+        ListarFuncionarios lista = new ListarFuncionarios();
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -486,7 +487,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_pagar_contaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_pagar_contaMouseClicked
         // TODO add your handling code here:Lista lista = new Lista();
-        Lista lista = new Lista();
+        PagarConta lista = new PagarConta();
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -508,7 +509,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_comprarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_comprarMouseClicked
         // TODO add your handling code here:
-        Lista lista = new Lista();
+        ListarFuncionarios lista = new ListarFuncionarios();
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -530,7 +531,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_relatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_relatorioMouseClicked
         // TODO add your handling code here:
-        Lista lista = new Lista();
+        ListarFuncionarios lista = new ListarFuncionarios();
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -552,7 +553,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_v_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_v_clienteMouseClicked
         // TODO add your handling code here:
-        Lista lista = new Lista();
+        ListarFuncionarios lista = new ListarFuncionarios();
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -574,7 +575,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_cadastrar_veterinarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cadastrar_veterinarioMouseClicked
         // TODO add your handling code here:
-        Lista lista = new Lista();
+        CadastrarFuncionarios lista = new CadastrarFuncionarios();
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -587,7 +588,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_v_vededoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_v_vededoresMouseClicked
         // TODO add your handling code here:
-        Lista lista = new Lista();
+        ListarFuncionarios lista = new ListarFuncionarios();
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -600,7 +601,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_v_veterinariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_v_veterinariosMouseClicked
         // TODO add your handling code here:
-        Lista lista = new Lista();
+        ListarFuncionarios lista = new ListarFuncionarios();
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
