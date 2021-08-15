@@ -5,6 +5,8 @@
  */
 package Content;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author enya
@@ -16,6 +18,9 @@ public class PagarConta extends javax.swing.JInternalFrame {
      */
     public PagarConta() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**

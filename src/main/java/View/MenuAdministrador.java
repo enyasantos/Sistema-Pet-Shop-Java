@@ -6,8 +6,11 @@
 package View;
 
 import Content.CadastrarFuncionarios;
+import Content.Comprar;
+import Content.ListarClientes;
 import Content.ListarFuncionarios;
 import Content.PagarConta;
+import Content.Relatorio;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -452,7 +455,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     
     private void lbl_cadastrar_vendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cadastrar_vendedorMouseClicked
         // TODO add your handling code here:
-        CadastrarFuncionarios cadastro = new CadastrarFuncionarios();
+        CadastrarFuncionarios cadastro = new CadastrarFuncionarios("vendedor");
         j_content.removeAll();
         j_content.add(cadastro).setVisible(true);
         
@@ -509,9 +512,9 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_comprarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_comprarMouseClicked
         // TODO add your handling code here:
-        ListarFuncionarios lista = new ListarFuncionarios();
+        Comprar comprar = new Comprar();
         j_content.removeAll();
-        j_content.add(lista).setVisible(true);
+        j_content.add(comprar).setVisible(true);
         
         setColor(btn_comprar_aux);
         resetColor(btn_gerenciar_fun_aux);
@@ -531,9 +534,9 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_relatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_relatorioMouseClicked
         // TODO add your handling code here:
-        ListarFuncionarios lista = new ListarFuncionarios();
+        Relatorio relatorio = new Relatorio();
         j_content.removeAll();
-        j_content.add(lista).setVisible(true);
+        j_content.add(relatorio).setVisible(true);
         
         setColor(btn_relatorio_aux);
         resetColor(btn_gerenciar_fun_aux);
@@ -553,7 +556,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_v_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_v_clienteMouseClicked
         // TODO add your handling code here:
-        ListarFuncionarios lista = new ListarFuncionarios();
+        ListarClientes lista = new ListarClientes();
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -575,7 +578,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_cadastrar_veterinarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cadastrar_veterinarioMouseClicked
         // TODO add your handling code here:
-        CadastrarFuncionarios lista = new CadastrarFuncionarios();
+        CadastrarFuncionarios lista = new CadastrarFuncionarios("veterinário");
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -588,7 +591,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_v_vededoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_v_vededoresMouseClicked
         // TODO add your handling code here:
-        ListarFuncionarios lista = new ListarFuncionarios();
+        ListarFuncionarios lista = new ListarFuncionarios("vendedor");
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
@@ -601,7 +604,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_v_veterinariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_v_veterinariosMouseClicked
         // TODO add your handling code here:
-        ListarFuncionarios lista = new ListarFuncionarios();
+        ListarFuncionarios lista = new ListarFuncionarios("veterinário");
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
         
