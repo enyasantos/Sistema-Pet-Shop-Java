@@ -62,6 +62,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         btn_v_cliente_aux = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         j_content.setBackground(new java.awt.Color(244, 244, 244));
         j_content.setBorder(null);
@@ -437,7 +438,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 529, Short.MAX_VALUE)
             .addComponent(j_content, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
         );
 
@@ -467,11 +468,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_cadastrar_vendedorMouseClicked
 
     private void lbl_gerenciar_funMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_gerenciar_funMouseClicked
-        // TODO add your handling code here  
-        ListarFuncionarios lista = new ListarFuncionarios();
-        j_content.removeAll();
-        j_content.add(lista).setVisible(true);
-        
+        // TODO add your handling code here          
         setColor(btn_v_cliente_aux);
         resetColor(btn_relatorio_aux);
         resetColor(btn_comprar_aux);
