@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Content;
-
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 /**
  *
  * @author Vitoria
@@ -16,6 +16,9 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
      */
     public CadastrarCliente() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
