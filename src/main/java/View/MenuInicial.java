@@ -91,6 +91,11 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(17, 20, 36));
 
         btn_sair.setText("Sair");
+        btn_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_sairMouseClicked(evt);
+            }
+        });
 
         btn_entrar.setText("Entrar");
         btn_entrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,6 +225,11 @@ public class MenuInicial extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btn_entrarMouseClicked
+
+    private void btn_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_sairMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btn_sairMouseClicked
 
     /**
      * @param args the command line arguments

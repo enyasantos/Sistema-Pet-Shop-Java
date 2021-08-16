@@ -6,7 +6,9 @@
 package View;
 
 import Content.VisualizarOrdemServico;
-import Content.Lista;
+import Content.Vet_GerarRelatorio;
+
+
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -303,6 +305,10 @@ public class MenuVeterinario extends javax.swing.JFrame {
         setColor(btn_gerar_relatorio);
         resetColor(btn_v_ordem_servico);
         resetColor(btn_v_clientes);
+        
+        Vet_GerarRelatorio vet_GerarRelatorio = new Vet_GerarRelatorio();
+        j_content.removeAll();
+        j_content.add(vet_GerarRelatorio).setVisible(true);
         
     }//GEN-LAST:event_lbl_gerar_relatorioMouseClicked
 

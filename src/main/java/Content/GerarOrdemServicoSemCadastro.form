@@ -72,6 +72,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lbl_endereco5" min="-2" max="-2" attributes="0"/>
                   <Component id="field_nomeCliente" min="-2" pref="234" max="-2" attributes="0"/>
+                  <Component id="field_nomeCliente" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lbl_endereco5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -114,6 +119,16 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btn_sim1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_nao1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lbl_endereco6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_endereco5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btn_sim1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_nao1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
