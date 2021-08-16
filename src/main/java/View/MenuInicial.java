@@ -210,7 +210,8 @@ public class MenuInicial extends javax.swing.JFrame {
             } else alertaLogin(usuario, senha);
         } else if(tipoUsuario.equals("Vendedor")){
             if(usuario.equals("vend") && senha.equals("vend")) {
-                //mostrar tela vendedor
+                new MenuVendedor().setVisible(true);
+                this.dispose();
             } else alertaLogin(usuario, senha);
         } else if(tipoUsuario.equals("Veterinário")){
             if(usuario.equals("vet") && senha.equals("vet")) {
