@@ -99,16 +99,19 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="tbl_clientes">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="4">
-                    <Column editable="true" title="ID" type="java.lang.Short"/>
+                  <Table columnCount="3" rowCount="0">
+                    <Column editable="true" title="ID" type="java.lang.String"/>
                     <Column editable="true" title="Nome" type="java.lang.String"/>
                     <Column editable="true" title="Endere&#xe7;o" type="java.lang.String"/>
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="tbl_clientesAncestorAdded"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

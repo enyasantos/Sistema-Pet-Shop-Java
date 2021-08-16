@@ -6,6 +6,7 @@
 package Content;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,7 +38,7 @@ public class ListarClientes extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_clientes = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(240, 240, 240));
 
@@ -49,26 +50,32 @@ public class ListarClientes extends javax.swing.JInternalFrame {
         jLabel8.setForeground(new java.awt.Color(41, 52, 55));
         jLabel8.setText("Visualizar clientes");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "ID", "Nome", "Endereço"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Short.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        tbl_clientes.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tbl_clientesAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(tbl_clientes);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,6 +118,19 @@ public class ListarClientes extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tbl_clientesAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbl_clientesAncestorAdded
+        // TODO add your handling code here:
+        String clietes[][] = {
+            {"1", "Lucas Silva", "Rua batatinha, av. tomate, 302"},
+            {"2", "Bruna Costa", "Rua batatinha, av. tomate, 300"},
+            {"3", "Livia Maria", "Rua batatinha, av. tomate, 306"},
+        };
+        DefaultTableModel tbl = (DefaultTableModel)tbl_clientes.getModel();
+        for ( String [] cliente : clietes ) {
+            tbl.addRow(cliente);
+        }
+    }//GEN-LAST:event_tbl_clientesAncestorAdded
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel6;
@@ -118,6 +138,6 @@ public class ListarClientes extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbl_clientes;
     // End of variables declaration//GEN-END:variables
 }
