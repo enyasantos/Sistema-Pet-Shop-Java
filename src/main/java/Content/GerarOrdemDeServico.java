@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Content;
-
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 /**
  *
  * @author Vitoria
@@ -16,6 +16,9 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
      */
     public GerarOrdemDeServico() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
@@ -37,12 +40,14 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         j_servicos = new javax.swing.JComboBox<>();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         lbl_endereco2 = new javax.swing.JLabel();
-        field_hora = new javax.swing.JTextField();
         lbl_endereco3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         j_servicos1 = new javax.swing.JComboBox<>();
         lbl_endereco8 = new javax.swing.JLabel();
+        j_hora = new javax.swing.JFormattedTextField();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_titulo.setFont(new java.awt.Font("URW Gothic L", 1, 18)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(24, 24, 24));
@@ -56,6 +61,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 35, -1, -1));
 
         lbl_subtitulo.setFont(new java.awt.Font("URW Gothic L", 0, 14)); // NOI18N
         lbl_subtitulo.setForeground(new java.awt.Color(24, 24, 24));
@@ -69,6 +75,8 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        getContentPane().add(lbl_subtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 77, -1, -1));
+        getContentPane().add(lbl_separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 101, 427, 10));
 
         lbl_cancelar.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
         lbl_cancelar.setForeground(new java.awt.Color(201, 17, 22));
@@ -82,6 +90,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        getContentPane().add(lbl_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 402, -1, -1));
 
         lbl_endereco.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         lbl_endereco.setForeground(new java.awt.Color(24, 24, 24));
@@ -95,6 +104,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        getContentPane().add(lbl_endereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 129, -1, -1));
 
         btn_cadastro.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         btn_cadastro.setText("Cadastrar");
@@ -104,6 +114,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                 btn_cadastroActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 391, 205, 45));
 
         lbl_endereco1.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         lbl_endereco1.setForeground(new java.awt.Color(24, 24, 24));
@@ -116,6 +127,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        getContentPane().add(lbl_endereco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 258, -1, -1));
 
         j_servicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         j_servicos.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +135,8 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                 j_servicosActionPerformed(evt);
             }
         });
+        getContentPane().add(j_servicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 156, 160, 47));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 156, 177, 47));
 
         lbl_endereco2.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         lbl_endereco2.setForeground(new java.awt.Color(24, 24, 24));
@@ -136,12 +150,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-
-        field_hora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                field_horaActionPerformed(evt);
-            }
-        });
+        getContentPane().add(lbl_endereco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 129, -1, -1));
 
         lbl_endereco3.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         lbl_endereco3.setForeground(new java.awt.Color(24, 24, 24));
@@ -155,6 +164,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        getContentPane().add(lbl_endereco3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 129, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Cachorro", "Gato", "Passaro" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -162,10 +172,12 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 253, 157, 47));
 
         jLabel9.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(22, 22, 22));
         jLabel9.setText("Animal:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 227, -1, 20));
 
         j_servicos1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         j_servicos1.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +185,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                 j_servicos1ActionPerformed(evt);
             }
         });
+        getContentPane().add(j_servicos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 253, 262, 47));
 
         lbl_endereco8.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         lbl_endereco8.setForeground(new java.awt.Color(24, 24, 24));
@@ -186,102 +199,14 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        getContentPane().add(lbl_endereco8, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 221, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbl_titulo)
-                            .addComponent(lbl_subtitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_separador))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_endereco2)
-                                    .addComponent(j_servicos, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_endereco))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_endereco3)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(field_hora)
-                                        .addGap(112, 112, 112))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_endereco1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lbl_endereco8)
-                                        .addGap(231, 231, 231)
-                                        .addComponent(jLabel9)
-                                        .addGap(217, 217, 217))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(j_servicos1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_cancelar)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(112, 112, 112))))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(lbl_titulo)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_subtitulo)
-                        .addGap(5, 5, 5)
-                        .addComponent(lbl_separador, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_endereco)
-                            .addComponent(lbl_endereco2)
-                            .addComponent(lbl_endereco3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(j_servicos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(field_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(lbl_endereco1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lbl_endereco8)))
-                        .addGap(42, 42, 42))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(j_servicos1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_cancelar))
-                .addGap(90, 90, 90))
-        );
+        j_hora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                j_horaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(j_hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 156, 84, 47));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -318,10 +243,6 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_endereco2AncestorAdded
 
-    private void field_horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_horaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_field_horaActionPerformed
-
     private void lbl_endereco3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lbl_endereco3AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_endereco3AncestorAdded
@@ -338,13 +259,17 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_endereco8AncestorAdded
 
+    private void j_horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j_horaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_j_horaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cadastro;
-    private javax.swing.JTextField field_hora;
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JFormattedTextField j_hora;
     private javax.swing.JComboBox<String> j_servicos;
     private javax.swing.JComboBox<String> j_servicos1;
     private javax.swing.JLabel lbl_cancelar;

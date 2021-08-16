@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Content;
-
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 /**
  *
  * @author Vitoria
@@ -16,6 +16,9 @@ public class Vender extends javax.swing.JInternalFrame {
      */
     public Vender() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
@@ -35,10 +38,10 @@ public class Vender extends javax.swing.JInternalFrame {
         table_produtos = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
         lbl_titulo2 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
         lbl_titulo3 = new javax.swing.JLabel();
         lbl_cancelar = new javax.swing.JLabel();
         btn_cadastro = new javax.swing.JButton();
+        jSpinner1 = new javax.swing.JSpinner();
 
         lbl_subtitulo.setFont(new java.awt.Font("URW Gothic L", 0, 14)); // NOI18N
         lbl_subtitulo.setForeground(new java.awt.Color(24, 24, 24));
@@ -122,12 +125,6 @@ public class Vender extends javax.swing.JInternalFrame {
             }
         });
 
-        jSlider1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jSlider1MouseDragged(evt);
-            }
-        });
-
         lbl_titulo3.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         lbl_titulo3.setForeground(new java.awt.Color(24, 24, 24));
         lbl_titulo3.setText("Quantidade:");
@@ -174,8 +171,7 @@ public class Vender extends javax.swing.JInternalFrame {
                         .addGap(19, 19, 19)
                         .addComponent(lbl_cancelar)
                         .addGap(77, 77, 77)
-                        .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
+                        .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lbl_titulo1)
                         .addComponent(lbl_titulo)
@@ -189,7 +185,9 @@ public class Vender extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_titulo3)
-                            .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)))))
                 .addContainerGap(152, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -209,18 +207,15 @@ public class Vender extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_titulo2)
                     .addComponent(lbl_titulo3))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSpinner1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
                 .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_cancelar))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
@@ -242,10 +237,6 @@ public class Vender extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_titulo2AncestorAdded
 
-    private void jSlider1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jSlider1MouseDragged
-
     private void lbl_titulo3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lbl_titulo3AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_titulo3AncestorAdded
@@ -263,7 +254,7 @@ public class Vender extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_cadastro;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSlider jSlider1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lbl_cancelar;
     private javax.swing.JSeparator lbl_separador;
     private javax.swing.JLabel lbl_subtitulo;

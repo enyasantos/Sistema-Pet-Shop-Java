@@ -22,39 +22,33 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lbl_titulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_subtitulo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbl_separador" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lbl_cancelar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="154" max="32767" attributes="0"/>
+                          <Component id="btn_cadastro" min="-2" pref="205" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBox1" alignment="0" min="-2" pref="191" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbl_endereco2" min="-2" max="-2" attributes="0"/>
                           <Component id="j_servicos" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDateChooser1" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
-                          <Component id="lbl_endereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jDateChooser1" min="-2" pref="177" max="-2" attributes="0"/>
+                          <Component id="lbl_endereco" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbl_endereco3" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="field_hora" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="field_hora" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lbl_titulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_subtitulo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lbl_separador" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lbl_cancelar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="154" max="32767" attributes="0"/>
-                              <Component id="btn_cadastro" min="-2" pref="205" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" alignment="0" min="-2" pref="191" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -76,13 +70,14 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lbl_endereco5" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_nomeCliente" min="-2" pref="234" max="-2" attributes="0"/>
                   <Component id="field_nomeCliente" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lbl_endereco5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -99,29 +94,31 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_endereco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbl_endereco2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbl_endereco3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_endereco3" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jDateChooser1" max="32767" attributes="0"/>
-                      <Component id="j_servicos" min="-2" pref="47" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="j_servicos" min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="field_hora" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="jDateChooser1" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                      <Component id="lbl_endereco1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="field_nomeCliente" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                          <Component id="lbl_endereco1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbl_endereco6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_endereco5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btn_sim1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_nao1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lbl_endereco6" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -133,14 +130,19 @@
                                   <Component id="btn_nao1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Component id="field_nomeCliente" min="-2" pref="47" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Component id="jLabel9" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Component id="jComboBox1" min="-2" pref="51" max="-2" attributes="0"/>
-              <EmptySpace pref="57" max="32767" attributes="0"/>
+              <EmptySpace pref="61" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_cadastro" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="lbl_cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
