@@ -43,26 +43,21 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="lbl_titulo" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="508" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="lbl_comboBox" min="-2" pref="224" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace pref="164" max="32767" attributes="0"/>
+                          <Component id="lbl_comboBox" min="-2" pref="224" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel1" max="32767" attributes="0"/>
                       </Group>
                       <Component id="pnl_cliente" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lbl_titulo" min="-2" pref="312" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -100,7 +95,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="24" red="d" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ordem de Servi&#xe7;o"/>
+            <Property name="text" type="java.lang.String" value="Gerar Relatorio na Ordem de Servi&#xe7;o"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_comboBox">
@@ -194,7 +189,6 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="txt_id_cliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="id_cliente"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="inheritsPopupMenu" type="boolean" value="true"/>
                 <Property name="name" type="java.lang.String" value="" noResource="true"/>
@@ -234,13 +228,11 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txt_nome_cliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="nome_cliente"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_endereco_cliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="endereco_cliente"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
@@ -362,32 +354,27 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="relat&#xf3;rio_servico"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="id_servico"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="id_servico"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="valor_servico"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="animal_servico"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -398,9 +385,11 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="data_servico"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField6ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

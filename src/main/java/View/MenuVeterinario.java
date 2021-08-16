@@ -5,6 +5,7 @@
  */
 package View;
 
+import Content.ListarClientes;
 import Content.VisualizarOrdemServico;
 import Content.Vet_GerarRelatorio;
 
@@ -316,6 +317,10 @@ public class MenuVeterinario extends javax.swing.JFrame {
         setColor(btn_v_clientes);
         resetColor(btn_v_ordem_servico);
         resetColor(btn_gerar_relatorio);
+        
+        ListarClientes listarClientes = new ListarClientes();
+        j_content.removeAll();
+        j_content.add(listarClientes).setVisible(true);
     }//GEN-LAST:event_lbl_visualizar_clientesMouseClicked
 
     private void lbl_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_sairMouseClicked

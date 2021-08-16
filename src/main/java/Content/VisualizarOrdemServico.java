@@ -5,6 +5,8 @@
  */
 package Content;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author thayn
@@ -16,6 +18,9 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
      */
     public VisualizarOrdemServico() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
@@ -66,7 +71,6 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        txt_id_cliente.setText("id_cliente");
         txt_id_cliente.setEnabled(false);
         txt_id_cliente.setInheritsPopupMenu(true);
         txt_id_cliente.setName(""); // NOI18N
@@ -87,10 +91,8 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
 
         lbl_endereco_cliente.setText("Endereço:");
 
-        txt_nome_cliente.setText("nome_cliente");
         txt_nome_cliente.setEnabled(false);
 
-        txt_endereco_cliente.setText("endereco_cliente");
         txt_endereco_cliente.setEnabled(false);
         txt_endereco_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,24 +160,18 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Relatório:");
 
-        jTextField1.setText("relatório_servico");
         jTextField1.setEnabled(false);
 
-        jTextField2.setText("id_servico");
         jTextField2.setEnabled(false);
 
-        jTextField3.setText("id_servico");
         jTextField3.setEnabled(false);
 
-        jTextField4.setText("valor_servico");
         jTextField4.setEnabled(false);
 
-        jTextField5.setText("animal_servico");
         jTextField5.setEnabled(false);
 
         jLabel7.setText("Data:");
 
-        jTextField6.setText("data_servico");
         jTextField6.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -280,7 +276,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
                 .addComponent(pnl_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

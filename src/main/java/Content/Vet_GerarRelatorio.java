@@ -5,6 +5,8 @@
  */
 package Content;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author thayn
@@ -16,6 +18,9 @@ public class Vet_GerarRelatorio extends javax.swing.JInternalFrame {
      */
     public Vet_GerarRelatorio() {
         initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
     }
 
     /**
@@ -59,14 +64,13 @@ public class Vet_GerarRelatorio extends javax.swing.JInternalFrame {
 
         lbl_titulo.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(13, 36, 51));
-        lbl_titulo.setText("Ordem de Serviço");
+        lbl_titulo.setText("Gerar Relatorio na Ordem de Serviço");
 
         lbl_comboBox.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         lbl_comboBox.setText("Selecione a ordem de serviço:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        txt_id_cliente.setText("id_cliente");
         txt_id_cliente.setEnabled(false);
         txt_id_cliente.setInheritsPopupMenu(true);
         txt_id_cliente.setName(""); // NOI18N
@@ -87,10 +91,8 @@ public class Vet_GerarRelatorio extends javax.swing.JInternalFrame {
 
         lbl_endereco_cliente.setText("Endereço:");
 
-        txt_nome_cliente.setText("nome_cliente");
         txt_nome_cliente.setEnabled(false);
 
-        txt_endereco_cliente.setText("endereco_cliente");
         txt_endereco_cliente.setEnabled(false);
         txt_endereco_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,25 +160,28 @@ public class Vet_GerarRelatorio extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Relatório:");
 
-        jTextField1.setText("relatório_servico");
-        jTextField1.setEnabled(false);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setText("id_servico");
         jTextField2.setEnabled(false);
 
-        jTextField3.setText("id_servico");
         jTextField3.setEnabled(false);
 
-        jTextField4.setText("valor_servico");
         jTextField4.setEnabled(false);
 
-        jTextField5.setText("animal_servico");
         jTextField5.setEnabled(false);
 
         jLabel7.setText("Data:");
 
-        jTextField6.setText("data_servico");
         jTextField6.setEnabled(false);
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -248,21 +253,18 @@ public class Vet_GerarRelatorio extends javax.swing.JInternalFrame {
             .addGroup(pnl_principalLayout.createSequentialGroup()
                 .addGroup(pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_principalLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnl_principalLayout.createSequentialGroup()
-                                .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 508, Short.MAX_VALUE))
-                            .addGroup(pnl_principalLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lbl_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(277, 277, 277))))
+                        .addContainerGap(164, Short.MAX_VALUE)
+                        .addComponent(lbl_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(277, 277, 277))
                     .addGroup(pnl_principalLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnl_principalLayout.createSequentialGroup()
+                        .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnl_principalLayout.setVerticalGroup(
@@ -304,6 +306,14 @@ public class Vet_GerarRelatorio extends javax.swing.JInternalFrame {
     private void txt_endereco_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_endereco_clienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_endereco_clienteActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
