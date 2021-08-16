@@ -6,7 +6,6 @@
 package View;
 
 import Content.VisualizarOrdemServico;
-import Content.Lista;
 import java.awt.Color;
 import javax.swing.JPanel;
 

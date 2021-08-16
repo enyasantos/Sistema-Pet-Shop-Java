@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Petshop;
+package Controllers;
+
+import View.MenuInicial;
 
 /**
  *
  * @author enya
  */
-public class PetShop {
+public class Main {
     
     public static void main(String[] args) {
-        
+        new MenuInicial().setVisible(true);
     }
 }
