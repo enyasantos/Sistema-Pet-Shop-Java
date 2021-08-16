@@ -37,21 +37,21 @@ public class Comprar extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        input_nome = new javax.swing.JTextField();
+        combo_box_animal = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        input_valor = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jTextField2 = new javax.swing.JTextField();
+        input_data = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        input_text_descricao = new javax.swing.JTextPane();
         jLabel9 = new javax.swing.JLabel();
+        input_qtd = new javax.swing.JFormattedTextField();
 
         jPanel2.setBackground(new java.awt.Color(240, 240, 240));
         jPanel2.setForeground(new java.awt.Color(11, 11, 11));
@@ -76,10 +76,10 @@ public class Comprar extends javax.swing.JInternalFrame {
         jLabel6.setText("Compre um novo produto através do formulário abaixo");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 510, 10));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 270, -1));
+        jPanel2.add(input_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 270, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Cachorro", "Gato", "Passaro" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 200, -1));
+        combo_box_animal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Cachorro", "Gato", "Passaro" }));
+        jPanel2.add(combo_box_animal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 200, -1));
 
         jLabel1.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(22, 22, 22));
@@ -93,6 +93,11 @@ public class Comprar extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("URW Gothic L", 1, 15)); // NOI18N
         jButton1.setText("Comprar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -103,22 +108,26 @@ public class Comprar extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(201, 17, 22));
         jLabel7.setText("Cancelar");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, -1, -1));
-
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
             }
         });
-        jPanel2.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 150, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, -1, -1));
+
+        input_valor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        input_valor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_valorActionPerformed(evt);
+            }
+        });
+        jPanel2.add(input_valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(22, 22, 22));
         jLabel3.setText("Data de pagamento:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, 20));
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 200, -1));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 120, -1));
+        jPanel2.add(input_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 200, -1));
 
         jLabel4.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(22, 22, 22));
@@ -130,7 +139,7 @@ public class Comprar extends javax.swing.JInternalFrame {
         jLabel8.setText("Quantidade:");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, 20));
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(input_text_descricao);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 510, 60));
 
@@ -138,6 +147,9 @@ public class Comprar extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(22, 22, 22));
         jLabel9.setText("Animal:");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, 20));
+
+        input_qtd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        jPanel2.add(input_qtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 360, 110, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -150,8 +162,8 @@ public class Comprar extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -181,16 +193,38 @@ public class Comprar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+    private void input_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_valorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+    }//GEN-LAST:event_input_valorActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        String nome = input_nome.getText();
+        String animal = String.valueOf(combo_box_animal.getSelectedItem());
+        String descricao = input_text_descricao.getText();
+        int qtd = Integer.parseInt(input_qtd.getText());
+        Float valor =  Float.parseFloat(input_valor.getText());
+        String data = input_data.getDate().toString();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+        input_nome.setText("");
+        combo_box_animal.setSelectedIndex(0);
+        input_text_descricao.setText("");
+        input_qtd.setText("");
+        input_valor.setText("");
+    }//GEN-LAST:event_jLabel7MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> combo_box_animal;
+    private com.toedter.calendar.JDateChooser input_data;
+    private javax.swing.JTextField input_nome;
+    private javax.swing.JFormattedTextField input_qtd;
+    private javax.swing.JTextPane input_text_descricao;
+    private javax.swing.JFormattedTextField input_valor;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -204,8 +238,5 @@ public class Comprar extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
