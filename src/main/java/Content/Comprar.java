@@ -57,7 +57,7 @@ public class Comprar extends javax.swing.JInternalFrame {
         jPanel2.setForeground(new java.awt.Color(11, 11, 11));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("URW Gothic L", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(41, 52, 55));
         jLabel5.setText("Comprar produto");
         jLabel5.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -71,27 +71,30 @@ public class Comprar extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("URW Gothic L", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(41, 52, 55));
         jLabel6.setText("Compre um novo produto através do formulário abaixo");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 510, 10));
+
+        input_nome.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jPanel2.add(input_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 270, -1));
 
+        combo_box_animal.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         combo_box_animal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Cachorro", "Gato", "Passaro" }));
         jPanel2.add(combo_box_animal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 200, -1));
 
-        jLabel1.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(22, 22, 22));
         jLabel1.setText("Valor und.:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(22, 22, 22));
         jLabel2.setText("Nome:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("URW Gothic L", 1, 15)); // NOI18N
+        jButton1.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
         jButton1.setText("Comprar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,7 +108,7 @@ public class Comprar extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 270, 40));
 
-        jLabel7.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(201, 17, 22));
         jLabel7.setText("Cancelar");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -123,33 +126,34 @@ public class Comprar extends javax.swing.JInternalFrame {
         });
         jPanel2.add(input_valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 150, -1));
 
-        jLabel3.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(22, 22, 22));
         jLabel3.setText("Data de pagamento:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, 20));
         jPanel2.add(input_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 200, -1));
 
-        jLabel4.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(22, 22, 22));
         jLabel4.setText("Descrição do produto:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, 20));
 
-        jLabel8.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(22, 22, 22));
         jLabel8.setText("Quantidade:");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, 20));
 
+        input_text_descricao.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
         jScrollPane1.setViewportView(input_text_descricao);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 510, 60));
 
-        jLabel9.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(22, 22, 22));
         jLabel9.setText("Animal:");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, 20));
 
         input_qtd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
-        jPanel2.add(input_qtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 360, 110, -1));
+        jPanel2.add(input_qtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 110, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

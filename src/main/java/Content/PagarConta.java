@@ -45,11 +45,11 @@ public class PagarConta extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(240, 240, 240));
 
-        jLabel6.setFont(new java.awt.Font("URW Gothic L", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(41, 52, 55));
         jLabel6.setText("Visualize os vendedor cadastrados no sistema através da tabela abaixo");
 
-        jLabel5.setFont(new java.awt.Font("URW Gothic L", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(41, 52, 55));
         jLabel5.setText("Visualizar vendedores");
 
@@ -77,7 +77,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(218, 7, 35));
         jLabel1.setText("Cancelar");
 
-        jLabel2.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(20, 20, 20));
         jLabel2.setText("ID da conta que seja pagar:");
 
@@ -101,7 +101,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(63, Short.MAX_VALUE)
+                        .addContainerGap(59, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
@@ -138,7 +138,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -42,14 +42,15 @@ public class ListarClientes extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(240, 240, 240));
 
-        jLabel6.setFont(new java.awt.Font("URW Gothic L", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(41, 52, 55));
         jLabel6.setText("Visualize os clientes cadastrados no sistema na tabela abaixo");
 
-        jLabel8.setFont(new java.awt.Font("URW Gothic L", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(41, 52, 55));
         jLabel8.setText("Visualizar clientes");
 
+        tbl_clientes.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         tbl_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -101,7 +102,7 @@ public class ListarClientes extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
