@@ -5,7 +5,7 @@
  */
 package Models;
 
-import View.MenuInicial;
+import View.Login;
 
 /**
  *
@@ -14,6 +14,6 @@ import View.MenuInicial;
 public class Main {
     
     public static void main(String[] args) {
-        new MenuInicial().setVisible(true);
+        new Login().setVisible(true);
     }
 }
