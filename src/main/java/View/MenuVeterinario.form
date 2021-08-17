@@ -126,7 +126,7 @@
         <Component class="javax.swing.JLabel" name="lbl_sair">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="URW Gothic L" size="16" style="1"/>
+              <Font name="SansSerif" size="16" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -206,7 +206,7 @@
             <Component class="javax.swing.JLabel" name="lbl_visualizar_ordem_servico">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Yu Gothic Light" size="16" style="1"/>
+                  <Font name="SansSerif" size="16" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -264,7 +264,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="btn_gerar_relatorio" pref="27" max="32767" attributes="0"/>
-                          <Component id="lbl_gerar_relatorio" max="32767" attributes="0"/>
+                          <Component id="lbl_gerar_relatorio" pref="27" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -275,7 +275,7 @@
             <Component class="javax.swing.JLabel" name="lbl_gerar_relatorio">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Yu Gothic Light" size="16" style="1"/>
+                  <Font name="SansSerif" size="16" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -334,7 +334,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lbl_visualizar_clientes" max="32767" attributes="0"/>
+                          <Component id="lbl_visualizar_clientes" pref="27" max="32767" attributes="0"/>
                           <Component id="btn_v_clientes" pref="27" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
@@ -346,7 +346,7 @@
             <Component class="javax.swing.JLabel" name="lbl_visualizar_clientes">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Yu Gothic Light" size="16" style="1"/>
+                  <Font name="SansSerif" size="16" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>

@@ -36,7 +36,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         lbl_titulo = new javax.swing.JLabel();
         lbl_comboBox = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmb_OrdemServico = new javax.swing.JComboBox<>();
         pnl_cliente = new javax.swing.JPanel();
         txt_id_cliente = new javax.swing.JTextField();
         lbl_dados_cliente = new javax.swing.JLabel();
@@ -45,32 +45,39 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         lbl_endereco_cliente = new javax.swing.JLabel();
         txt_nome_cliente = new javax.swing.JTextField();
         txt_endereco_cliente = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        pnl_servico = new javax.swing.JPanel();
+        lbl_subTitulo_Servico = new javax.swing.JLabel();
+        lbl_id_servico = new javax.swing.JLabel();
+        lbl_nome_servico = new javax.swing.JLabel();
+        lbl_valor_servico = new javax.swing.JLabel();
+        lbl_animal_servico = new javax.swing.JLabel();
+        lbl_relatorio_servico = new javax.swing.JLabel();
+        txt_relatorio_servico = new javax.swing.JTextField();
+        txt_id_servico = new javax.swing.JTextField();
+        txt_nome_servico = new javax.swing.JTextField();
+        txt_valor_servico = new javax.swing.JTextField();
+        txt_animal_servico = new javax.swing.JTextField();
+        lbl_data_servico = new javax.swing.JLabel();
+        txt_data_servico = new javax.swing.JTextField();
 
         pnl_principal.setBackground(new java.awt.Color(238, 238, 238));
 
-        lbl_titulo.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        lbl_titulo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(13, 36, 51));
         lbl_titulo.setText("Ordem de Serviço");
 
-        lbl_comboBox.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        lbl_comboBox.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         lbl_comboBox.setText("Selecione a ordem de serviço:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmb_OrdemServico.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        cmb_OrdemServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmb_OrdemServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_OrdemServicoActionPerformed(evt);
+            }
+        });
 
+        txt_id_cliente.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         txt_id_cliente.setEnabled(false);
         txt_id_cliente.setInheritsPopupMenu(true);
         txt_id_cliente.setName(""); // NOI18N
@@ -80,19 +87,29 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
             }
         });
 
-        lbl_dados_cliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_dados_cliente.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_dados_cliente.setText("Dados do Cliente");
         lbl_dados_cliente.setMaximumSize(new java.awt.Dimension(106, 15));
         lbl_dados_cliente.setMinimumSize(new java.awt.Dimension(106, 15));
 
+        lbl_id_cliente.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_id_cliente.setText("ID:");
 
+        lbl_nome_cliente.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_nome_cliente.setText("Nome:");
 
+        lbl_endereco_cliente.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_endereco_cliente.setText("Endereço:");
 
+        txt_nome_cliente.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         txt_nome_cliente.setEnabled(false);
+        txt_nome_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nome_clienteActionPerformed(evt);
+            }
+        });
 
+        txt_endereco_cliente.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         txt_endereco_cliente.setEnabled(false);
         txt_endereco_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +136,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
                             .addComponent(txt_endereco_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)))
                     .addGroup(pnl_clienteLayout.createSequentialGroup()
                         .addGap(309, 309, 309)
-                        .addComponent(lbl_dados_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbl_dados_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnl_clienteLayout.setVerticalGroup(
@@ -147,92 +164,149 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Dados do Serviço");
+        lbl_subTitulo_Servico.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        lbl_subTitulo_Servico.setText("Dados do Serviço");
 
-        jLabel2.setText("ID:");
+        lbl_id_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_id_servico.setText("ID:");
 
-        jLabel3.setText("Nome:");
+        lbl_nome_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_nome_servico.setText("Nome:");
 
-        jLabel4.setText("Valor:");
+        lbl_valor_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_valor_servico.setText("Valor:");
 
-        jLabel5.setText("Animal:");
+        lbl_animal_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_animal_servico.setText("Animal:");
 
-        jLabel6.setText("Relatório:");
+        lbl_relatorio_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbl_relatorio_servico.setText("Relatório:");
 
-        jTextField1.setEnabled(false);
+        txt_relatorio_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txt_relatorio_servico.setEnabled(false);
+        txt_relatorio_servico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_relatorio_servicoActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setEnabled(false);
+        txt_id_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txt_id_servico.setEnabled(false);
+        txt_id_servico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_servicoActionPerformed(evt);
+            }
+        });
 
-        jTextField3.setEnabled(false);
+        txt_nome_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txt_nome_servico.setEnabled(false);
+        txt_nome_servico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nome_servicoActionPerformed(evt);
+            }
+        });
 
-        jTextField4.setEnabled(false);
+        txt_valor_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txt_valor_servico.setEnabled(false);
+        txt_valor_servico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_valor_servicoActionPerformed(evt);
+            }
+        });
 
-        jTextField5.setEnabled(false);
+        txt_animal_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txt_animal_servico.setEnabled(false);
+        txt_animal_servico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_animal_servicoActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setText("Data:");
+        lbl_data_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_data_servico.setText("Data:");
 
-        jTextField6.setEnabled(false);
+        txt_data_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txt_data_servico.setEnabled(false);
+        txt_data_servico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_data_servicoActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(57, 57, 57))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_servicoLayout = new javax.swing.GroupLayout(pnl_servico);
+        pnl_servico.setLayout(pnl_servicoLayout);
+        pnl_servicoLayout.setHorizontalGroup(
+            pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_servicoLayout.createSequentialGroup()
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_servicoLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl_servicoLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(lbl_valor_servico)
+                                .addGap(36, 36, 36))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_servicoLayout.createSequentialGroup()
+                                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_nome_servico)
+                                    .addComponent(lbl_id_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_servicoLayout.createSequentialGroup()
+                                .addComponent(lbl_animal_servico)
+                                .addGap(27, 27, 27))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_servicoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbl_relatorio_servico)
+                        .addGap(18, 18, 18)))
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_servicoLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_nome_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_id_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_valor_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_animal_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(443, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_servicoLayout.createSequentialGroup()
+                        .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_relatorio_servico)
+                            .addGroup(pnl_servicoLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lbl_data_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_data_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(57, 57, 57))))
+            .addGroup(pnl_servicoLayout.createSequentialGroup()
                 .addGap(301, 301, 301)
-                .addComponent(jLabel1)
+                .addComponent(lbl_subTitulo_Servico)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
+        pnl_servicoLayout.setVerticalGroup(
+            pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_servicoLayout.createSequentialGroup()
+                .addComponent(lbl_subTitulo_Servico)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_id_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_id_servico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_nome_servico)
+                    .addComponent(txt_nome_servico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_valor_servico)
+                    .addComponent(txt_valor_servico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_animal_servico)
+                    .addComponent(txt_animal_servico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_data_servico)
+                    .addComponent(txt_data_servico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addComponent(jLabel6))
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_relatorio_servico, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                    .addComponent(lbl_relatorio_servico))
                 .addContainerGap())
         );
 
@@ -242,24 +316,19 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addGroup(pnl_principalLayout.createSequentialGroup()
-                .addGroup(pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(32, 32, 32)
+                .addGroup(pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnl_principalLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnl_principalLayout.createSequentialGroup()
-                                .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 508, Short.MAX_VALUE))
-                            .addGroup(pnl_principalLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lbl_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(277, 277, 277))))
+                        .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(524, Short.MAX_VALUE))
                     .addGroup(pnl_principalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbl_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmb_OrdemServico, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(279, 279, 279))))
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_servico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_principalLayout.setVerticalGroup(
             pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,16 +336,18 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_comboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGroup(pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnl_principalLayout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(lbl_comboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnl_principalLayout.createSequentialGroup()
+                        .addComponent(cmb_OrdemServico, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
+                .addGap(28, 28, 28)
                 .addComponent(pnl_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnl_servico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -294,41 +365,76 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_id_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_clienteActionPerformed
-        // TODO add your handling code here:
+        txt_id_cliente.setText(String.valueOf(cmb_OrdemServico.getSelectedItem().getCliente().getId()));
+        
     }//GEN-LAST:event_txt_id_clienteActionPerformed
 
     private void txt_endereco_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_endereco_clienteActionPerformed
-        // TODO add your handling code here:
+        txt_endereco_cliente.setText((cmb_OrdemServico.getSelectedItem().getCliente().getEndereco()));        // TODO add your handling code here:
     }//GEN-LAST:event_txt_endereco_clienteActionPerformed
+
+    private void txt_relatorio_servicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_relatorio_servicoActionPerformed
+        txt_relatorio_servico.setText(cmb_OrdemServico.getSelectedItem().getServico().getRelatorio());
+
+    }//GEN-LAST:event_txt_relatorio_servicoActionPerformed
+
+    private void cmb_OrdemServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_OrdemServicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_OrdemServicoActionPerformed
+
+    private void txt_nome_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nome_clienteActionPerformed
+        txt_nome_cliente.setText((cmb_OrdemServico.getSelectedItem().getCliente().getNome()));
+
+    }//GEN-LAST:event_txt_nome_clienteActionPerformed
+
+    private void txt_id_servicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_servicoActionPerformed
+        txt_id_servico.setText(String.valueOf(cmb_OrdemServico.getSelectedItem().getServico().getId()));
+    }//GEN-LAST:event_txt_id_servicoActionPerformed
+
+    private void txt_nome_servicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nome_servicoActionPerformed
+        txt_nome_servico.setText(cmb_OrdemServico.getSelectedItem().getServico().getNome());
+    }//GEN-LAST:event_txt_nome_servicoActionPerformed
+
+    private void txt_valor_servicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_valor_servicoActionPerformed
+        txt_valor_servico.setText(String.valueOf(cmb_OrdemServico.getSelectedItem().getServico().getValor()));
+    }//GEN-LAST:event_txt_valor_servicoActionPerformed
+
+    private void txt_animal_servicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_animal_servicoActionPerformed
+        txt_animal_servico.setText(cmb_OrdemServico.getSelectedItem().getServico().getAnimal());
+    }//GEN-LAST:event_txt_animal_servicoActionPerformed
+
+    private void txt_data_servicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_data_servicoActionPerformed
+        //Mostrar Data
+    }//GEN-LAST:event_txt_data_servicoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> cmb_OrdemServico;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel lbl_animal_servico;
     private javax.swing.JLabel lbl_comboBox;
     private javax.swing.JLabel lbl_dados_cliente;
+    private javax.swing.JLabel lbl_data_servico;
     private javax.swing.JLabel lbl_endereco_cliente;
     private javax.swing.JLabel lbl_id_cliente;
+    private javax.swing.JLabel lbl_id_servico;
     private javax.swing.JLabel lbl_nome_cliente;
+    private javax.swing.JLabel lbl_nome_servico;
+    private javax.swing.JLabel lbl_relatorio_servico;
+    private javax.swing.JLabel lbl_subTitulo_Servico;
     private javax.swing.JLabel lbl_titulo;
+    private javax.swing.JLabel lbl_valor_servico;
     private javax.swing.JPanel pnl_cliente;
     private javax.swing.JPanel pnl_principal;
+    private javax.swing.JPanel pnl_servico;
+    private javax.swing.JTextField txt_animal_servico;
+    private javax.swing.JTextField txt_data_servico;
     private javax.swing.JTextField txt_endereco_cliente;
     private javax.swing.JTextField txt_id_cliente;
+    private javax.swing.JTextField txt_id_servico;
     private javax.swing.JTextField txt_nome_cliente;
+    private javax.swing.JTextField txt_nome_servico;
+    private javax.swing.JTextField txt_relatorio_servico;
+    private javax.swing.JTextField txt_valor_servico;
     // End of variables declaration//GEN-END:variables
 }

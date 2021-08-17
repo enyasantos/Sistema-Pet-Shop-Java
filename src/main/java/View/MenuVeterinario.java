@@ -65,7 +65,7 @@ public class MenuVeterinario extends javax.swing.JFrame {
 
         panel_menu.setBackground(new java.awt.Color(13, 36, 51));
 
-        lbl_sair.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
+        lbl_sair.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_sair.setForeground(new java.awt.Color(254, 254, 254));
         lbl_sair.setText("Sair");
         lbl_sair.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,7 +89,7 @@ public class MenuVeterinario extends javax.swing.JFrame {
 
         pnl_ordem_servico.setBackground(new java.awt.Color(13, 36, 51));
 
-        lbl_visualizar_ordem_servico.setFont(new java.awt.Font("Yu Gothic Light", 1, 16)); // NOI18N
+        lbl_visualizar_ordem_servico.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_visualizar_ordem_servico.setForeground(new java.awt.Color(255, 255, 255));
         lbl_visualizar_ordem_servico.setText("Visulizar Ordem de Serviço");
         lbl_visualizar_ordem_servico.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -132,7 +132,7 @@ public class MenuVeterinario extends javax.swing.JFrame {
 
         pnl_gerar_relatorio.setBackground(new java.awt.Color(13, 36, 51));
 
-        lbl_gerar_relatorio.setFont(new java.awt.Font("Yu Gothic Light", 1, 16)); // NOI18N
+        lbl_gerar_relatorio.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_gerar_relatorio.setForeground(new java.awt.Color(255, 255, 255));
         lbl_gerar_relatorio.setText("Gerar Relatório");
         lbl_gerar_relatorio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,7 +164,7 @@ public class MenuVeterinario extends javax.swing.JFrame {
                 .addComponent(btn_gerar_relatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_gerar_relatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnl_gerar_relatorioLayout.setVerticalGroup(
             pnl_gerar_relatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,13 +172,13 @@ public class MenuVeterinario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnl_gerar_relatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btn_gerar_relatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(lbl_gerar_relatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_gerar_relatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pnl_visualizar_clientes.setBackground(new java.awt.Color(13, 36, 51));
 
-        lbl_visualizar_clientes.setFont(new java.awt.Font("Yu Gothic Light", 1, 16)); // NOI18N
+        lbl_visualizar_clientes.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_visualizar_clientes.setForeground(new java.awt.Color(255, 255, 255));
         lbl_visualizar_clientes.setText("Visualizar Clientes");
         lbl_visualizar_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -216,7 +216,7 @@ public class MenuVeterinario extends javax.swing.JFrame {
             pnl_visualizar_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_visualizar_clientesLayout.createSequentialGroup()
                 .addGroup(pnl_visualizar_clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_visualizar_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_visualizar_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                     .addComponent(btn_v_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
                 .addGap(0, 25, Short.MAX_VALUE))
         );
