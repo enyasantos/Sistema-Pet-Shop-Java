@@ -13,7 +13,10 @@ import java.util.ArrayList;
  */
 public class Registro {
     private ArrayList<Conta> contas;
-
+    private ArrayList<OrdemServico> ordemServicos;
+    private ArrayList<Cliente> clientes;
+    private ArrayList<Servico> servicos;
+    
     public ArrayList<Conta> getContas() {
         return contas;
     }
