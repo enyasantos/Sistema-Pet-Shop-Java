@@ -6,6 +6,7 @@
 package Content;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -41,7 +42,7 @@ public class Relatorio extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_contas = new javax.swing.JTable();
         jSeparator2 = new javax.swing.JSeparator();
 
         jPanel1.setBackground(new java.awt.Color(240, 240, 240));
@@ -73,8 +74,8 @@ public class Relatorio extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jTable1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_contas.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tbl_contas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -83,14 +84,23 @@ public class Relatorio extends javax.swing.JInternalFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Short.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        tbl_contas.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tbl_contasAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(tbl_contas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -148,6 +158,20 @@ public class Relatorio extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tbl_contasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbl_contasAncestorAdded
+        // TODO add your handling code here:
+        String contas[][] = {
+            {"1", "Compra de bolinha para cachorro", "17/08/2021", "", "40,00", "À pagar"},
+            {"2", "Compra de bolinha", "17/08/2021", "17/08/2021", "40,00", "Pago"},
+            {"3", "Compra de bolinha para gato", "17/08/2021", "30/08/2021", "40,00", "Pago[Agendado]"},
+        };
+        DefaultTableModel tbl = (DefaultTableModel)tbl_contas.getModel();
+        for ( String [] conta : contas ) {
+            tbl.addRow(conta);
+        }
+        
+    }//GEN-LAST:event_tbl_contasAncestorAdded
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel6;
@@ -159,7 +183,7 @@ public class Relatorio extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable tbl_contas;
     // End of variables declaration//GEN-END:variables
 }

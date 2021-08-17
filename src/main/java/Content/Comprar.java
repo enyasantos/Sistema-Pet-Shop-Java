@@ -228,11 +228,11 @@ public class Comprar extends javax.swing.JInternalFrame {
         String animal = String.valueOf(combo_box_animal.getSelectedItem());
         String descricao = input_text_descricao.getText();
         int qtd = Integer.parseInt(input_qtd.getText());
-        Float valor =  Float.parseFloat(input_valor.getText());
+        Float valor =  Float.parseFloat(input_valor.getValue().toString());
         int dia = input_data.getDate().getDay();
         int mes = input_data.getDate().getMonth();
         int ano = input_data.getDate().getYear();
-        
+            
         DataHorario dataVenc = new DataHorario(dia,mes,ano,0,0);
         String descricaoConta = "Compra do produto " + nome + "para " + animal;
         Conta conta = new Conta(dataVenc, descricaoConta, (valor * qtd));
