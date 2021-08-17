@@ -5,6 +5,11 @@
  */
 package Content;
 
+import Models.Administrador;
+import Models.Conta;
+import Models.DataHorario;
+import Models.Registro;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -13,6 +18,9 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class Comprar extends javax.swing.JInternalFrame {
 
+    private Administrador adm;
+    private Registro registros;
+    
     /**
      * Creates new form Comprar
      */
@@ -21,6 +29,21 @@ public class Comprar extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
+    }
+    
+    public Comprar(Administrador adm) {
+        initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
+    }
+    
+    private void setAdministrador(Administrador adm){
+        this.adm = adm;
+    }
+    
+    private Administrador getAdministrador(){
+        return this.adm;
     }
 
     /**
@@ -206,7 +229,19 @@ public class Comprar extends javax.swing.JInternalFrame {
         String descricao = input_text_descricao.getText();
         int qtd = Integer.parseInt(input_qtd.getText());
         Float valor =  Float.parseFloat(input_valor.getText());
-        String data = input_data.getDate().toString();
+        int dia = input_data.getDate().getDay();
+        int mes = input_data.getDate().getMonth();
+        int ano = input_data.getDate().getYear();
+        
+        DataHorario dataVenc = new DataHorario(dia,mes,ano,0,0);
+        String descricaoConta = "Compra do produto " + nome + "para " + animal;
+        Conta conta = new Conta(dataVenc, descricaoConta, (valor * qtd));
+        
+        if(getAdministrador().comprar(this.registros, conta, nome)){
+            JOptionPane.showMessageDialog(null, "Compra registrada com sucesso.", "Compra registrada", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro no processo de compra, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked

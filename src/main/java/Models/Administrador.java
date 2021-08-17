@@ -63,13 +63,23 @@ public class Administrador extends Usuario {
         return true;
     }
         
-    public boolean comprar(ArrayList<String> contas, ArrayList<String> produtos, String conta, String produto){
-        return true;
+    public boolean comprar(Registro registros, Conta conta, String produto){
+        if(super.getStatusLog()){
+            registros.addConta(conta);
+            return true;
+        }
+        else return false;
     }
     
     public void registraConta(ArrayList<String> contas) {}
     
-    public void gerarRelatorio(ArrayList<String> contas, ArrayList<String> vendas){}
+    public ArrayList<Conta> gerarRelatorioConta(Registro registros){
+        return registros.getContas();
+    }
+    
+    public void gerarRelatorioVendas(Registro registros){
+        
+    }
     
     public boolean fazerLogin() {
         if(super.getUsuario().equals(USUARIO) && super.getSenha().equals(SENHA)){

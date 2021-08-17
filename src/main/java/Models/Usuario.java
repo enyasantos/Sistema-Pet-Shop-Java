@@ -66,7 +66,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public boolean isStatusLog() {
+    public boolean getStatusLog() {
         return statusLog;
     }
 

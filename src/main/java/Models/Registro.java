@@ -5,10 +5,24 @@
  */
 package Models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author enya
  */
 public class Registro {
+    private ArrayList<Conta> contas;
+
+    public ArrayList<Conta> getContas() {
+        return contas;
+    }
+
+    public void setContas(ArrayList<Conta> contas) {
+        this.contas = contas;
+    }
     
+    public void addConta(Conta conta) {
+        this.contas.add(conta);
+    }
 }
