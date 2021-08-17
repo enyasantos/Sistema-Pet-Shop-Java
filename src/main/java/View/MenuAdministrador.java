@@ -11,6 +11,7 @@ import Content.ListarClientes;
 import Content.ListarFuncionarios;
 import Content.PagarConta;
 import Content.Relatorio;
+import Models.Administrador;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -19,13 +20,29 @@ import javax.swing.JPanel;
  * @author enya
  */
 public class MenuAdministrador extends javax.swing.JFrame {
-    /**
-     * Creates new form MenuAdministrados
-     */
+    
+    private Administrador adm;
+    
     public MenuAdministrador() {
         initComponents();
     }
+    /**
+     * Creates new form MenuAdministrados
+     * @param adm
+     */
+    public MenuAdministrador(Administrador adm) {
+        initComponents();
+        setAdm(adm);
+    }
 
+    public Administrador getAdm() {
+        return adm;
+    }
+
+    private void setAdm(Administrador adm) {
+        this.adm = adm;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -378,23 +395,22 @@ public class MenuAdministrador extends javax.swing.JFrame {
                 .addComponent(lbl_sair)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_menuLayout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_menuLayout.createSequentialGroup()
-                        .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lvl_sistema_gerenciamento)
-                            .addGroup(panel_menuLayout.createSequentialGroup()
-                                .addComponent(lbl_title_happetsy)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_version)))
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_menuLayout.createSequentialGroup()
-                        .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_cadastrar_veterinario)
-                            .addComponent(lbl_cadastrar_vendedor)
-                            .addComponent(lbl_v_vededores)
-                            .addComponent(lbl_v_veterinarios))
-                        .addGap(50, 50, 50))))
+                    .addComponent(lbl_cadastrar_veterinario)
+                    .addComponent(lbl_cadastrar_vendedor)
+                    .addComponent(lbl_v_vededores)
+                    .addComponent(lbl_v_veterinarios))
+                .addGap(50, 50, 50))
+            .addGroup(panel_menuLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lvl_sistema_gerenciamento)
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addComponent(lbl_title_happetsy)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_version)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,12 +451,15 @@ public class MenuAdministrador extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(j_content, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE))
+                .addComponent(j_content, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 529, Short.MAX_VALUE)
-            .addComponent(j_content, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(j_content, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                    .addComponent(panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         pack();

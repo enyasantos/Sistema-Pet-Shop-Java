@@ -5,18 +5,19 @@
  */
 package View;
 
+import Models.Administrador;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author enya
  */
-public class MenuInicial extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuInicial
      */
-    public MenuInicial() {
+    public Login() {
         initComponents();
     }
 
@@ -50,15 +51,15 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(44, 133, 128));
 
         lbl_title_happetsy.setBackground(new java.awt.Color(254, 254, 255));
-        lbl_title_happetsy.setFont(new java.awt.Font("URW Gothic L", 1, 20)); // NOI18N
+        lbl_title_happetsy.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
         lbl_title_happetsy.setForeground(new java.awt.Color(254, 254, 254));
         lbl_title_happetsy.setText("H A P P E T S Y");
 
-        lbl_version.setFont(new java.awt.Font("URW Gothic L", 0, 12)); // NOI18N
+        lbl_version.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lbl_version.setForeground(new java.awt.Color(188, 193, 195));
         lbl_version.setText("v0.1");
 
-        lvl_sistema_gerenciamento.setFont(new java.awt.Font("URW Gothic L", 0, 12)); // NOI18N
+        lvl_sistema_gerenciamento.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lvl_sistema_gerenciamento.setForeground(new java.awt.Color(207, 212, 213));
         lvl_sistema_gerenciamento.setText("Sistema de gerenciamento");
 
@@ -66,15 +67,18 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lvl_sistema_gerenciamento)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lvl_sistema_gerenciamento)
+                        .addGap(17, 17, 17))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_title_happetsy)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbl_version)))
-                .addGap(54, 54, 54))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,13 +87,14 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_title_happetsy)
                     .addComponent(lbl_version))
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lvl_sistema_gerenciamento)
-                .addGap(180, 180, 180))
+                .addGap(218, 218, 218))
         );
 
         jPanel2.setBackground(new java.awt.Color(17, 20, 36));
 
+        btn_sair.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_sair.setText("Sair");
         btn_sair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -97,6 +102,7 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
 
+        btn_entrar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_entrar.setText("Entrar");
         btn_entrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -104,23 +110,27 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
 
+        input_senha.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         input_senha.setToolTipText("");
 
+        input_usuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+
+        combo_box_tipo_usuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         combo_box_tipo_usuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Administrador", "Vendedor", "Veterinário" }));
 
-        lbl_usuario.setFont(new java.awt.Font("Lato", 1, 15)); // NOI18N
+        lbl_usuario.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(246, 246, 246));
         lbl_usuario.setText("Usuário:");
 
-        lbl_senha.setFont(new java.awt.Font("Lato", 1, 15)); // NOI18N
+        lbl_senha.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_senha.setForeground(new java.awt.Color(246, 246, 246));
         lbl_senha.setText("Senha:");
 
-        lbl_tipo_usuario.setFont(new java.awt.Font("Lato", 1, 15)); // NOI18N
+        lbl_tipo_usuario.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_tipo_usuario.setForeground(new java.awt.Color(246, 246, 246));
         lbl_tipo_usuario.setText("Fazer login como:");
 
-        jLabel6.setFont(new java.awt.Font("Lato Black", 1, 22)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(254, 254, 254));
         jLabel6.setText("L O G I N");
 
@@ -133,45 +143,43 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(input_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(input_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_usuario)
+                            .addComponent(lbl_senha)
                             .addComponent(lbl_tipo_usuario)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(input_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(input_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_usuario)
-                                    .addComponent(lbl_senha))
-                                .addComponent(combo_box_tipo_usuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(combo_box_tipo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(51, 51, 51))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addGap(162, 162, 162))))
+                        .addGap(148, 148, 148))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(24, 24, 24)
+                .addGap(26, 26, 26)
                 .addComponent(lbl_tipo_usuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(combo_box_tipo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(lbl_usuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lbl_senha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(input_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -209,8 +217,9 @@ public class MenuInicial extends javax.swing.JFrame {
         String usuario = input_usuario.getText();
         String senha = input_senha.getText();
         if(tipoUsuario.equals("Administrador")){
-            if(usuario.equals("admin") && senha.equals("admin")) {
-                new MenuAdministrador().setVisible(true);
+            Administrador adm = new Administrador(usuario, senha);
+            if(adm.fazerLogin()) {
+                new MenuAdministrador(adm).setVisible(true);
                 this.dispose();
             } else alertaLogin(usuario, senha);
         } else if(tipoUsuario.equals("Vendedor")){
@@ -248,20 +257,21 @@ public class MenuInicial extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuInicial().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
