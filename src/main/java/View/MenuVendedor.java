@@ -7,7 +7,7 @@ package View;
 
 import Content.CadastrarCliente;
 import Content.GerarOrdemDeServico;
-import Content.GerarOrdemServicoSemCadastro;
+import Content.GerarOrdemDeServicoSemCadastro;
 import Content.Vender;
 
 import java.awt.Color;
@@ -54,7 +54,6 @@ public class MenuVendedor extends javax.swing.JFrame {
         j_content = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(906, 529));
 
         panel_menu.setBackground(new java.awt.Color(13, 36, 51));
         panel_menu.setPreferredSize(new java.awt.Dimension(271, 713));
@@ -258,11 +257,11 @@ public class MenuVendedor extends javax.swing.JFrame {
         j_content.setLayout(j_contentLayout);
         j_contentLayout.setHorizontalGroup(
             j_contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 635, Short.MAX_VALUE)
+            .addGap(0, 593, Short.MAX_VALUE)
         );
         j_contentLayout.setVerticalGroup(
             j_contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addGap(0, 503, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -272,12 +271,12 @@ public class MenuVendedor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(j_content, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE))
+                .addComponent(j_content, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
-            .addComponent(j_content, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+            .addComponent(panel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(j_content, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
         );
 
         pack();
@@ -293,14 +292,13 @@ public class MenuVendedor extends javax.swing.JFrame {
     
     private void lbl_ordem_servico_sem_cadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ordem_servico_sem_cadMouseClicked
         // TODO add your handling code here:
-        GerarOrdemServicoSemCadastro ordem = new GerarOrdemServicoSemCadastro();
+        GerarOrdemDeServicoSemCadastro ordem = new GerarOrdemDeServicoSemCadastro();
         j_content.removeAll();
         j_content.add(ordem).setVisible(true);
 
         resetColor(btn_cadastrar_cliente_aux);
         resetColor(btn_venda_aux);
         setColor(btn_gerar_ordem_serv_aux);
-        
     }//GEN-LAST:event_lbl_ordem_servico_sem_cadMouseClicked
 
     private void lbl_vendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_vendaMouseClicked

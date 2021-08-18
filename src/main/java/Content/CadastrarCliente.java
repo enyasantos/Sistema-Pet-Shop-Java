@@ -53,7 +53,6 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        field_name.setPreferredSize(new java.awt.Dimension(7, 20));
         field_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 field_nameActionPerformed(evt);
@@ -139,15 +138,15 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                         .addComponent(lbl_endereco, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lbl_name1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lbl_subtitulo, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(field_name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(field_name, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lbl_separador, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(field_endereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(39, 39, 39)
+                            .addGap(17, 17, 17)
                             .addComponent(lbl_cancelar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,11 +165,11 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
                 .addComponent(lbl_endereco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(field_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_cancelar))
-                .addGap(72, 72, 72))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();

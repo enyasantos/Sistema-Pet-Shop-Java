@@ -28,29 +28,28 @@
                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                       <Component id="btn_cadastro" min="-2" pref="205" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lbl_titulo1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_titulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_subtitulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_separador" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbl_titulo2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" pref="159" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lbl_titulo3" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jSpinner1" min="-2" pref="58" max="-2" attributes="0"/>
-                              <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbl_titulo2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBox1" min="-2" pref="159" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lbl_titulo3" max="32767" attributes="0"/>
+                              <Component id="jSpinner1" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lbl_titulo1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_titulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_subtitulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_separador" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="152" max="32767" attributes="0"/>
+              <EmptySpace pref="115" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,12 +76,12 @@
                   <Component id="jSpinner1" max="32767" attributes="0"/>
                   <Component id="jComboBox1" pref="46" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_cadastro" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="lbl_cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="98" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
