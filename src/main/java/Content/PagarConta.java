@@ -5,37 +5,85 @@
  */
 package Content;
 
+import Models.Administrador;
+import Models.Conta;
+import Models.DataHorario;
+import Models.Registro;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  *
  * @author enya
  */
-public class PagarConta extends javax.swing.JInternalFrame {   
+public class PagarConta extends javax.swing.JInternalFrame {
+
+    private Administrador adm;
+    private Registro registros;
+    private ArrayList<Conta> contasAPagar;
+
     /**
      * Creates new form PagarConta
      */
     public PagarConta() {
         initComponents();
-        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui_ = (BasicInternalFrameUI) this.getUI();
         ui_.setNorthPane(null);
     }
-    
+
+    public PagarConta(Administrador adm, Registro registros) {
+        initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI ui_ = (BasicInternalFrameUI) this.getUI();
+        ui_.setNorthPane(null);
+        this.setAdm(adm);
+        this.setRegistros(registros);
+    }
+
+    public Administrador getAdm() {
+        return adm;
+    }
+
+    public void setAdm(Administrador adm) {
+        this.adm = adm;
+    }
+
+    public Registro getRegistros() {
+        return registros;
+    }
+
+    public void setRegistros(Registro registros) {
+        this.registros = registros;
+    }
+
+    public ArrayList<Conta> getContasAPagar() {
+        return contasAPagar;
+    }
+
+    public void setContasAPagar(ArrayList contasAPagar) {
+        this.contasAPagar = contasAPagar;
+    }
+
+    public void addContaAPagar(Conta conta) {
+        this.contasAPagar.add(conta);
+    }
+
     //Subtrai duas datas e retorna a diferençã em dias
-    private long sub2Dates(String date1, String date2) throws ParseException{
+    private long sub2Dates(String date1, String date2) throws ParseException {
         LocalDate dBefore = LocalDate.parse(date1, DateTimeFormatter.ISO_LOCAL_DATE);
         LocalDate dAfter = LocalDate.parse(date2, DateTimeFormatter.ISO_LOCAL_DATE);
-        long diff = dBefore.until(dAfter,ChronoUnit.DAYS);
+        long diff = dBefore.until(dAfter, ChronoUnit.DAYS);
         return diff;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,7 +152,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(218, 7, 35));
         jLabel1.setText("Cancelar");
 
@@ -112,7 +160,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(20, 20, 20));
         jLabel2.setText("Conta:");
 
-        jButton1.setFont(new java.awt.Font("URW Gothic L", 1, 15)); // NOI18N
+        jButton1.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         jButton1.setText("Pagar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -226,8 +274,24 @@ public class PagarConta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        String contaId = String.valueOf(combo_box_id.getSelectedItem());
+        // TODO add your handling code here:        
+        int index = combo_box_id.getSelectedIndex();
+        Conta conta = null;
+        conta = getContasAPagar().get(index);
+
+        if (conta != null) {
+            String[] covertDataArray = String.valueOf(combo_box_data_pagamento.getSelectedItem()).split("/");
+            DataHorario dataPagamento = new DataHorario(
+                    Integer.parseInt(covertDataArray[0]),
+                    Integer.parseInt(covertDataArray[1]),
+                    Integer.parseInt(covertDataArray[2]),
+                    17, 0
+            );
+            if (adm.pagarConta(registros, conta, dataPagamento)) {
+                combo_box_id.setSelectedIndex(0);
+            }
+        }
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void combo_box_data_pagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_box_data_pagamentoActionPerformed
@@ -240,6 +304,12 @@ public class PagarConta extends javax.swing.JInternalFrame {
 
     private void combo_box_idAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_combo_box_idAncestorAdded
         // TODO add your handling code here:
+        for (Conta conta : registros.getContas()) {
+            if (!conta.isPaga()) {
+                combo_box_id.addItem("ID:" + conta.getId() + " | Valor: R$" + conta.getValor());
+                addContaAPagar(conta);
+            }
+        }
         combo_box_id.addItem("ID: 1 | Valor: R$ 66.09");
         combo_box_id.addItem("ID: 2 | Valor: R$ 66.09");
     }//GEN-LAST:event_combo_box_idAncestorAdded
@@ -249,29 +319,29 @@ public class PagarConta extends javax.swing.JInternalFrame {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");//Formato brasileiro da data 
         LocalDate diaAtual = LocalDate.now(); //Recebe o dia atual        
         long additionalDays = 0; //Recebe quantos dias há entre o dia atual e a data de vencimento da conta
-        
+
         //Diferença em dias da data atual e data de vencimento da conta
         try {
             additionalDays = sub2Dates(diaAtual.toString(), "2021-08-20");
         } catch (ParseException ex) {
             Logger.getLogger(PagarConta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         combo_box_data_pagamento.removeAllItems();
 
         String diaFormatado;
-        if(additionalDays < 0) {//Caso não haja dias adicionais o pagamento pode ocorrer apenas no dia atual
+        if (additionalDays < 0) {//Caso não haja dias adicionais o pagamento pode ocorrer apenas no dia atual
             diaFormatado = diaAtual.format(formatter);
             combo_box_data_pagamento.addItem(diaFormatado);
         } else {//Adiciona os demais dias no ComboBox
-            for(int i = 0; i <= additionalDays; i++) {
+            for (int i = 0; i <= additionalDays; i++) {
                 diaFormatado = diaAtual.plusDays(i).format(formatter);
                 combo_box_data_pagamento.addItem(diaFormatado);
             }
         }
     }//GEN-LAST:event_combo_box_idActionPerformed
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> combo_box_data_pagamento;
     private javax.swing.JComboBox<String> combo_box_id;

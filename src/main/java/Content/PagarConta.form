@@ -172,7 +172,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="URW Gothic L" size="16" style="1"/>
+              <Font name="SansSerif" size="16" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="23" green="7" red="da" type="rgb"/>
@@ -194,7 +194,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="URW Gothic L" size="15" style="1"/>
+              <Font name="SansSerif" size="16" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pagar"/>
           </Properties>

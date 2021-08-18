@@ -6,6 +6,7 @@
 package View;
 
 import Models.Administrador;
+import Models.Registro;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
+    private Registro registros;
+    
     /**
      * Creates new form MenuInicial
      */
@@ -21,6 +24,20 @@ public class Login extends javax.swing.JFrame {
         initComponents();
     }
 
+    public Login(Registro registros) {
+        initComponents();
+        this.setRegistros(registros);
+    }
+
+    public Registro getRegistros() {
+        return registros;
+    }
+
+    public void setRegistros(Registro registros) {
+        this.registros = registros;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -219,7 +236,7 @@ public class Login extends javax.swing.JFrame {
         if(tipoUsuario.equals("Administrador")){
             Administrador adm = new Administrador(usuario, senha);
             if(adm.fazerLogin()) {
-                new MenuAdministrador(adm).setVisible(true);
+                new MenuAdministrador(adm, registros).setVisible(true);
                 this.dispose();
             } else alertaLogin(usuario, senha);
         } else if(tipoUsuario.equals("Vendedor")){

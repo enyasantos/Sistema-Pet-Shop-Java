@@ -36,7 +36,7 @@
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="j_content" alignment="0" pref="503" max="32767" attributes="0"/>
-                  <Component id="panel_menu" pref="0" max="32767" attributes="0"/>
+                  <Component id="panel_menu" pref="503" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>

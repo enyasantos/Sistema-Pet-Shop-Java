@@ -12,6 +12,7 @@ import Content.ListarFuncionarios;
 import Content.PagarConta;
 import Content.Relatorio;
 import Models.Administrador;
+import Models.Registro;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -22,6 +23,7 @@ import javax.swing.JPanel;
 public class MenuAdministrador extends javax.swing.JFrame {
     
     private Administrador adm;
+    private Registro registros;
     
     public MenuAdministrador() {
         initComponents();
@@ -29,10 +31,12 @@ public class MenuAdministrador extends javax.swing.JFrame {
     /**
      * Creates new form MenuAdministrados
      * @param adm
+     * @param registros
      */
-    public MenuAdministrador(Administrador adm) {
+    public MenuAdministrador(Administrador adm, Registro registros) {
         initComponents();
         setAdm(adm);
+        setRegistros(registros);
     }
 
     public Administrador getAdm() {
@@ -42,6 +46,14 @@ public class MenuAdministrador extends javax.swing.JFrame {
     private void setAdm(Administrador adm) {
         this.adm = adm;
     }
+
+    public Registro getRegistros() {
+        return registros;
+    }
+
+    private void setRegistros(Registro registros) {
+        this.registros = registros;
+    }      
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -507,7 +519,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_pagar_contaMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lbl_pagar_contaMouseClicked
         // TODO add your handling code here:Lista lista = new Lista();
-        PagarConta lista = new PagarConta();
+        PagarConta lista = new PagarConta(adm, registros);
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
 
@@ -520,6 +532,10 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void btn_pagar_contaMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_pagar_contaMousePressed
         // TODO add your handling code here:
+        PagarConta lista = new PagarConta(adm, registros);
+        j_content.removeAll();
+        j_content.add(lista).setVisible(true);
+        
         setColor(btn_pagar_conta_aux);
         resetColor(btn_gerenciar_fun_aux);
         resetColor(btn_relatorio_aux);

@@ -14,13 +14,13 @@ public class Conta {
     private DataHorario dataVenc, dataPagto;
     private String descricao;
     private Float valor;
-    private boolean estaPaga;
+    private boolean paga;
     
     public Conta(DataHorario dataVenc, String descricao, Float valor) {
         setDataVenc(dataVenc);
         setDescricao(descricao);
         setValor(valor);
-        setEstaPaga(false);
+        setPaga(false);
         setId(getId() + 1);
     }
     
@@ -64,11 +64,11 @@ public class Conta {
         this.valor = valor;
     }
 
-    public boolean isEstaPaga() {
-        return estaPaga;
+    public boolean isPaga() {
+        return paga;
     }
 
-    public void setEstaPaga(boolean estaPaga) {
-        this.estaPaga = estaPaga;
+    public void setPaga(boolean estaPaga) {
+        this.paga = estaPaga;
     }
 }
