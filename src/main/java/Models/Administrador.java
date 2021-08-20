@@ -50,7 +50,7 @@ public class Administrador extends Usuario {
 
     }
 
-    public boolean cadastrarVendedor(Registro registros, String vendedor) {
+    public boolean cadastrarVendedor(Registro registros, Vendedor vendedor) {
         if (super.getStatusLog()) {
             registros.addVendedor(vendedor);
             return true;

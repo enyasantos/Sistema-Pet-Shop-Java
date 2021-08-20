@@ -17,6 +17,23 @@ public class Registro {
     private ArrayList<Cliente> clientes;
     private ArrayList<Servico> servicos;
     private ArrayList<Veterinario> veterinarios;
+    private ArrayList<Vendedor> vendedores;
+
+    public ArrayList<Veterinario> getVeterinarios() {
+        return veterinarios;
+    }
+
+    public void setVeterinarios(ArrayList<Veterinario> veterinarios) {
+        this.veterinarios = veterinarios;
+    }
+
+    public ArrayList<Vendedor> getVendedores() {
+        return vendedores;
+    }
+
+    public void setVendedores(ArrayList<Vendedor> vendedores) {
+        this.vendedores = vendedores;
+    }
 
     public ArrayList<Veterinario> getVeterinario() {
         return veterinarios;
@@ -64,6 +81,10 @@ public class Registro {
     
     public void addVeterinario(Veterinario veterinario) {
         this.veterinarios.add(veterinario);
+    }
+    
+    public void addVendedor(Vendedor vendedor) {
+        this.vendedores.add(vendedor);
     }
     
 }
