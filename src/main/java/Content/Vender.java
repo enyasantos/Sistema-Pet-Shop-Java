@@ -43,7 +43,7 @@ public class Vender extends javax.swing.JInternalFrame {
         btn_cadastro = new javax.swing.JButton();
         jSpinner1 = new javax.swing.JSpinner();
 
-        lbl_subtitulo.setFont(new java.awt.Font("URW Gothic L", 0, 14)); // NOI18N
+        lbl_subtitulo.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lbl_subtitulo.setForeground(new java.awt.Color(24, 24, 24));
         lbl_subtitulo.setText("Venda um produto através do formulário abaixo.");
         lbl_subtitulo.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -56,7 +56,7 @@ public class Vender extends javax.swing.JInternalFrame {
             }
         });
 
-        lbl_titulo.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
+        lbl_titulo.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(24, 24, 24));
         lbl_titulo.setText("Produtos");
         lbl_titulo.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -69,7 +69,7 @@ public class Vender extends javax.swing.JInternalFrame {
             }
         });
 
-        lbl_titulo1.setFont(new java.awt.Font("URW Gothic L", 1, 18)); // NOI18N
+        lbl_titulo1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_titulo1.setForeground(new java.awt.Color(24, 24, 24));
         lbl_titulo1.setText("Vender produto");
         lbl_titulo1.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -110,9 +110,10 @@ public class Vender extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table_produtos);
 
+        jComboBox1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lbl_titulo2.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
+        lbl_titulo2.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_titulo2.setForeground(new java.awt.Color(24, 24, 24));
         lbl_titulo2.setText("ID:");
         lbl_titulo2.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -125,7 +126,7 @@ public class Vender extends javax.swing.JInternalFrame {
             }
         });
 
-        lbl_titulo3.setFont(new java.awt.Font("URW Gothic L", 0, 16)); // NOI18N
+        lbl_titulo3.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_titulo3.setForeground(new java.awt.Color(24, 24, 24));
         lbl_titulo3.setText("Quantidade:");
         lbl_titulo3.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -138,7 +139,7 @@ public class Vender extends javax.swing.JInternalFrame {
             }
         });
 
-        lbl_cancelar.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
+        lbl_cancelar.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_cancelar.setForeground(new java.awt.Color(201, 17, 22));
         lbl_cancelar.setText("Cancelar");
         lbl_cancelar.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -151,7 +152,7 @@ public class Vender extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_cadastro.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btn_cadastro.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
         btn_cadastro.setText("Cadastrar");
         btn_cadastro.setPreferredSize(new java.awt.Dimension(101, 29));
         btn_cadastro.addActionListener(new java.awt.event.ActionListener() {
@@ -160,61 +161,65 @@ public class Vender extends javax.swing.JInternalFrame {
             }
         });
 
+        jSpinner1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(lbl_cancelar)
-                        .addGap(77, 77, 77)
-                        .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbl_titulo2)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(133, 133, 133)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lbl_titulo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jSpinner1)))
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_titulo1)
-                            .addComponent(lbl_titulo)
                             .addComponent(lbl_subtitulo)
                             .addComponent(lbl_separador)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(115, Short.MAX_VALUE))
+                            .addComponent(lbl_titulo)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_titulo2)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbl_titulo3)
+                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(48, 48, 48))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(lbl_cancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(48, 48, 48)
                 .addComponent(lbl_titulo1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(lbl_subtitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_separador, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_titulo2)
                     .addComponent(lbl_titulo3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSpinner1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_cancelar))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_cancelar)
+                            .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();

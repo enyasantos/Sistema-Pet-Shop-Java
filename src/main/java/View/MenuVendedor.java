@@ -63,22 +63,22 @@ public class MenuVendedor extends javax.swing.JFrame {
         lbl_title_happetsy.setFont(new java.awt.Font("URW Gothic L", 1, 20)); // NOI18N
         lbl_title_happetsy.setForeground(new java.awt.Color(254, 254, 254));
         lbl_title_happetsy.setText("H A P P E T S Y");
-        panel_menu.add(lbl_title_happetsy, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        panel_menu.add(lbl_title_happetsy, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         lvl_sistema_gerenciamento.setFont(new java.awt.Font("URW Gothic L", 0, 12)); // NOI18N
         lvl_sistema_gerenciamento.setForeground(new java.awt.Color(207, 212, 213));
         lvl_sistema_gerenciamento.setText("Sistema de gerenciamento");
-        panel_menu.add(lvl_sistema_gerenciamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        panel_menu.add(lvl_sistema_gerenciamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         lbl_version.setFont(new java.awt.Font("URW Gothic L", 0, 12)); // NOI18N
         lbl_version.setForeground(new java.awt.Color(188, 193, 195));
         lbl_version.setText("v0.1");
-        panel_menu.add(lbl_version, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
+        panel_menu.add(lbl_version, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         lbl_sair.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_sair.setForeground(new java.awt.Color(254, 254, 254));
         lbl_sair.setText("Sair");
-        panel_menu.add(lbl_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 475, -1, -1));
+        panel_menu.add(lbl_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
 
         lbl_ordem_servico_cad1.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_ordem_servico_cad1.setForeground(new java.awt.Color(254, 254, 254));
@@ -88,7 +88,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 lbl_ordem_servico_cad1MouseClicked(evt);
             }
         });
-        panel_menu.add(lbl_ordem_servico_cad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, 30));
+        panel_menu.add(lbl_ordem_servico_cad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 30));
 
         lbl_ordem_servico_sem_cad.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_ordem_servico_sem_cad.setForeground(new java.awt.Color(254, 254, 254));
@@ -98,7 +98,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 lbl_ordem_servico_sem_cadMouseClicked(evt);
             }
         });
-        panel_menu.add(lbl_ordem_servico_sem_cad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, 30));
+        panel_menu.add(lbl_ordem_servico_sem_cad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, 30));
 
         btn_cadastrar_cliente.setBackground(new java.awt.Color(13, 36, 51));
         btn_cadastrar_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,7 +120,7 @@ public class MenuVendedor extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        lbl_cadastrar_cliente.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
+        lbl_cadastrar_cliente.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_cadastrar_cliente.setForeground(new java.awt.Color(254, 254, 254));
         lbl_cadastrar_cliente.setText("Cadastrar cliente");
         lbl_cadastrar_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,7 +148,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panel_menu.add(btn_cadastrar_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        panel_menu.add(btn_cadastrar_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 90, 250, -1));
 
         btn_venda.setBackground(new java.awt.Color(13, 36, 51));
         btn_venda.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,7 +170,7 @@ public class MenuVendedor extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        lbl_venda.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
+        lbl_venda.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_venda.setForeground(new java.awt.Color(254, 254, 254));
         lbl_venda.setText("Realizar venda de produto");
         lbl_venda.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,7 +198,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panel_menu.add(btn_venda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 250, -1));
+        panel_menu.add(btn_venda, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 130, 250, -1));
 
         btn_gerar_ordem_serv.setBackground(new java.awt.Color(13, 36, 51));
         btn_gerar_ordem_serv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -207,7 +207,7 @@ public class MenuVendedor extends javax.swing.JFrame {
             }
         });
 
-        lbl_gerar_ordem_serv.setFont(new java.awt.Font("URW Gothic L", 1, 16)); // NOI18N
+        lbl_gerar_ordem_serv.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_gerar_ordem_serv.setForeground(new java.awt.Color(254, 254, 254));
         lbl_gerar_ordem_serv.setText("Gerar ordem de serviço");
         lbl_gerar_ordem_serv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -248,7 +248,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panel_menu.add(btn_gerar_ordem_serv, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        panel_menu.add(btn_gerar_ordem_serv, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 170, -1, -1));
 
         j_content.setBackground(new java.awt.Color(244, 244, 244));
         j_content.setPreferredSize(new java.awt.Dimension(678, 536));
