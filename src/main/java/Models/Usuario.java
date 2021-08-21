@@ -16,17 +16,19 @@ public class Usuario {
     private String usuario;
     private String senha;
     private boolean statusLog;
-    
-    public Usuario(String nome, Float salario, String usuario, String senha) {
+    private String cpf;
+
+    public Usuario(String nome, Float salario, String usuario, String senha, String cpf) {
         setId(getId() + 1);
         setNome(nome);
         setUsuario(usuario);
         setSalario(salario);
         setSenha(senha);
         setStatusLog(false);
+        setCpf(cpf);
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
@@ -64,6 +66,14 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public boolean getStatusLog() {

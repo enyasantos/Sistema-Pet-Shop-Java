@@ -12,12 +12,13 @@ import java.util.ArrayList;
  * @author enya
  */
 public class Registro {
-    private ArrayList<Conta> contas;
-    private ArrayList<OrdemServico> ordemServicos;
-    private ArrayList<Cliente> clientes;
-    private ArrayList<Servico> servicos;
-    private ArrayList<Veterinario> veterinarios;
-    private ArrayList<Vendedor> vendedores;
+    private ArrayList<Conta> contas = new ArrayList<Conta>();
+    private ArrayList<OrdemServico> ordemServicos = new ArrayList<OrdemServico>();
+    private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+    private ArrayList<Servico> servicos = new ArrayList<Servico>();
+    private ArrayList<Veterinario> veterinarios = new ArrayList<Veterinario>();
+    private ArrayList<Vendedor> vendedores = new ArrayList<Vendedor>();
+    private ArrayList<Produto> produtos = new ArrayList<Produto>();
 
     public ArrayList<Veterinario> getVeterinarios() {
         return veterinarios;
@@ -66,7 +67,7 @@ public class Registro {
     public void setServicos(ArrayList<Servico> servicos) {
         this.servicos = servicos;
     }
-    
+
     public ArrayList<Conta> getContas() {
         return contas;
     }
@@ -74,17 +75,21 @@ public class Registro {
     public void setContas(ArrayList<Conta> contas) {
         this.contas = contas;
     }
-    
+
     public void addConta(Conta conta) {
         this.contas.add(conta);
     }
-    
+
     public void addVeterinario(Veterinario veterinario) {
         this.veterinarios.add(veterinario);
     }
-    
+
     public void addVendedor(Vendedor vendedor) {
         this.vendedores.add(vendedor);
     }
-    
+
+    public void addProduto(Produto produto) {
+        this.produtos.add(produto);
+    }
+
 }

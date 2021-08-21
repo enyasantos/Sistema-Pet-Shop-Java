@@ -17,22 +17,21 @@ public class Administrador extends Usuario {
     private static final String SENHA = "admin";
 
     public Administrador(String usuario, String senha) {
-        super("Administrador", (float) 0.0, usuario, senha);
+        super("Administrador", (float) 0.0, usuario, senha, "");
     }
 
     /*
-    void visualizarClientes(vector<Cliente> &);
-    void visualizarVendedores(vector<Vendedor> &);
-    void visualizarVeterinarios(vector<Veterinario> &);
-    bool visualizarContas(vector<Conta> &);
-
-    bool cadastrarVendedor(vector<Vendedor> &, Vendedor &);
-    bool cadastrarVeterinario(vector<Veterinario> &, Veterinario &);
-    bool pagarConta(vector<Conta> &, int);
-    bool comprar(vector<Produto> &, vector<Conta> &, Produto &, Conta &);
-    void registraConta(Conta &);
-    void gerarRelatorio(vector<Conta> &, vector<Venda> &);
-    bool verificarLogin(string, string);
+     * void visualizarClientes(vector<Cliente> &); void
+     * visualizarVendedores(vector<Vendedor> &); void
+     * visualizarVeterinarios(vector<Veterinario> &); bool
+     * visualizarContas(vector<Conta> &);
+     * 
+     * bool cadastrarVendedor(vector<Vendedor> &, Vendedor &); bool
+     * cadastrarVeterinario(vector<Veterinario> &, Veterinario &); bool
+     * pagarConta(vector<Conta> &, int); bool comprar(vector<Produto> &,
+     * vector<Conta> &, Produto &, Conta &); void registraConta(Conta &); void
+     * gerarRelatorio(vector<Conta> &, vector<Venda> &); bool verificarLogin(string,
+     * string);
      */
     public void visualizarClientes(ArrayList<String> clientes) {
 
@@ -71,8 +70,8 @@ public class Administrador extends Usuario {
     public boolean pagarConta(Registro registros, Conta conta, DataHorario dataPagamento) {
         if (super.getStatusLog()) {
             if (conta.isPaga()) {
-                return false; //conta já está paga
-            } else { //atualiza valores para pago
+                return false; // conta já está paga
+            } else { // atualiza valores para pago
                 conta.setPaga(true);
                 conta.setDataPagto(dataPagamento);
                 return true;
@@ -82,9 +81,10 @@ public class Administrador extends Usuario {
         }
     }
 
-    public boolean comprar(Registro registros, Conta conta, String produto) {
+    public boolean comprar(Registro registros, Conta conta, Produto produto) {
         if (super.getStatusLog()) {
             registros.addConta(conta);
+            registros.addProduto(produto);
             return true;
         } else {
             return false;

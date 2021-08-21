@@ -6,24 +6,18 @@
 package Models;
 
 import java.util.ArrayList;
-import Models.Login;
 
 /**
  *
  * @author thayn
  */
-public class Veterinario extends Usuario{
-   
+public class Veterinario extends Usuario {
 
-    public Veterinario(String nome, float salario, String usuario, String senha) {
-        super(nome, salario, usuario, senha);
+    public Veterinario(String nome, float salario, String usuario, String senha, String cpf) {
+        super(nome, salario, usuario, senha, cpf);
     }
 
-    public Veterinario verificarLogin(ArrayList<Veterinario> veterinarios, String usuario, String senha){
-        Login<Veterinario> login;
-        return login.verificaLogin(veterinarios,usuario,senha);
+    public Veterinario verificarLogin(ArrayList<Veterinario> veterinarios, String usuario, String senha) {
+        return Login.verificaLogin(veterinarios, usuario, senha);
     }
 }
-
-
-

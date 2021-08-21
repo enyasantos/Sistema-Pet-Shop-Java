@@ -11,8 +11,8 @@ package Models;
  */
 public class DataHorario {
     private int dia, mes, ano, hora, minuto;
-    
-    public DataHorario(int dia, int mes, int ano, int hora, int minuto){
+
+    public DataHorario(int dia, int mes, int ano, int hora, int minuto) {
         setDia(dia);
         setMes(mes);
         setAno(ano);
@@ -58,5 +58,9 @@ public class DataHorario {
 
     public void setMinuto(int minuto) {
         this.minuto = minuto;
+    }
+
+    public String toString() {
+        return String.format("%d-%d-%d", getDia(), getMes(), getAno());
     }
 }
