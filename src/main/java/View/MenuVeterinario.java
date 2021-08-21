@@ -8,7 +8,7 @@ package View;
 import Content.ListarClientes;
 import Content.VisualizarOrdemServico;
 import Models.Veterinario;
-import Content.Vet_GerarRelatorio;
+import Models.Registro;
 
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -294,8 +294,8 @@ public class MenuVeterinario extends javax.swing.JFrame {
         resetColor(btn_v_clientes);
 
         VisualizarOrdemServico visualizarOrdemServico = new VisualizarOrdemServico();
-        j_content.removeAll();
         visualizarOrdemServico.visualizarOrdem(reg.getOrdemServicos());
+        j_content.removeAll();
         j_content.add(visualizarOrdemServico).setVisible(true);
 
     }// GEN-LAST:event_lbl_visualizar_ordem_servicoMouseClicked
@@ -305,8 +305,10 @@ public class MenuVeterinario extends javax.swing.JFrame {
         resetColor(btn_v_ordem_servico);
         resetColor(btn_v_clientes);
 
-        Vet_GerarRelatorio vet_GerarRelatorio = new Vet_GerarRelatorio();
+        VisualizarOrdemServico vet_GerarRelatorio = new VisualizarOrdemServico();
         j_content.removeAll();
+        vet_GerarRelatorio.GerarRelatorio_OrdemServico(reg.getOrdemServicos());
+
         j_content.add(vet_GerarRelatorio).setVisible(true);
 
     }// GEN-LAST:event_lbl_gerar_relatorioMouseClicked

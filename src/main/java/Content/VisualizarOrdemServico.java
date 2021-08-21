@@ -7,6 +7,7 @@ package Content;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import Models.OrdemServico;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 /**
@@ -32,574 +33,456 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
          */
         @SuppressWarnings("unchecked")
         // <editor-fold defaultstate="collapsed" desc="Generated
-        // Code">//GEN-BEGIN:initComponents
-        private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-                pnl_principal = new javax.swing.JPanel();
-                jSeparator1 = new javax.swing.JSeparator();
-                lbl_titulo = new javax.swing.JLabel();
-                lbl_comboBox = new javax.swing.JLabel();
-                cmb_OrdemServico = new javax.swing.JComboBox<>();
-                pnl_cliente = new javax.swing.JPanel();
-                txt_id_cliente = new javax.swing.JTextField();
-                lbl_dados_cliente = new javax.swing.JLabel();
-                lbl_id_cliente = new javax.swing.JLabel();
-                lbl_nome_cliente = new javax.swing.JLabel();
-                lbl_endereco_cliente = new javax.swing.JLabel();
-                txt_nome_cliente = new javax.swing.JTextField();
-                txt_endereco_cliente = new javax.swing.JTextField();
-                pnl_servico = new javax.swing.JPanel();
-                lbl_subTitulo_Servico = new javax.swing.JLabel();
-                lbl_id_servico = new javax.swing.JLabel();
-                lbl_nome_servico = new javax.swing.JLabel();
-                lbl_valor_servico = new javax.swing.JLabel();
-                lbl_animal_servico = new javax.swing.JLabel();
-                lbl_relatorio_servico = new javax.swing.JLabel();
-                txt_relatorio_servico = new javax.swing.JTextField();
-                txt_id_servico = new javax.swing.JTextField();
-                txt_nome_servico = new javax.swing.JTextField();
-                txt_valor_servico = new javax.swing.JTextField();
-                txt_animal_servico = new javax.swing.JTextField();
-                lbl_data_servico = new javax.swing.JLabel();
-                txt_data_servico = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        pnl_principal = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        lbl_titulo = new javax.swing.JLabel();
+        lbl_comboBox = new javax.swing.JLabel();
+        cmb_OrdemServico = new javax.swing.JComboBox<>();
+        pnl_cliente = new javax.swing.JPanel();
+        lbl_dados_cliente = new javax.swing.JLabel();
+        lbl_id_cliente = new javax.swing.JLabel();
+        lbl_nome_cliente = new javax.swing.JLabel();
+        lbl_endereco_cliente = new javax.swing.JLabel();
+        txt_id_cliente = new javax.swing.JTextField();
+        txt_nome_cliente = new javax.swing.JTextField();
+        txt_endereco_cliente = new javax.swing.JTextField();
+        pnl_servico = new javax.swing.JPanel();
+        lbl_subTitulo_Servico = new javax.swing.JLabel();
+        lbl_id_servico = new javax.swing.JLabel();
+        lbl_nome_servico = new javax.swing.JLabel();
+        lbl_valor_servico = new javax.swing.JLabel();
+        lbl_animal_servico = new javax.swing.JLabel();
+        lbl_relatorio_servico = new javax.swing.JLabel();
+        lbl_data_servico = new javax.swing.JLabel();
+        btn_salvar = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
+        txt_nome_servico = new javax.swing.JTextField();
+        txt_id_servico = new javax.swing.JTextField();
+        txt_valor_servico = new javax.swing.JTextField();
+        txt_animal_servico = new javax.swing.JTextField();
+        txt_data_servico = new javax.swing.JTextField();
+        txt_relatorio_servico = new javax.swing.JTextField();
 
-                pnl_principal.setBackground(new java.awt.Color(238, 238, 238));
+        pnl_principal.setBackground(new java.awt.Color(238, 238, 238));
 
-                lbl_titulo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-                lbl_titulo.setForeground(new java.awt.Color(13, 36, 51));
-                lbl_titulo.setText("Ordem de Serviço");
+        lbl_titulo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lbl_titulo.setForeground(new java.awt.Color(13, 36, 51));
+        lbl_titulo.setText("Ordem de Serviço");
 
-                lbl_comboBox.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-                lbl_comboBox.setText("Selecione a ordem de serviço:");
+        lbl_comboBox.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        lbl_comboBox.setText("Selecione a ordem de serviço:");
 
-                cmb_OrdemServico.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-                cmb_OrdemServico.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmb_OrdemServico.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        cmb_OrdemServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmb_OrdemServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_OrdemServicoActionPerformed(evt);
+            }
+        });
 
-                cmb_OrdemServico.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                cmb_OrdemServicoActionPerformed(evt);
-                        }
-                });
+        lbl_dados_cliente.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        lbl_dados_cliente.setText("Dados do Cliente");
+        lbl_dados_cliente.setMaximumSize(new java.awt.Dimension(106, 15));
+        lbl_dados_cliente.setMinimumSize(new java.awt.Dimension(106, 15));
 
-                txt_id_cliente.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                txt_id_cliente.setEnabled(false);
-                txt_id_cliente.setInheritsPopupMenu(true);
-                txt_id_cliente.setName(""); // NOI18N
-                txt_id_cliente.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txt_id_clienteActionPerformed(evt);
-                        }
-                });
+        lbl_id_cliente.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_id_cliente.setText("ID:");
 
-                lbl_dados_cliente.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-                lbl_dados_cliente.setText("Dados do Cliente");
-                lbl_dados_cliente.setMaximumSize(new java.awt.Dimension(106, 15));
-                lbl_dados_cliente.setMinimumSize(new java.awt.Dimension(106, 15));
+        lbl_nome_cliente.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_nome_cliente.setText("Nome:");
 
-                lbl_id_cliente.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                lbl_id_cliente.setText("ID:");
+        lbl_endereco_cliente.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_endereco_cliente.setText("Endereço:");
 
-                lbl_nome_cliente.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                lbl_nome_cliente.setText("Nome:");
+        txt_id_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_clienteActionPerformed(evt);
+            }
+        });
 
-                lbl_endereco_cliente.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                lbl_endereco_cliente.setText("Endereço:");
+        txt_nome_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nome_clienteActionPerformed(evt);
+            }
+        });
 
-                txt_nome_cliente.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                txt_nome_cliente.setEnabled(false);
-                txt_nome_cliente.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txt_nome_clienteActionPerformed(evt);
-                        }
-                });
+        javax.swing.GroupLayout pnl_clienteLayout = new javax.swing.GroupLayout(pnl_cliente);
+        pnl_cliente.setLayout(pnl_clienteLayout);
+        pnl_clienteLayout.setHorizontalGroup(
+            pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_clienteLayout.createSequentialGroup()
+                .addGroup(pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_clienteLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_nome_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_endereco_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_id_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_id_cliente)
+                            .addComponent(txt_nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_endereco_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnl_clienteLayout.createSequentialGroup()
+                        .addGap(309, 309, 309)
+                        .addComponent(lbl_dados_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnl_clienteLayout.setVerticalGroup(
+            pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_clienteLayout.createSequentialGroup()
+                .addGroup(pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_clienteLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_endereco_cliente)
+                            .addComponent(txt_endereco_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnl_clienteLayout.createSequentialGroup()
+                        .addGroup(pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl_clienteLayout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addGroup(pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lbl_id_cliente)
+                                    .addComponent(txt_id_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8)
+                                .addGroup(pnl_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_nome_cliente)))
+                            .addComponent(lbl_dados_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 36, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
 
-                txt_endereco_cliente.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                txt_endereco_cliente.setEnabled(false);
-                txt_endereco_cliente.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txt_endereco_clienteActionPerformed(evt);
-                        }
-                });
+        lbl_subTitulo_Servico.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        lbl_subTitulo_Servico.setText("Dados do Serviço");
 
-                javax.swing.GroupLayout pnl_clienteLayout = new javax.swing.GroupLayout(pnl_cliente);
-                pnl_cliente.setLayout(pnl_clienteLayout);
-                pnl_clienteLayout.setHorizontalGroup(pnl_clienteLayout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnl_clienteLayout.createSequentialGroup().addGroup(pnl_clienteLayout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(pnl_clienteLayout.createSequentialGroup().addGap(35, 35, 35)
-                                                                .addGroup(pnl_clienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(lbl_nome_cliente,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(lbl_endereco_cliente,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(lbl_id_cliente,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE))
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(pnl_clienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false).addComponent(txt_id_cliente)
-                                                                                .addComponent(txt_nome_cliente)
-                                                                                .addComponent(txt_endereco_cliente,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                174, Short.MAX_VALUE)))
-                                                .addGroup(pnl_clienteLayout.createSequentialGroup()
-                                                                .addGap(309, 309, 309).addComponent(lbl_dados_cliente,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                147,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                Short.MAX_VALUE)));
-                pnl_clienteLayout.setVerticalGroup(pnl_clienteLayout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnl_clienteLayout.createSequentialGroup().addGroup(pnl_clienteLayout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_clienteLayout
-                                                                .createSequentialGroup()
-                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                Short.MAX_VALUE)
-                                                                .addGroup(pnl_clienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(lbl_endereco_cliente)
-                                                                                .addComponent(txt_endereco_cliente,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGroup(pnl_clienteLayout.createSequentialGroup()
-                                                                .addGroup(pnl_clienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addGroup(pnl_clienteLayout
-                                                                                                .createSequentialGroup()
-                                                                                                .addGap(36, 36, 36)
-                                                                                                .addGroup(pnl_clienteLayout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                .addComponent(txt_id_cliente,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addComponent(lbl_id_cliente))
-                                                                                                .addGap(18, 18, 18)
-                                                                                                .addGroup(pnl_clienteLayout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                .addComponent(lbl_nome_cliente)
-                                                                                                                .addComponent(txt_nome_cliente,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                .addComponent(lbl_dados_cliente,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(0, 36, Short.MAX_VALUE)))
-                                                .addContainerGap()));
+        lbl_id_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_id_servico.setText("ID:");
 
-                lbl_subTitulo_Servico.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-                lbl_subTitulo_Servico.setText("Dados do Serviço");
+        lbl_nome_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_nome_servico.setText("Nome:");
 
-                lbl_id_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                lbl_id_servico.setText("ID:");
+        lbl_valor_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_valor_servico.setText("Valor:");
 
-                lbl_nome_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                lbl_nome_servico.setText("Nome:");
+        lbl_animal_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_animal_servico.setText("Animal:");
 
-                lbl_valor_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                lbl_valor_servico.setText("Valor:");
+        lbl_relatorio_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_relatorio_servico.setText("Relatório:");
 
-                lbl_animal_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                lbl_animal_servico.setText("Animal:");
+        lbl_data_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_data_servico.setText("Data:");
 
-                lbl_relatorio_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                lbl_relatorio_servico.setText("Relatório:");
+        btn_salvar.setText("Salvar");
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
 
-                txt_relatorio_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                txt_relatorio_servico.setEnabled(false);
-                txt_relatorio_servico.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txt_relatorio_servicoActionPerformed(evt);
-                        }
-                });
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
 
-                txt_id_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                txt_id_servico.setEnabled(false);
-                txt_id_servico.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txt_id_servicoActionPerformed(evt);
-                        }
-                });
+        txt_valor_servico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_valor_servicoActionPerformed(evt);
+            }
+        });
 
-                txt_nome_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                txt_nome_servico.setEnabled(false);
-                txt_nome_servico.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txt_nome_servicoActionPerformed(evt);
-                        }
-                });
+        javax.swing.GroupLayout pnl_servicoLayout = new javax.swing.GroupLayout(pnl_servico);
+        pnl_servico.setLayout(pnl_servicoLayout);
+        pnl_servicoLayout.setHorizontalGroup(
+            pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_servicoLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_id_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_nome_servico)
+                    .addComponent(lbl_animal_servico)
+                    .addComponent(lbl_valor_servico)
+                    .addComponent(lbl_relatorio_servico))
+                .addGap(28, 28, 28)
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_servicoLayout.createSequentialGroup()
+                        .addComponent(txt_animal_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbl_data_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(txt_data_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57))
+                    .addGroup(pnl_servicoLayout.createSequentialGroup()
+                        .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_valor_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_relatorio_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_id_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 57, Short.MAX_VALUE))
+                    .addGroup(pnl_servicoLayout.createSequentialGroup()
+                        .addComponent(txt_nome_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_servicoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_cancelar)
+                .addGap(33, 33, 33)
+                .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
+            .addGroup(pnl_servicoLayout.createSequentialGroup()
+                .addGap(301, 301, 301)
+                .addComponent(lbl_subTitulo_Servico)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnl_servicoLayout.setVerticalGroup(
+            pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_servicoLayout.createSequentialGroup()
+                .addComponent(lbl_subTitulo_Servico)
+                .addGap(11, 11, 11)
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_id_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_id_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_nome_servico)
+                    .addComponent(txt_nome_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_valor_servico, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txt_valor_servico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_animal_servico)
+                    .addComponent(lbl_data_servico)
+                    .addComponent(txt_animal_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_data_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_relatorio_servico)
+                    .addComponent(txt_relatorio_servico, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_servicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
+        );
 
-                txt_valor_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                txt_valor_servico.setEnabled(false);
-                txt_valor_servico.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txt_valor_servicoActionPerformed(evt);
-                        }
-                });
+        javax.swing.GroupLayout pnl_principalLayout = new javax.swing.GroupLayout(pnl_principal);
+        pnl_principal.setLayout(pnl_principalLayout);
+        pnl_principalLayout.setHorizontalGroup(
+            pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addGroup(pnl_principalLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnl_principalLayout.createSequentialGroup()
+                        .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnl_principalLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbl_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmb_OrdemServico, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(279, 279, 279))))
+            .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_servico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnl_principalLayout.setVerticalGroup(
+            pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_principalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnl_principalLayout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(lbl_comboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
+                    .addGroup(pnl_principalLayout.createSequentialGroup()
+                        .addComponent(cmb_OrdemServico, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
+                .addGap(28, 28, 28)
+                .addComponent(pnl_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnl_servico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-                txt_animal_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                txt_animal_servico.setEnabled(false);
-                txt_animal_servico.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txt_animal_servicoActionPerformed(evt);
-                        }
-                });
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnl_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnl_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
-                lbl_data_servico.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                lbl_data_servico.setText("Data:");
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
-                txt_data_servico.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                txt_data_servico.setEnabled(false);
-                txt_data_servico.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txt_data_servicoActionPerformed(evt);
-                        }
-                });
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_relatorio_servicoActionPerformed(evt);
+    }
+    
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_salvarActionPerformed
 
-                javax.swing.GroupLayout pnl_servicoLayout = new javax.swing.GroupLayout(pnl_servico);
-                pnl_servico.setLayout(pnl_servicoLayout);
-                pnl_servicoLayout.setHorizontalGroup(pnl_servicoLayout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnl_servicoLayout.createSequentialGroup().addGroup(pnl_servicoLayout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(pnl_servicoLayout.createSequentialGroup().addGap(20, 20, 20)
-                                                                .addGroup(pnl_servicoLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addGroup(pnl_servicoLayout
-                                                                                                .createSequentialGroup()
-                                                                                                .addGap(11, 11, 11)
-                                                                                                .addComponent(lbl_valor_servico)
-                                                                                                .addGap(36, 36, 36))
-                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                pnl_servicoLayout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGroup(pnl_servicoLayout
-                                                                                                                                .createParallelGroup(
-                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                .addComponent(lbl_nome_servico)
-                                                                                                                                .addComponent(lbl_id_servico,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                57,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                .addGap(18, 18, 18))
-                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                pnl_servicoLayout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addComponent(lbl_animal_servico)
-                                                                                                                .addGap(27, 27, 27))))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                pnl_servicoLayout.createSequentialGroup()
-                                                                                .addContainerGap()
-                                                                                .addComponent(lbl_relatorio_servico)
-                                                                                .addGap(18, 18, 18)))
-                                                .addGroup(pnl_servicoLayout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addGroup(pnl_servicoLayout.createSequentialGroup()
-                                                                                .addGap(15, 15, 15)
-                                                                                .addGroup(pnl_servicoLayout
-                                                                                                .createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                .addComponent(txt_nome_servico,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                190,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(txt_id_servico,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                190,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(txt_valor_servico,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                190,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(txt_animal_servico,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                190,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addContainerGap(443, Short.MAX_VALUE))
-                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                pnl_servicoLayout
-                                                                                                .createSequentialGroup()
-                                                                                                .addGroup(pnl_servicoLayout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                .addComponent(txt_relatorio_servico)
-                                                                                                                .addGroup(pnl_servicoLayout
-                                                                                                                                .createSequentialGroup()
-                                                                                                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                                                                                                .addComponent(lbl_data_servico,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                38,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                                .addComponent(txt_data_servico,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                190,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                .addGap(57, 57, 57))))
-                                .addGroup(pnl_servicoLayout.createSequentialGroup().addGap(301, 301, 301)
-                                                .addComponent(lbl_subTitulo_Servico)
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                Short.MAX_VALUE)));
-                pnl_servicoLayout.setVerticalGroup(pnl_servicoLayout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnl_servicoLayout.createSequentialGroup().addComponent(lbl_subTitulo_Servico)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(pnl_servicoLayout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(lbl_id_servico,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                22,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(txt_id_servico,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(pnl_servicoLayout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(lbl_nome_servico)
-                                                                .addComponent(txt_nome_servico,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(pnl_servicoLayout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(lbl_valor_servico)
-                                                                .addComponent(txt_valor_servico,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(pnl_servicoLayout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(lbl_animal_servico)
-                                                                .addComponent(txt_animal_servico,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(lbl_data_servico)
-                                                                .addComponent(txt_data_servico,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(pnl_servicoLayout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(txt_relatorio_servico,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                53, Short.MAX_VALUE)
-                                                                .addComponent(lbl_relatorio_servico))
-                                                .addContainerGap()));
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_cancelarActionPerformed
 
-                javax.swing.GroupLayout pnl_principalLayout = new javax.swing.GroupLayout(pnl_principal);
-                pnl_principal.setLayout(pnl_principalLayout);
-                pnl_principalLayout.setHorizontalGroup(pnl_principalLayout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator1)
-                                .addGroup(pnl_principalLayout.createSequentialGroup().addGap(32, 32, 32)
-                                                .addGroup(pnl_principalLayout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addGroup(pnl_principalLayout.createSequentialGroup()
-                                                                                .addComponent(lbl_titulo,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                200,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addContainerGap(524, Short.MAX_VALUE))
-                                                                .addGroup(pnl_principalLayout.createSequentialGroup()
-                                                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                                                .addComponent(lbl_comboBox,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                258,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(18, 18, 18)
-                                                                                .addComponent(cmb_OrdemServico,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                65,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(279, 279, 279))))
-                                .addComponent(pnl_cliente, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pnl_servico, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-                pnl_principalLayout.setVerticalGroup(pnl_principalLayout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnl_principalLayout.createSequentialGroup().addContainerGap()
-                                                .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 16,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(pnl_principalLayout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addGroup(pnl_principalLayout.createSequentialGroup()
-                                                                                .addComponent(jSeparator1,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(15, 15, 15)
-                                                                                .addComponent(lbl_comboBox,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE))
-                                                                .addGroup(pnl_principalLayout.createSequentialGroup()
-                                                                                .addComponent(cmb_OrdemServico,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                22,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addGap(1, 1, 1)))
-                                                .addGap(28, 28, 28)
-                                                .addComponent(pnl_cliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(pnl_servico, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)));
+    private void txt_id_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_clienteActionPerformed
 
-                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-                getContentPane().setLayout(layout);
-                layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(pnl_principal, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-                layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(pnl_principal, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+    private void txt_nome_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nome_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nome_clienteActionPerformed
 
-                pack();
-        }// </editor-fold>//GEN-END:initComponents
+    private void txt_valor_servicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_valor_servicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_valor_servicoActionPerformed
 
         private void cmb_OrdemServicoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cmb_OrdemServicoActionPerformed
                 // TODO add your handling code here:
         }// GEN-LAST:event_cmb_OrdemServicoActionPerformed
 
         public void visualizarOrdem(ArrayList<OrdemServico> ordens) {
-                for (OrdemServico ordem : ordens) {
-                        cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
-                }
+            lbl_titulo.setText("Ordem de Serviço");
 
-                txt_id_cliente.setEnabled(true);
-                txt_id_cliente.setEditable(false);
-                txt_nome_cliente.setEnabled(true);
-                txt_nome_cliente.setEditable(false);
-                txt_endereco_cliente.setEnabled(true);
-                txt_endereco_cliente.setEditable(false);
+            for (OrdemServico ordem : ordens) {
+                cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+            }
 
-                txt_id_servico.setEnabled(true);
-                txt_id_servico.setEditable(false);
-                txt_nome_servico.setEnabled(true);
-                txt_nome_servico.setEditable(false);
-                txt_animal_servico.setEnabled(true);
-                txt_animal_servico.setEditable(false);
-                txt_data_servico.setEnabled(true);
-                txt_data_servico.setEditable(false);
-                txt_valor_servico.setEnabled(true);
-                txt_valor_servico.setEditable(false);
-                txt_relatorio_servico.setEnabled(true);
-                txt_relatorio_servico.setEditable(false);
+            txt_id_cliente.setEnabled(true);
+            txt_id_cliente.setEditable(false);
+            txt_nome_cliente.setEnabled(true);
+            txt_nome_cliente.setEditable(false);
+            txt_endereco_cliente.setEnabled(true);
+            txt_endereco_cliente.setEditable(false);
 
-                OrdemServico ordemAux = ordens.get(cmb_OrdemServico.getSelectedIndex());
+            txt_id_servico.setEnabled(true);
+            txt_id_servico.setEditable(false);
+            txt_nome_servico.setEnabled(true);
+            txt_nome_servico.setEditable(false);
+            txt_animal_servico.setEnabled(true);
+            txt_animal_servico.setEditable(false);
+            txt_data_servico.setEnabled(true);
+            txt_data_servico.setEditable(false);
+            txt_valor_servico.setEnabled(true);
+            txt_valor_servico.setEditable(false);
+            txt_relatorio_servico.setEnabled(true);
+            txt_relatorio_servico.setEditable(false);
 
-                txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
-                txt_nome_cliente.setText(ordemAux.getCliente().getNome());
-                txt_endereco_cliente.setText(ordemAux.getCliente().getEndereco());
+            OrdemServico ordemAux = ordens.get(cmb_OrdemServico.getSelectedIndex());
 
-                txt_id_servico.setText(String.valueOf(ordemAux.getServico().getId()));
-                txt_nome_servico.setText(ordemAux.getServico().getNome());
-                txt_animal_servico.setText(ordemAux.getServico().getAnimal());
-                txt_data_servico.setText(ordemAux.getServico().getDataHorario());
-                txt_valor_servico.setText(String.valueOf(ordemAux.getServico().getValor()));
-                txt_relatorio_servico.setText(ordemAux.getServico().getRelatorio());
+            txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
+            txt_nome_cliente.setText(ordemAux.getCliente().getNome());
+            txt_endereco_cliente.setText(ordemAux.getCliente().getEndereco());
 
-                this.setVisible(true);
+            txt_id_servico.setText(String.valueOf(ordemAux.getServico().getId()));
+            txt_nome_servico.setText(ordemAux.getServico().getNome());
+            txt_animal_servico.setText(ordemAux.getServico().getAnimal());
+            //txt_data_servico.setText(ordemAux.getServico().getDataHorario());
+            txt_valor_servico.setText(String.valueOf(ordemAux.getServico().getValor()));
+            txt_relatorio_servico.setText(ordemAux.getServico().getRelatorio());
+
+            btn_salvar.setEnabled(false);
+            btn_salvar.setVisible(false);
+            btn_cancelar.setEnabled(false);
+            btn_cancelar.setVisible(false);
         }
 
         public void GerarRelatorio_OrdemServico(ArrayList<OrdemServico> ordens) {
-                for (OrdemServico ordem : ordens) {
-                        cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
-                }
+            lbl_titulo.setText("Gerar Relatório da Ordem de Serviço");
 
-                txt_id_cliente.setEnabled(true);
-                txt_id_cliente.setEditable(false);
-                txt_nome_cliente.setEnabled(true);
-                txt_nome_cliente.setEditable(false);
-                txt_endereco_cliente.setEnabled(true);
-                txt_endereco_cliente.setEditable(false);
+            for (OrdemServico ordem : ordens) {
+                cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+            }
 
-                txt_id_servico.setEnabled(true);
-                txt_id_servico.setEditable(false);
-                txt_nome_servico.setEnabled(true);
-                txt_nome_servico.setEditable(false);
-                txt_animal_servico.setEnabled(true);
-                txt_animal_servico.setEditable(false);
-                txt_data_servico.setEnabled(true);
-                txt_data_servico.setEditable(false);
-                txt_valor_servico.setEnabled(true);
-                txt_valor_servico.setEditable(false);
-                txt_relatorio_servico.setEnabled(true);
-                txt_relatorio_servico.setEditable(true);
+            txt_id_cliente.setEnabled(true);
+            txt_id_cliente.setEditable(false);
+            txt_nome_cliente.setEnabled(true);
+            txt_nome_cliente.setEditable(false);
+            txt_endereco_cliente.setEnabled(true);
+            txt_endereco_cliente.setEditable(false);
 
-                OrdemServico ordemAux = ordens.get(cmb_OrdemServico.getSelectedIndex());
+            txt_id_servico.setEnabled(true);
+            txt_id_servico.setEditable(false);
+            txt_nome_servico.setEnabled(true);
+            txt_nome_servico.setEditable(false);
+            txt_animal_servico.setEnabled(true);
+            txt_animal_servico.setEditable(false);
+            txt_data_servico.setEnabled(true);
+            txt_data_servico.setEditable(false);
+            txt_valor_servico.setEnabled(true);
+            txt_valor_servico.setEditable(false);
+            txt_relatorio_servico.setEnabled(true);
+            txt_relatorio_servico.setEditable(true);
 
-                txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
-                txt_nome_cliente.setText(ordemAux.getCliente().getNome());
-                txt_endereco_cliente.setText(ordemAux.getCliente().getEndereco());
+            OrdemServico ordemAux = ordens.get(cmb_OrdemServico.getSelectedIndex());
 
-                txt_id_servico.setText(String.valueOf(ordemAux.getServico().getId()));
-                txt_nome_servico.setText(ordemAux.getServico().getNome());
-                txt_animal_servico.setText(ordemAux.getServico().getAnimal());
-                txt_data_servico.setText(ordemAux.getServico().getDataHorario());
-                txt_valor_servico.setText(String.valueOf(ordemAux.getServico().getValor()));
-                txt_relatorio_servico.setText(ordemAux.getServico().getRelatorio());
+            txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
+            txt_nome_cliente.setText(ordemAux.getCliente().getNome());
+            txt_endereco_cliente.setText(ordemAux.getCliente().getEndereco());
 
-                btn_salvar.setVisible(true);
-                this.setVisible(true);
+            txt_id_servico.setText(String.valueOf(ordemAux.getServico().getId()));
+            txt_nome_servico.setText(ordemAux.getServico().getNome());
+            txt_animal_servico.setText(ordemAux.getServico().getAnimal());
+            //txt_data_servico.setText(ordemAux.getServico().getDataHorario());
+            txt_valor_servico.setText(String.valueOf(ordemAux.getServico().getValor()));
+            txt_relatorio_servico.setText(ordemAux.getServico().getRelatorio());
+
+            btn_salvar.setEnabled(true);
+            btn_salvar.setVisible(true);
+            btn_cancelar.setEnabled(true);
+            btn_cancelar.setVisible(true);
+            
+            btn_salvar.setVisible(true);
 
         }
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JComboBox<String> cmb_OrdemServico;
-        private javax.swing.JSeparator jSeparator1;
-        private javax.swing.JLabel lbl_animal_servico;
-        private javax.swing.JLabel lbl_comboBox;
-        private javax.swing.JLabel lbl_dados_cliente;
-        private javax.swing.JLabel lbl_data_servico;
-        private javax.swing.JLabel lbl_endereco_cliente;
-        private javax.swing.JLabel lbl_id_cliente;
-        private javax.swing.JLabel lbl_id_servico;
-        private javax.swing.JLabel lbl_nome_cliente;
-        private javax.swing.JLabel lbl_nome_servico;
-        private javax.swing.JLabel lbl_relatorio_servico;
-        private javax.swing.JLabel lbl_subTitulo_Servico;
-        private javax.swing.JLabel lbl_titulo;
-        private javax.swing.JLabel lbl_valor_servico;
-        private javax.swing.JPanel pnl_cliente;
-        private javax.swing.JPanel pnl_principal;
-        private javax.swing.JPanel pnl_servico;
-        private javax.swing.JTextField txt_animal_servico;
-        private javax.swing.JTextField txt_data_servico;
-        private javax.swing.JTextField txt_endereco_cliente;
-        private javax.swing.JTextField txt_id_cliente;
-        private javax.swing.JTextField txt_id_servico;
-        private javax.swing.JTextField txt_nome_cliente;
-        private javax.swing.JTextField txt_nome_servico;
-        private javax.swing.JTextField txt_relatorio_servico;
-        private javax.swing.JTextField txt_valor_servico;
-        // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_salvar;
+    private javax.swing.JComboBox<String> cmb_OrdemServico;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel lbl_animal_servico;
+    private javax.swing.JLabel lbl_comboBox;
+    private javax.swing.JLabel lbl_dados_cliente;
+    private javax.swing.JLabel lbl_data_servico;
+    private javax.swing.JLabel lbl_endereco_cliente;
+    private javax.swing.JLabel lbl_id_cliente;
+    private javax.swing.JLabel lbl_id_servico;
+    private javax.swing.JLabel lbl_nome_cliente;
+    private javax.swing.JLabel lbl_nome_servico;
+    private javax.swing.JLabel lbl_relatorio_servico;
+    private javax.swing.JLabel lbl_subTitulo_Servico;
+    private javax.swing.JLabel lbl_titulo;
+    private javax.swing.JLabel lbl_valor_servico;
+    private javax.swing.JPanel pnl_cliente;
+    private javax.swing.JPanel pnl_principal;
+    private javax.swing.JPanel pnl_servico;
+    private javax.swing.JTextField txt_animal_servico;
+    private javax.swing.JTextField txt_data_servico;
+    private javax.swing.JTextField txt_endereco_cliente;
+    private javax.swing.JTextField txt_id_cliente;
+    private javax.swing.JTextField txt_id_servico;
+    private javax.swing.JTextField txt_nome_cliente;
+    private javax.swing.JTextField txt_nome_servico;
+    private javax.swing.JTextField txt_relatorio_servico;
+    private javax.swing.JTextField txt_valor_servico;
+    // End of variables declaration//GEN-END:variables
+
+    private void txt_relatorio_servicoActionPerformed(ActionEvent evt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

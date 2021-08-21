@@ -7,6 +7,7 @@ package View;
 
 import Models.Administrador;
 import Models.Registro;
+import Models.Veterinario;
 import javax.swing.JOptionPane;
 
 /**
@@ -245,8 +246,9 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
             } else alertaLogin(usuario, senha);
         } else if(tipoUsuario.equals("Veterinário")){
+            Veterinario vet = new Veterinario("nathann", 1232, usuario, senha, "1234");
             if(usuario.equals("vet") && senha.equals("vet")) {
-                //mostrar tela veterinario 
+                new MenuVeterinario(vet,registros).setVisible(true);
             } else alertaLogin(usuario, senha);
         }
         
