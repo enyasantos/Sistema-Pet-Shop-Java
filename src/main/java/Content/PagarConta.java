@@ -76,6 +76,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
     }
 
     public Conta getIndex(int index) {
+        System.out.println(index);
         return contasAPagar.get(index);
     }
 
@@ -302,7 +303,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
         for (Conta conta : registros.getContas()) {
             if (!conta.isPaga()) {
                 combo_box_id.addItem("ID:" + Conta.getId() + " | Valor: R$" + conta.getValor());
-                addContaAPagar(conta);
+                contasAPagar.add(conta);
             }
         }
     }// GEN-LAST:event_combo_box_idAncestorAdded
@@ -316,8 +317,13 @@ public class PagarConta extends javax.swing.JInternalFrame {
         // Diferença em dias da data atual e data de vencimento da conta
         try {
             int index = combo_box_id.getSelectedIndex();
-            Conta contaSelected = getIndex(index);
-            additionalDays = sub2Dates(diaAtual.toString(), contaSelected.getDataVenc().toString());
+            System.out.println(combo_box_id.getSelectedIndex());
+            for (Conta conta : getContasAPagar()) {
+                System.out.println(conta.getDescricao());
+            }
+            Conta contaSelected = getIndex(0);
+            // contaSelected.getDataVenc().toString()
+            additionalDays = sub2Dates(diaAtual.toString(), "2029-10-10");
         } catch (ParseException ex) {
             Logger.getLogger(PagarConta.class.getName()).log(Level.SEVERE, null, ex);
         }

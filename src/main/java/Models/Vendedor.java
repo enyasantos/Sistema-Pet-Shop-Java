@@ -53,6 +53,12 @@ public class Vendedor extends Usuario {
     // }
     // }
 
+    public boolean cadastrarCliente():
+
+    public boolean realizarVenda();
+
+    public boolean realizarOrdemServico();
+
     // public Vendedor verificarLogin(ArrayList<Vendedor> vendedores, String
     // usuario, String senha){
     // ArrayList<Login> login;
