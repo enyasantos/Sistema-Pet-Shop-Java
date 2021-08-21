@@ -60,6 +60,17 @@ public class DataHorario {
         this.minuto = minuto;
     }
 
+    
+    public String toDateAmericanFormat() {     
+        String mes = getMes() > 9 ? String.valueOf(getMes()) : "0"+getMes();
+        return (getAno() + "-" + mes + "-" +  getDia());
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
     public String toString() {
         return String.format("%d-%d-%d", getDia(), getMes(), getAno());
     }

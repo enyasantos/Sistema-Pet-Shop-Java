@@ -10,8 +10,8 @@ package Models;
  * @author Vitoria
  */
 public class Produto {
-    public static int id = 0;
-    
+    private static int INIT_ID = 0;
+    private int id;
     private int quantidade;
     private float valor;
     private String nome;
@@ -19,19 +19,19 @@ public class Produto {
     private String descricao;
     
     public Produto(int quantidade, float valor, String nome, String animal, String descricao){
-        setId(getId()+1);
+        setId();
         this.quantidade = quantidade;
         this.valor = valor;
         this.nome = nome;
         this.animal = animal;
     }
     
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Produto.id = id;
+    public void setId() {
+        this.id = ++INIT_ID;
     }
     
     public void setQuantidade(int quantidade){

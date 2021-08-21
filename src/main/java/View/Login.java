@@ -129,9 +129,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         input_senha.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        input_senha.setText("admin");
         input_senha.setToolTipText("");
 
         input_usuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        input_usuario.setText("admin");
 
         combo_box_tipo_usuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         combo_box_tipo_usuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Administrador", "Vendedor", "Veterinário" }));

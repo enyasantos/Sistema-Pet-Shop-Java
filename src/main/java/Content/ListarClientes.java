@@ -9,7 +9,9 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 import Models.Administrador;
+import Models.Conta;
 import Models.Registro;
+import java.util.ArrayList;
 
 /**
  *
@@ -137,13 +139,21 @@ public class ListarClientes extends javax.swing.JInternalFrame {
 
     private void tbl_clientesAncestorAdded(javax.swing.event.AncestorEvent evt) {// GEN-FIRST:event_tbl_clientesAncestorAdded
         // TODO add your handling code here:
-        String clietes[][] = { { "1", "Lucas Silva", "Rua batatinha, av. tomate, 302" },
-                { "2", "Bruna Costa", "Rua batatinha, av. tomate, 300" },
-                { "3", "Livia Maria", "Rua batatinha, av. tomate, 306" }, };
-        DefaultTableModel tbl = (DefaultTableModel) tbl_clientes.getModel();
-        for (String[] cliente : clietes) {
-            tbl.addRow(cliente);
+        ArrayList<String[]> clientes = new ArrayList<>();
+        if (registros.getContas() != null) {
+            registros.getClientes().forEach((cliente) -> {
+                String aux[] = new String[6];
+                aux[0] = String.valueOf(cliente.getId());
+                aux[1] = cliente.getNome();
+                aux[2] = cliente.getEndereco();
+                clientes.add(aux);
+            });
         }
+
+        DefaultTableModel tbl = (DefaultTableModel) tbl_clientes.getModel();
+        clientes.forEach(conta -> {
+            tbl.addRow(conta);
+        });
     }// GEN-LAST:event_tbl_clientesAncestorAdded
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

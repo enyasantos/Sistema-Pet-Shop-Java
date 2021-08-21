@@ -10,7 +10,8 @@ package Models;
  * @author enya
  */
 public class Usuario {
-    private static int id = 0;
+    private static int INIT_ID = 0;
+    private int id;
     private String nome;
     private Float salario;
     private String usuario;
@@ -19,7 +20,7 @@ public class Usuario {
     private String cpf;
 
     public Usuario(String nome, Float salario, String usuario, String senha, String cpf) {
-        setId(getId() + 1);
+        setId();
         setNome(nome);
         setUsuario(usuario);
         setSalario(salario);
@@ -32,8 +33,8 @@ public class Usuario {
         return id;
     }
 
-    public static void setId(int id) {
-        Usuario.id = id;
+    public void setId() {
+        this.id = ++INIT_ID;
     }
 
     public String getNome() {

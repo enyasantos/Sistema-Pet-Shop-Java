@@ -10,6 +10,8 @@ import Models.Conta;
 import Models.DataHorario;
 import Models.Produto;
 import Models.Registro;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -240,18 +242,21 @@ public class Comprar extends javax.swing.JInternalFrame {
         String descricao = input_text_descricao.getText();
         int qtd = Integer.parseInt(input_qtd.getText());
         Float valor = Float.parseFloat(input_valor.getValue().toString());
-        int dia = input_data.getDate().getDay();
-        int mes = input_data.getDate().getMonth();
-        int ano = input_data.getDate().getYear();
-
+        //Converte o tipo Date para LocalDate
+        LocalDate data = LocalDate.ofInstant(input_data.getDate().toInstant(), ZoneId.systemDefault());
+        int dia = data.getDayOfMonth();
+        int mes = data.getMonthValue();
+        int ano = data.getYear();
+        
         DataHorario dataVenc = new DataHorario(dia, mes, ano, 0, 0);
-        String descricaoConta = "Compra do produto " + nome + "para " + animal;
+        String descricaoConta = "Compra do produto " + nome + " para " + animal;
         Conta conta = new Conta(dataVenc, descricaoConta, (valor * qtd));
         Produto produto = new Produto(qtd, valor, nome, animal, descricao);
 
         if (getAdministrador().comprar(this.getRegistros(), conta, produto)) {
             JOptionPane.showMessageDialog(null, "Compra registrada com sucesso.", "Compra registrada",
                     JOptionPane.INFORMATION_MESSAGE);
+            cleanInputs();
         } else {
             JOptionPane.showMessageDialog(null, "Erro no processo de compra, tente novamente.", "Erro",
                     JOptionPane.ERROR_MESSAGE);
@@ -260,12 +265,16 @@ public class Comprar extends javax.swing.JInternalFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
+        cleanInputs();
+    }// GEN-LAST:event_jLabel7MouseClicked
+    
+    private void cleanInputs() {
         input_nome.setText("");
         combo_box_animal.setSelectedIndex(0);
         input_text_descricao.setText("");
         input_qtd.setText("");
         input_valor.setText("");
-    }// GEN-LAST:event_jLabel7MouseClicked
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> combo_box_animal;

@@ -9,7 +9,9 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
 import Models.Administrador;
+import Models.Conta;
 import Models.Registro;
+import java.util.ArrayList;
 
 /**
  *
@@ -184,13 +186,25 @@ public class Relatorio extends javax.swing.JInternalFrame {
 
     private void tbl_contasAncestorAdded(javax.swing.event.AncestorEvent evt) {// GEN-FIRST:event_tbl_contasAncestorAdded
         // TODO add your handling code here:
-        String contas[][] = { { "1", "Compra de bolinha para cachorro", "17/08/2021", "", "40,00", "À pagar" },
-                { "2", "Compra de bolinha", "17/08/2021", "17/08/2021", "40,00", "Pago" },
-                { "3", "Compra de bolinha para gato", "17/08/2021", "30/08/2021", "40,00", "Pago[Agendado]" }, };
-        DefaultTableModel tbl = (DefaultTableModel) tbl_contas.getModel();
-        for (String[] conta : contas) {
-            tbl.addRow(conta);
+        ArrayList<String[]> contas = new ArrayList<>();
+        if (registros.getContas() != null) {
+            registros.getContas().forEach((Conta conta) -> {
+                String aux[] = new String[6];
+                aux[0] = String.valueOf(conta.getId());
+                aux[1] = conta.getDescricao();
+                aux[2] = conta.getDataVenc().toString();               
+                if(conta.getDataPagto() != null) aux[3] = conta.getDataPagto().toString();
+                else aux[3] = "";
+                aux[4] = Float.toString(conta.getValor());
+                aux[5] = conta.isPaga() ? "Paga" : "À pagar";
+                contas.add(aux);
+            });
         }
+
+        DefaultTableModel tbl = (DefaultTableModel) tbl_contas.getModel();
+        contas.forEach(conta -> {
+            tbl.addRow(conta);
+        });
 
     }// GEN-LAST:event_tbl_contasAncestorAdded
 

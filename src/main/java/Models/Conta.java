@@ -10,7 +10,8 @@ package Models;
  * @author enya
  */
 public class Conta {
-    private static int id = 0;
+    private static int INIT_ID = 0;
+    private int id;
     private DataHorario dataVenc, dataPagto;
     private String descricao;
     private Float valor;
@@ -21,15 +22,15 @@ public class Conta {
         setDescricao(descricao);
         setValor(valor);
         setPaga(false);
-        setId(getId() + 1);
+        setId();
     }
     
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Conta.id = id;
+    public void setId() {
+        this.id = ++INIT_ID;
     }
 
     public DataHorario getDataVenc() {

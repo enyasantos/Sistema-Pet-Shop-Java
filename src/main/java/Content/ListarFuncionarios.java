@@ -166,9 +166,9 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
 
             getRegistros().getVendedores();
             ArrayList<String[]> vendedores = new ArrayList<>();
-            String aux[] = new String[6];
 
-            for (Vendedor vendedor : getRegistros().getVendedores()) {
+            getRegistros().getVendedores().forEach(vendedor -> {
+                String aux[] = new String[6];
                 aux[0] = String.valueOf(vendedor.getId());
                 aux[1] = vendedor.getNome();
                 aux[2] = vendedor.getUsuario();
@@ -176,11 +176,12 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
                 aux[4] = vendedor.getCpf();
                 aux[5] = Float.toString(vendedor.getSalario());
                 vendedores.add(aux);
-            }
+            });
+            
             DefaultTableModel tbl = (DefaultTableModel) jTable1.getModel();
-            for (String[] vendedor : vendedores) {
+            vendedores.forEach(vendedor -> {
                 tbl.addRow(vendedor);
-            }
+            });
 
         } else if (tipoFuncionario.equals("veterinário")) {
             jLabel5.setText("Visualizar veterinários");
