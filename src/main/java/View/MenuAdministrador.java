@@ -634,7 +634,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void lbl_cadastrar_veterinarioMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lbl_cadastrar_veterinarioMouseClicked
         // TODO add your handling code here:
-        CadastrarFuncionarios lista = new CadastrarFuncionarios("veterinário", adm, registros);
+        CadastrarFuncionarios lista = new CadastrarFuncionarios("veterinario", adm, registros);
         j_content.removeAll();
         j_content.add(lista).setVisible(true);
 
