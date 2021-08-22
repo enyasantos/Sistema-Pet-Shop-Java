@@ -17,8 +17,8 @@ public class Veterinario extends Usuario {
         super(nome, salario, usuario, senha, cpf);
     }
 
-    public boolean cadastrarRelatorioOrdem(Registro registro, String relatorio, int index){
-        registro.getOrdemServicos().get(index).setRelatorio(relatorio);
+    public boolean cadastrarRelatorioOrdem(OrdemServico ordemServico, String relatorio){
+        ordemServico.setRelatorio(relatorio);
         return true;
     }
     

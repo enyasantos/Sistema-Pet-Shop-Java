@@ -28,7 +28,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
 
     private Administrador adm;
     private Registro registros;
-    private ArrayList<Conta> contasAPagar = new ArrayList<Conta>();
+    private ArrayList<Conta> contasAPagar = new ArrayList<>();
 
     /**
      * Creates new form PagarConta

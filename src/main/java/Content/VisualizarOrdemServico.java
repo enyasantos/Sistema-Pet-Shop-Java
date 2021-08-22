@@ -5,6 +5,7 @@
  */
 package Content;
 
+import Models.Conta;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import Models.OrdemServico;
 import Models.Registro;
@@ -22,9 +23,9 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     /**
      * Creates new form VisualizarOrdemServico
      */
-    Veterinario vet;
-    Registro reg;
-    ArrayList<OrdemServico> ordens;
+    private Veterinario vet;
+    private Registro reg;
+    private ArrayList<OrdemServico> ordens = new ArrayList<>();
     private static VisualizarOrdemServico tela;
 
     public VisualizarOrdemServico() {
@@ -41,11 +42,17 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         ui.setNorthPane(null);
 
         this.vet = vet;
-        this.reg = reg;
-        this.ordens = this.reg.getOrdemServicos();       
+        this.reg = reg;       
     }
 
-   
+    public ArrayList<OrdemServico> getOrdens() {
+        return ordens;
+    }
+
+    public void setOrdens(ArrayList<OrdemServico> ordens) {
+        this.ordens = ordens;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -410,21 +417,32 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txt_id_servicoActionPerformed
 
     private void cmb_OrdemServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_OrdemServicoActionPerformed
-        mostrarDados();
+        if (!ordens.isEmpty())
+            mostrarDados();
     }//GEN-LAST:event_cmb_OrdemServicoActionPerformed
 
     private void btn_salvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salvarMouseClicked
-        System.out.println(txt_relatorio_servico.getText());
-        vet.cadastrarRelatorioOrdem(reg, txt_relatorio_servico.getText(), cmb_OrdemServico.getSelectedIndex());
-        JOptionPane.showMessageDialog(null, "Relatório Salvo!");
+        
+        if (!ordens.isEmpty()) {
+            vet.cadastrarRelatorioOrdem(getOrdens().get(cmb_OrdemServico.getSelectedIndex()), txt_relatorio_servico.getText());
+            JOptionPane.showMessageDialog(null, "Relatório Salvo!");
+        }
+        
     }//GEN-LAST:event_btn_salvarMouseClicked
 
     private void cmb_OrdemServicoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cmb_OrdemServicoAncestorAdded
-        if (!ordens.isEmpty()) {
-            ordens.forEach(ordem -> {
-                cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+        if (!reg.getOrdemServicos().isEmpty()) {
+             reg.getOrdemServicos().forEach(ordem -> {
+                if(ordem.getServico().getNome().equals("Consulta")) {
+                    cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+                    getOrdens().add(ordem);
+                }
+                
             });
         }
+        
+        if (!ordens.isEmpty())
+            mostrarDados();
     }//GEN-LAST:event_cmb_OrdemServicoAncestorAdded
 
  
@@ -447,6 +465,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         txt_id_servico.setEditable(false);
         txt_nome_servico.setText(ordemAux.getServico().getNome());
         txt_nome_servico.setEnabled(true);
+        txt_nome_servico.setEditable(false);
         txt_animal_servico.setText(ordemAux.getAnimal());
         txt_animal_servico.setEnabled(true);
         txt_animal_servico.setEditable(false);
