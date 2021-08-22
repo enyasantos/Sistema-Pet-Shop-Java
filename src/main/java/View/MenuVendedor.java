@@ -103,6 +103,9 @@ public class MenuVendedor extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_ordem_servico_cad1MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_ordem_servico_cad1MousePressed(evt);
+            }
         });
         panel_menu.add(lbl_ordem_servico_cad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, 30));
 
@@ -355,7 +358,7 @@ public class MenuVendedor extends javax.swing.JFrame {
 
     private void lbl_ordem_servico_cad1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ordem_servico_cad1MouseClicked
         // TODO add your handling code here:
-        GerarOrdemDeServico ordem = new GerarOrdemDeServico();
+        GerarOrdemDeServico ordem = new GerarOrdemDeServico(vend, registros);
         j_content.removeAll();
         j_content.add(ordem).setVisible(true);
 
@@ -390,6 +393,17 @@ public class MenuVendedor extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_lbl_sairMouseClicked
+
+    private void lbl_ordem_servico_cad1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ordem_servico_cad1MousePressed
+        // TODO add your handling code here:
+        GerarOrdemDeServico ordem = new GerarOrdemDeServico(vend, registros);
+        j_content.removeAll();
+        j_content.add(ordem).setVisible(true);
+
+        resetColor(btn_cadastrar_cliente_aux);
+        resetColor(btn_venda_aux);
+        setColor(btn_gerar_ordem_serv_aux);
+    }//GEN-LAST:event_lbl_ordem_servico_cad1MousePressed
 
     /**
      * @param args the command line arguments

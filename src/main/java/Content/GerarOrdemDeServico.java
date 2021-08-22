@@ -6,7 +6,19 @@
 package Content;
 import Models.Registro;
 import Models.Vendedor;
+import Models.Cliente;
+import Models.DataHorario;
+import Models.OrdemServico;
+import Models.Servico;
+import Models.Produto;
+import Models.Venda;
+
+import java.util.ArrayList;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.time.LocalDate;
+import java.time.ZoneId;
 /**
  *
  * @author Vitoria
@@ -25,6 +37,15 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
     }
+    
+    public GerarOrdemDeServico(Vendedor vend, Registro reg) {
+        initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
+        this.vend = vend;
+        this.registros = reg;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,20 +61,20 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         lbl_separador = new javax.swing.JSeparator();
         lbl_cancelar = new javax.swing.JLabel();
         lbl_endereco = new javax.swing.JLabel();
-        btn_cadastro = new javax.swing.JButton();
+        btn_gerar = new javax.swing.JButton();
         lbl_endereco1 = new javax.swing.JLabel();
-        j_servicos = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        combo_box_serv = new javax.swing.JComboBox<>();
+        field_data = new com.toedter.calendar.JDateChooser();
         lbl_endereco2 = new javax.swing.JLabel();
         lbl_endereco3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        combo_box_animal = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        j_servicos1 = new javax.swing.JComboBox<>();
         lbl_endereco8 = new javax.swing.JLabel();
-        j_hora = new javax.swing.JFormattedTextField();
+        field_hora = new javax.swing.JFormattedTextField();
         lbl_subt = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_clientes = new javax.swing.JTable();
+        field_id = new javax.swing.JTextField();
 
         lbl_titulo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(24, 24, 24));
@@ -107,11 +128,16 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_cadastro.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
-        btn_cadastro.setText("Cadastrar");
-        btn_cadastro.addActionListener(new java.awt.event.ActionListener() {
+        btn_gerar.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        btn_gerar.setText("Gerar");
+        btn_gerar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_gerarMouseClicked(evt);
+            }
+        });
+        btn_gerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastroActionPerformed(evt);
+                btn_gerarActionPerformed(evt);
             }
         });
 
@@ -127,15 +153,15 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             }
         });
 
-        j_servicos.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        j_servicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        j_servicos.addActionListener(new java.awt.event.ActionListener() {
+        combo_box_serv.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        combo_box_serv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_box_serv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                j_servicosActionPerformed(evt);
+                combo_box_servActionPerformed(evt);
             }
         });
 
-        jDateChooser1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        field_data.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
         lbl_endereco2.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_endereco2.setForeground(new java.awt.Color(24, 24, 24));
@@ -163,11 +189,11 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Cachorro", "Gato", "Passaro" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        combo_box_animal.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        combo_box_animal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Cachorro", "Gato", "Passaro" }));
+        combo_box_animal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                combo_box_animalActionPerformed(evt);
             }
         });
 
@@ -175,17 +201,9 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(22, 22, 22));
         jLabel9.setText("Animal:");
 
-        j_servicos1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        j_servicos1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        j_servicos1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                j_servicos1ActionPerformed(evt);
-            }
-        });
-
         lbl_endereco8.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_endereco8.setForeground(new java.awt.Color(24, 24, 24));
-        lbl_endereco8.setText("Cliente");
+        lbl_endereco8.setText("ID:");
         lbl_endereco8.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 lbl_endereco8AncestorAdded(evt);
@@ -196,10 +214,10 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             }
         });
 
-        j_hora.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        j_hora.addActionListener(new java.awt.event.ActionListener() {
+        field_hora.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        field_hora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                j_horaActionPerformed(evt);
+                field_horaActionPerformed(evt);
             }
         });
 
@@ -218,31 +236,38 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
 
         table_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "ID", "Nome:", "Endereco"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        });
+        table_clientes.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                table_clientesAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane1.setViewportView(table_clientes);
+
+        field_id.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        field_id.setPreferredSize(new java.awt.Dimension(30, 22));
+        field_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_idActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,20 +278,19 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
+                            .addGap(2, 2, 2)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(j_servicos1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(lbl_endereco8)))
-                            .addGap(80, 80, 80)
+                                .addComponent(lbl_endereco8)
+                                .addComponent(field_id, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(259, 259, 259)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel9)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(combo_box_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(60, 60, 60)
                             .addComponent(lbl_cancelar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btn_gerar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lbl_titulo)
                     .addComponent(lbl_subtitulo)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -280,17 +304,17 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(j_servicos, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(combo_box_serv, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(lbl_endereco2)
                                     .addGap(80, 80, 80)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(field_data, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbl_endereco))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(j_hora)
+                                .addComponent(field_hora)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(lbl_endereco3)
                                     .addGap(0, 0, Short.MAX_VALUE))))))
@@ -314,31 +338,34 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                             .addComponent(lbl_endereco3))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(j_servicos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)))
-                    .addComponent(j_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(field_data, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(combo_box_serv, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)))
+                    .addComponent(field_hora, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_subt)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                        .addGap(34, 34, 34)
                         .addComponent(lbl_endereco1))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbl_subt)
-                        .addGap(6, 6, 6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_endereco8)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1)
-                    .addComponent(j_servicos1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(combo_box_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_id, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_gerar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_cancelar))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -360,17 +387,17 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_enderecoAncestorAdded
 
-    private void btn_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroActionPerformed
+    private void btn_gerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gerarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cadastroActionPerformed
+    }//GEN-LAST:event_btn_gerarActionPerformed
 
     private void lbl_endereco1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lbl_endereco1AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_endereco1AncestorAdded
 
-    private void j_servicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j_servicosActionPerformed
+    private void combo_box_servActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_box_servActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_j_servicosActionPerformed
+    }//GEN-LAST:event_combo_box_servActionPerformed
 
     private void lbl_endereco2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lbl_endereco2AncestorAdded
         // TODO add your handling code here:
@@ -380,36 +407,102 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_endereco3AncestorAdded
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void combo_box_animalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_box_animalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void j_servicos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j_servicos1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_j_servicos1ActionPerformed
+    }//GEN-LAST:event_combo_box_animalActionPerformed
 
     private void lbl_endereco8AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lbl_endereco8AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_endereco8AncestorAdded
 
-    private void j_horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j_horaActionPerformed
+    private void field_horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_horaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_j_horaActionPerformed
+    }//GEN-LAST:event_field_horaActionPerformed
 
     private void lbl_subtAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lbl_subtAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_subtAncestorAdded
 
+    private void table_clientesAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_table_clientesAncestorAdded
+        // TODO add your handling code here:
+        ArrayList<String[]> clientes = new ArrayList<>();
+        if (registros.getClientes() != null) {
+            registros.getClientes().forEach((Cliente cliente) -> {
+                String aux[] = new String[3];
+                aux[0] = String.valueOf(cliente.getId());
+                aux[1] = cliente.getNome();
+                aux[2] = cliente.getEndereco();
+                clientes.add(aux);
+            });
+        }
+
+        DefaultTableModel tbl = (DefaultTableModel) table_clientes.getModel();
+        clientes.forEach(cliente -> {
+            tbl.addRow(cliente);
+        });
+    }//GEN-LAST:event_table_clientesAncestorAdded
+
+    private void btn_gerarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_gerarMouseClicked
+        // TODO add your handling code here:
+        String tipoServ = String.valueOf(combo_box_serv.getSelectedItem());
+        String animal = String.valueOf(combo_box_animal.getSelectedItem());
+        int id = Integer.parseInt(field_id.getText());
+        
+        
+        String hora = field_hora.getText();
+        
+        //Converte o tipo Date para LocalDate
+        LocalDate data = LocalDate.ofInstant(field_data.getDate().toInstant(), ZoneId.systemDefault());
+        int dia = data.getDayOfMonth();
+        int mes = data.getMonthValue();
+        int ano = data.getYear();
+        
+        DataHorario datatime = new DataHorario(dia, mes, ano, 0, 0);
+   
+        
+        if(vend.getClienteById(registros.getClientes(), id, true) != null){
+            float valor = (float)0;
+        
+            if(tipoServ.equals("Banho e Tosa"))
+                valor = (float)80.0;
+            else if (tipoServ.equals("Consulta"))
+                valor = (float)90.0;
+
+            Servico servico = new Servico(tipoServ, valor);
+            Venda nVenda = new Venda(servico, valor, vend.getId());
+            OrdemServico nOrdem = new OrdemServico(servico, datatime, vend.getClienteById(registros.getClientes(), id, true), animal);
+            if(vend.realizarOrdemServico(registros, nOrdem, nVenda, servico)){
+                JOptionPane.showMessageDialog(null, "Ordem de serviço realizada com sucesso.", "Ordem de serviço realizada", JOptionPane.INFORMATION_MESSAGE);
+                cleanInputs();
+            }
+            else 
+                JOptionPane.showMessageDialog(null, "Erro no processo de geração de ordem de serviço, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Cliente não existente, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
+   
+    }//GEN-LAST:event_btn_gerarMouseClicked
+
+    private void field_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_idActionPerformed
+    
+    private void cleanInputs(){
+        combo_box_serv.setSelectedIndex(0);
+        combo_box_animal.setSelectedIndex(0);
+        field_id.setText("");
+        field_hora.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cadastro;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton btn_gerar;
+    private javax.swing.JComboBox<String> combo_box_animal;
+    private javax.swing.JComboBox<String> combo_box_serv;
+    private com.toedter.calendar.JDateChooser field_data;
+    private javax.swing.JFormattedTextField field_hora;
+    private javax.swing.JTextField field_id;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JFormattedTextField j_hora;
-    private javax.swing.JComboBox<String> j_servicos;
-    private javax.swing.JComboBox<String> j_servicos1;
     private javax.swing.JLabel lbl_cancelar;
     private javax.swing.JLabel lbl_endereco;
     private javax.swing.JLabel lbl_endereco1;

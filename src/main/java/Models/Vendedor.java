@@ -53,28 +53,6 @@ public class Vendedor extends Usuario {
         return null;
     }
 
-    public void visualizarCliente(ArrayList<Cliente> clientes) {
-        if (super.getStatusLog()) {
-            if (!clientes.isEmpty()) {
-                for (Cliente cliente : clientes)
-                    System.out.println("cliente: " + cliente);
-            } else
-                JOptionPane.showMessageDialog(null, "Não há clientes cadastrados", "Erro", JOptionPane.WARNING_MESSAGE);
-        } else
-            JOptionPane.showMessageDialog(null, "Operação não permitida, faça o login para continuar", "Erro", JOptionPane.WARNING_MESSAGE);
-    }
-
-    public void visualizarProdutos(ArrayList<Produto> produtos) {
-        if (super.getStatusLog()) {
-            if (!produtos.isEmpty()) {
-                for(Produto produto : produtos)
-                    System.out.println("produto: " + produto);
-            } else 
-                JOptionPane.showMessageDialog(null, "Não há produtos cadastrados", "Erro", JOptionPane.WARNING_MESSAGE);
-        } else 
-            JOptionPane.showMessageDialog(null, "Operação não permitida, faça o login para continuar", "Erro", JOptionPane.WARNING_MESSAGE);
-    }
-
     public boolean cadastrarCliente(Registro registros, Cliente cliente){
         if(super.getStatusLog()){
             registros.addCliente(cliente);

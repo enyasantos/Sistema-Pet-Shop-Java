@@ -255,11 +255,11 @@ public class Vender extends javax.swing.JInternalFrame {
                         .addComponent(lbl_titulo2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(field_id, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_cancelar)
                     .addComponent(btn_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -297,11 +297,9 @@ public class Vender extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int id = Integer.parseInt(field_id.getText());
         int quant = Integer.parseInt(field_quant.getText());
-        boolean prodExist = false;
-        float valor = (vend.getProdutoByID(registros.getProdutos(), id, true)).getValor();
-        
-        if(prodExist){
-            JOptionPane.showMessageDialog(null, "MORTE", "Erro", JOptionPane.ERROR_MESSAGE);
+      
+        if(vend.getProdutoByID(registros.getProdutos(), id, true) != null){
+            float valor = (vend.getProdutoByID(registros.getProdutos(), id, true)).getValor();
 
             Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id, true), valor, vend.getId());
             if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id)){
@@ -311,10 +309,9 @@ public class Vender extends javax.swing.JInternalFrame {
             else{
                 JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
-            JOptionPane.showMessageDialog(null, "MORTE", "Erro", JOptionPane.ERROR_MESSAGE);
         }
         else
-            JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE); 
     }//GEN-LAST:event_btn_vendaMouseClicked
 
     private void field_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_idActionPerformed
