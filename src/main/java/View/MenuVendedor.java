@@ -9,7 +9,8 @@ import Content.CadastrarCliente;
 import Content.GerarOrdemDeServico;
 import Content.GerarOrdemDeServicoSemCadastro;
 import Content.Vender;
-
+import Models.Registro;
+import Models.Vendedor;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -18,12 +19,21 @@ import javax.swing.JPanel;
  * @author Vitoria
  */
 public class MenuVendedor extends javax.swing.JFrame {
-
     /**
      * Creates new form MenuVendedor
      */
+    
+    private Vendedor vend;
+    private Registro registros;
+    
     public MenuVendedor() {
         initComponents();
+    }
+    
+    public MenuVendedor(Vendedor vend, Registro registros) {
+        initComponents();
+        this.vend = vend;
+        this.registros = registros;
     }
 
     /**
@@ -54,6 +64,7 @@ public class MenuVendedor extends javax.swing.JFrame {
         j_content = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         panel_menu.setBackground(new java.awt.Color(13, 36, 51));
         panel_menu.setPreferredSize(new java.awt.Dimension(271, 713));
@@ -78,6 +89,11 @@ public class MenuVendedor extends javax.swing.JFrame {
         lbl_sair.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_sair.setForeground(new java.awt.Color(254, 254, 254));
         lbl_sair.setText("Sair");
+        lbl_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_sairMouseClicked(evt);
+            }
+        });
         panel_menu.add(lbl_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
 
         lbl_ordem_servico_cad1.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
@@ -88,7 +104,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 lbl_ordem_servico_cad1MouseClicked(evt);
             }
         });
-        panel_menu.add(lbl_ordem_servico_cad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 30));
+        panel_menu.add(lbl_ordem_servico_cad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, 30));
 
         lbl_ordem_servico_sem_cad.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_ordem_servico_sem_cad.setForeground(new java.awt.Color(254, 254, 254));
@@ -98,7 +114,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 lbl_ordem_servico_sem_cadMouseClicked(evt);
             }
         });
-        panel_menu.add(lbl_ordem_servico_sem_cad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, 30));
+        panel_menu.add(lbl_ordem_servico_sem_cad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 30));
 
         btn_cadastrar_cliente.setBackground(new java.awt.Color(13, 36, 51));
         btn_cadastrar_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,7 +164,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panel_menu.add(btn_cadastrar_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 90, 250, -1));
+        panel_menu.add(btn_cadastrar_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 250, -1));
 
         btn_venda.setBackground(new java.awt.Color(13, 36, 51));
         btn_venda.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,7 +214,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panel_menu.add(btn_venda, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 130, 250, -1));
+        panel_menu.add(btn_venda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 250, -1));
 
         btn_gerar_ordem_serv.setBackground(new java.awt.Color(13, 36, 51));
         btn_gerar_ordem_serv.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -248,7 +264,7 @@ public class MenuVendedor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panel_menu.add(btn_gerar_ordem_serv, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 170, -1, -1));
+        panel_menu.add(btn_gerar_ordem_serv, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));
 
         j_content.setBackground(new java.awt.Color(244, 244, 244));
         j_content.setPreferredSize(new java.awt.Dimension(678, 536));
@@ -303,7 +319,7 @@ public class MenuVendedor extends javax.swing.JFrame {
 
     private void lbl_vendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_vendaMouseClicked
         // TODO add your handling code here:
-        Vender venda = new Vender();
+        Vender venda = new Vender(registros, vend);
         j_content.removeAll();
         j_content.add(venda).setVisible(true);
 
@@ -314,7 +330,7 @@ public class MenuVendedor extends javax.swing.JFrame {
 
     private void btn_vendaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_vendaMousePressed
         // TODO add your handling code here:
-        Vender venda = new Vender();
+        Vender venda = new Vender(registros, vend);
         j_content.removeAll();
         j_content.add(venda).setVisible(true);
 
@@ -350,7 +366,7 @@ public class MenuVendedor extends javax.swing.JFrame {
 
     private void lbl_cadastrar_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cadastrar_clienteMouseClicked
         // TODO add your handling code here:
-        CadastrarCliente cadastro = new CadastrarCliente();
+        CadastrarCliente cadastro = new CadastrarCliente(vend, registros);
         j_content.removeAll();
         j_content.add(cadastro).setVisible(true);
 
@@ -361,7 +377,7 @@ public class MenuVendedor extends javax.swing.JFrame {
 
     private void btn_cadastrar_clienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cadastrar_clienteMousePressed
         // TODO add your handling code here:
-        CadastrarCliente cadastro = new CadastrarCliente();
+        CadastrarCliente cadastro = new CadastrarCliente(vend, registros);
         j_content.removeAll();
         j_content.add(cadastro).setVisible(true);
 
@@ -369,6 +385,11 @@ public class MenuVendedor extends javax.swing.JFrame {
         resetColor(btn_venda_aux);
         resetColor(btn_gerar_ordem_serv_aux);
     }//GEN-LAST:event_btn_cadastrar_clienteMousePressed
+
+    private void lbl_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_sairMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_lbl_sairMouseClicked
 
     /**
      * @param args the command line arguments

@@ -1,0 +1,56 @@
+{
+  // Use o IntelliSense para saber mais sobre os atributos possíveis.
+  // Focalizar para exibir as descrições dos atributos existentes.
+  // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "Controllers.Main",
+      "projectName": "petshop"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main(1)",
+      "request": "launch",
+      "mainClass": "Models.Main",
+      "projectName": "petshop"
+    },
+    {
+      "type": "java",
+      "name": "Launch Login",
+      "request": "launch",
+      "mainClass": "View.Login",
+      "projectName": "petshop"
+    },
+    {
+      "type": "java",
+      "name": "Launch MenuAdministrador",
+      "request": "launch",
+      "mainClass": "View.MenuAdministrador",
+      "projectName": "petshop"
+    },
+    {
+      "type": "java",
+      "name": "Launch MenuVendedor",
+      "request": "launch",
+      "mainClass": "View.MenuVendedor",
+      "projectName": "petshop"
+    },
+    {
+      "type": "java",
+      "name": "Launch MenuVeterinario",
+      "request": "launch",
+      "mainClass": "View.MenuVeterinario",
+      "projectName": "petshop"
+    }
+  ]
+}

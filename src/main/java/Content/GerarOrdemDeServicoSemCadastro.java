@@ -102,7 +102,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         btn_cadastro.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
         btn_cadastro.setText("Cadastrar");
-        btn_cadastro.setPreferredSize(new java.awt.Dimension(101, 29));
         btn_cadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cadastroActionPerformed(evt);
@@ -255,7 +254,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
                             .addComponent(lbl_titulo)
                             .addComponent(lbl_subtitulo)
                             .addComponent(lbl_separador, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 52, Short.MAX_VALUE))))
+                        .addGap(0, 65, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,7 +298,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_cancelar))

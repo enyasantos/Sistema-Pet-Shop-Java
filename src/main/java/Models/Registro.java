@@ -18,6 +18,7 @@ public class Registro {
     private ArrayList<Servico> servicos = new ArrayList<>();
     private ArrayList<Veterinario> veterinarios = new ArrayList<>();
     private ArrayList<Vendedor> vendedores = new ArrayList<>();
+    private ArrayList<Venda> vendas = new ArrayList<>();
     private final ArrayList<Produto> produtos = new ArrayList<>();
 
     public ArrayList<Veterinario> getVeterinarios() {
@@ -51,13 +52,17 @@ public class Registro {
     public void setOrdemServicos(ArrayList<OrdemServico> ordemServicos) {
         this.ordemServicos = ordemServicos;
     }
-
-    public ArrayList<Cliente> getClientes() {
-        return clientes;
-    }
-
+    
     public void setClientes(ArrayList<Cliente> clientes) {
         this.clientes = clientes;
+    }
+
+    public void setVendas(ArrayList<Venda> vendas){
+        this.vendas = vendas;
+    }
+    
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
     }
 
     public ArrayList<Servico> getServicos() {
@@ -80,6 +85,9 @@ public class Registro {
         return produtos;
     }
     
+    public ArrayList<Venda> getVendas(){
+        return vendas;
+    }
 
     public void addConta(Conta conta) {
         this.contas.add(conta);
@@ -96,5 +104,16 @@ public class Registro {
     public void addProduto(Produto produto) {
         this.produtos.add(produto);
     }
-
+    
+    public void addVenda(Venda venda) {
+        this.vendas.add(venda);
+    }
+    
+    public void addCliente(Cliente cliente) {
+        this.clientes.add(cliente);
+    }
+    
+    public void addOrdemServico(OrdemServico ordem){
+        this.ordemServicos.add(ordem);
+    }
 }

@@ -20,10 +20,10 @@ public class Produto {
     
     public Produto(int quantidade, float valor, String nome, String animal, String descricao){
         setId();
-        this.quantidade = quantidade;
-        this.valor = valor;
-        this.nome = nome;
-        this.animal = animal;
+        setQuantidade(quantidade);
+        setValor(valor);
+        setNome(nome);
+        setAnimal(animal);
     }
     
     public int getId() {

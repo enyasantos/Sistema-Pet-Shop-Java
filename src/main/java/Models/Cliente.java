@@ -12,24 +12,23 @@ package Models;
 
 
 public class Cliente {
-    static int _id = 0;
-    
+    private static int INIT_ID = 0;
     private int id;
     private String nome;
     private String endereco;
     
     public Cliente(String nome, String endereco){
         setId();
-        this.nome = nome;
-        this.endereco = endereco;
+        setNome(nome);
+        setEndereco(endereco);
     }
 
     public int getId() {
-        return _id;
+        return id;
     }
 
     public void setId() {
-        this.id = _id++;
+        this.id = ++INIT_ID;
     }
 
     public String getNome() {

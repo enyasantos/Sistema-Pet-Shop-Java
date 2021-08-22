@@ -4,7 +4,15 @@
  * and open the template in the editor.
  */
 package Content;
+import Models.Produto;
+import Models.Registro;
+import Models.Vendedor;
+import Models.Venda;
+import java.util.ArrayList;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Vitoria
@@ -14,11 +22,25 @@ public class Vender extends javax.swing.JInternalFrame {
     /**
      * Creates new form Vender
      */
+    
+    private Registro registros;
+    private Vendedor vend;
+    
     public Vender() {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
+    }
+    
+    public Vender(Registro reg, Vendedor vend) {
+        initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
+        
+        this.registros = reg;
+        this.vend = vend;
     }
 
     /**
@@ -36,12 +58,12 @@ public class Vender extends javax.swing.JInternalFrame {
         lbl_titulo1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_produtos = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
         lbl_titulo2 = new javax.swing.JLabel();
         lbl_titulo3 = new javax.swing.JLabel();
         lbl_cancelar = new javax.swing.JLabel();
-        btn_cadastro = new javax.swing.JButton();
-        jSpinner1 = new javax.swing.JSpinner();
+        btn_venda = new javax.swing.JButton();
+        field_id = new javax.swing.JTextField();
+        field_quant = new javax.swing.JTextField();
 
         lbl_subtitulo.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lbl_subtitulo.setForeground(new java.awt.Color(24, 24, 24));
@@ -84,34 +106,30 @@ public class Vender extends javax.swing.JInternalFrame {
 
         table_produtos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "ID", "Nome:", "Quantidade", "Valor"
+                "ID", "Nome", "Quantidade", "Valor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        });
+        table_produtos.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                table_produtosAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane1.setViewportView(table_produtos);
-
-        jComboBox1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lbl_titulo2.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_titulo2.setForeground(new java.awt.Color(24, 24, 24));
@@ -152,16 +170,37 @@ public class Vender extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_cadastro.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
-        btn_cadastro.setText("Cadastrar");
-        btn_cadastro.setPreferredSize(new java.awt.Dimension(101, 29));
-        btn_cadastro.addActionListener(new java.awt.event.ActionListener() {
+        btn_venda.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        btn_venda.setText("Vender");
+        btn_venda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_vendaMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_vendaMousePressed(evt);
+            }
+        });
+        btn_venda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastroActionPerformed(evt);
+                btn_vendaActionPerformed(evt);
             }
         });
 
-        jSpinner1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        field_id.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        field_id.setPreferredSize(new java.awt.Dimension(30, 22));
+        field_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_idActionPerformed(evt);
+            }
+        });
+
+        field_quant.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        field_quant.setPreferredSize(new java.awt.Dimension(30, 22));
+        field_quant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                field_quantActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,17 +219,17 @@ public class Vender extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbl_titulo2)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(field_id, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbl_titulo3)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(field_quant, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(48, 48, 48))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addGap(79, 79, 79)
                         .addComponent(lbl_cancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -204,22 +243,23 @@ public class Vender extends javax.swing.JInternalFrame {
                 .addComponent(lbl_separador, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_titulo)
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_titulo2)
-                    .addComponent(lbl_titulo3))
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_cancelar)
-                            .addComponent(btn_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(lbl_titulo3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_quant, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_titulo2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(field_id, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_cancelar)
+                    .addComponent(btn_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
@@ -249,16 +289,95 @@ public class Vender extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_cancelarAncestorAdded
 
-    private void btn_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroActionPerformed
+    private void btn_vendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_vendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cadastroActionPerformed
+    }//GEN-LAST:event_btn_vendaActionPerformed
 
+    private void btn_vendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_vendaMouseClicked
+        // TODO add your handling code here:
+        int id = Integer.parseInt(field_id.getText());
+        int quant = Integer.parseInt(field_quant.getText());
+        boolean prodExist = false;
+        float valor = (vend.getProdutoByID(registros.getProdutos(), id, true)).getValor();
+        
+        if(prodExist){
+            JOptionPane.showMessageDialog(null, "MORTE", "Erro", JOptionPane.ERROR_MESSAGE);
+
+            Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id, true), valor, vend.getId());
+            if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id)){
+                JOptionPane.showMessageDialog(null, "Venda realizada com sucesso.", "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
+                cleanInputs();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            JOptionPane.showMessageDialog(null, "MORTE", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_btn_vendaMouseClicked
+
+    private void field_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_idActionPerformed
+
+    private void field_quantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_quantActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_quantActionPerformed
+
+    private void table_produtosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_table_produtosAncestorAdded
+        // TODO add your handling code here:
+        
+        ArrayList<String[]> produtos = new ArrayList<>();
+        if (registros.getProdutos() != null) {
+            registros.getProdutos().forEach((Produto produto) -> {
+                String aux[] = new String[4];
+                aux[0] = String.valueOf(produto.getId());
+                aux[1] = produto.getNome();
+                aux[2] = String.valueOf(produto.getQuantidade());
+                aux[3] = Float.toString(produto.getValor());
+                    
+                produtos.add(aux);
+            });
+        }
+
+        DefaultTableModel tbl = (DefaultTableModel) table_produtos.getModel();
+        produtos.forEach(produto -> {
+            tbl.addRow(produto);
+        });
+    }//GEN-LAST:event_table_produtosAncestorAdded
+
+    private void btn_vendaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_vendaMousePressed
+        // TODO add your handling code here:
+        int id = Integer.parseInt(field_id.getText());
+        int quant = Integer.parseInt(field_quant.getText());
+      
+        if(vend.getProdutoByID(registros.getProdutos(), id, true) != null){
+            float valor = (vend.getProdutoByID(registros.getProdutos(), id, true)).getValor();
+
+            Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id, true), valor, vend.getId());
+            if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id)){
+                JOptionPane.showMessageDialog(null, "Venda realizada com sucesso.", "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
+                cleanInputs();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE); 
+    }//GEN-LAST:event_btn_vendaMousePressed
+    
+    public void cleanInputs() {
+            field_id.setText("");
+            field_quant.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cadastro;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btn_venda;
+    private javax.swing.JTextField field_id;
+    private javax.swing.JTextField field_quant;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lbl_cancelar;
     private javax.swing.JSeparator lbl_separador;
     private javax.swing.JLabel lbl_subtitulo;

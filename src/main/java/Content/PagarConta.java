@@ -140,8 +140,6 @@ public class PagarConta extends javax.swing.JInternalFrame {
         jSeparator2 = new javax.swing.JSeparator();
         combo_box_data_pagamento = new javax.swing.JComboBox<>();
 
-        jPanel1.setBackground(new java.awt.Color(240, 240, 240));
-
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(41, 52, 55));
         jLabel6.setText("Visualize os vendedor cadastrados no sistema através da tabela abaixo");

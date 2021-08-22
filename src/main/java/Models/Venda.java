@@ -10,6 +10,7 @@ package Models;
  * @author Vitoria
  */
 public class Venda {
+    
     private static int INIT_ID = 0;
     private int id;
     private Produto produto;
@@ -18,18 +19,16 @@ public class Venda {
     private float valor;
     private int idVendedor;
     
-    public Venda(Produto produto, boolean isProduto, float valor, int idVendedor){
+    public Venda(Produto produto, float valor, int idVendedor){
         setId();
         this.produto = produto;
-        this.isProduto = isProduto;
         this.valor = valor;
         this.idVendedor = idVendedor;
     }
     
-    public Venda(Servico servico, boolean isProduto, float valor, int idVendedor){
+    public Venda(Servico servico, float valor, int idVendedor){
         setId();
         this.servico = servico;
-        this.isProduto = isProduto;
         this.valor = valor;
         this.idVendedor = idVendedor;
     }

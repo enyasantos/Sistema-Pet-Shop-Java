@@ -8,6 +8,7 @@ package View;
 import Models.Administrador;
 import Models.Registro;
 import Models.Veterinario;
+import Models.Vendedor;
 import javax.swing.JOptionPane;
 
 /**
@@ -242,10 +243,10 @@ public class Login extends javax.swing.JFrame {
                 new MenuAdministrador(adm, registros).setVisible(true);
             } else alertaLogin(usuario, senha);
         } else if(tipoUsuario.equals("Vendedor")){
-            if(usuario.equals("vend") && senha.equals("vend")) {
-                new MenuVendedor().setVisible(true);
-                this.dispose();
-            } else alertaLogin(usuario, senha);
+            Vendedor vend = Models.Login.verificaLogin(registros.getVendedores(), usuario, senha);
+                if(vend == null)
+                    alertaLogin(usuario, senha);
+                else new MenuVendedor(vend, registros).setVisible(true);
         } else if(tipoUsuario.equals("Veterinário")){
             //Veterinario vet = new Veterinario("nathann", 1232, usuario, senha, "1234");
             //if(usuario.equals("vet") && senha.equals("vet")) {

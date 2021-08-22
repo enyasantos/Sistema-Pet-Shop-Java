@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package Content;
+import Models.Registro;
+import Models.Cliente;
+import Models.Vendedor;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 /**
  *
@@ -11,15 +15,25 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class CadastrarCliente extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form CadastrarCliente
-     */
+    private Registro registros;
+    private Vendedor vend;
+    
     public CadastrarCliente() {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
     }
+    
+    public CadastrarCliente(Vendedor vend, Registro registros) {
+        initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
+        this.vend = vend;
+        this.registros = registros;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,6 +116,11 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
 
         btn_cadastro.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
         btn_cadastro.setText("Cadastrar");
+        btn_cadastro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cadastroMouseClicked(evt);
+            }
+        });
         btn_cadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cadastroActionPerformed(evt);
@@ -210,6 +229,30 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_field_enderecoActionPerformed
 
+    private void btn_cadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cadastroMouseClicked
+        // TODO add your handling code here:
+        String nome = field_nome.getText();
+        String endereco = field_endereco.getText();
+        
+        if (nome.isEmpty() || endereco.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de cadastrar!", "Alerta", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Cliente nCliente = new Cliente(nome, endereco);
+            if (vend.cadastrarCliente(registros, nCliente)){
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso.", "Cliente cadastrado", JOptionPane.INFORMATION_MESSAGE);
+                cleanInputs();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Erro no processo de cadastro, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btn_cadastroMouseClicked
+    
+    public void cleanInputs() {
+            field_nome.setText("");
+            field_endereco.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cadastro;
