@@ -10,7 +10,8 @@ package Models;
  * @author enya
  */
 public class Servico {
-    private static int id = 0;
+    private static int INIT_ID = 0;
+    private int id;
 
     String nome;
     String animal;
@@ -21,15 +22,15 @@ public class Servico {
     public Servico(String nome, Float valor) {
         setNome(nome);
         setValor(valor);
-        setId(getId() + 1);
+        setId();
     }
 
     public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Servico.id = id;
+    public void setId() {
+        this.id = ++INIT_ID;
     }
 
     public String getNome() {

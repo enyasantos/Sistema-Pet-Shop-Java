@@ -116,4 +116,8 @@ public class Registro {
     public void addOrdemServico(OrdemServico ordem){
         this.ordemServicos.add(ordem);
     }
+    
+    public void addRelatorioOrdem(String relatorio, int index){
+        this.ordemServicos.get(index).setRelatorio(relatorio);
+    }
 }

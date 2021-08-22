@@ -23,16 +23,17 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
      * Creates new form VisualizarOrdemServico
      */
     Veterinario vet;
+    Registro reg;
     ArrayList<OrdemServico> ordens;
     private static VisualizarOrdemServico tela;
 
-    public VisualizarOrdemServico(){
+    public VisualizarOrdemServico() {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
     }
-    
+
     public VisualizarOrdemServico(Veterinario vet, Registro reg) {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -40,41 +41,12 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         ui.setNorthPane(null);
 
         this.vet = vet;
-        this.ordens = reg.getOrdemServicos();
-        
+        this.reg = reg;
+        this.ordens = this.reg.getOrdemServicos();
         
     }
 
-    public static VisualizarOrdemServico getInstance(Veterinario vet, Registro reg) {
-        if (tela == null) {
-            /* Set the Nimbus look and feel */
-            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-             * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-             */
-            try {
-                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                    if ("Nimbus".equals(info.getName())) {
-                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                        break;
-                    }
-                }
-            } catch (ClassNotFoundException ex) {
-                java.util.logging.Logger.getLogger(VisualizarOrdemServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                java.util.logging.Logger.getLogger(VisualizarOrdemServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                java.util.logging.Logger.getLogger(VisualizarOrdemServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                java.util.logging.Logger.getLogger(VisualizarOrdemServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-            //</editor-fold>
-            //</editor-fold>
-            return new VisualizarOrdemServico(vet, reg);
-        } else {
-            return tela;
-        }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -343,6 +315,15 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
                     .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        cmb_OrdemServico.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cmb_OrdemServicoAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         cmb_OrdemServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb_OrdemServicoActionPerformed(evt);
@@ -435,13 +416,24 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmb_OrdemServicoActionPerformed
 
     private void btn_salvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salvarMouseClicked
-        ordens.get(cmb_OrdemServico.getSelectedIndex()).setRelatorio(txt_relatorio_servico.getText());
+        vet.cadastrarRelatorioOrdem(reg, txt_relatorio_servico.getText(), cmb_OrdemServico.getSelectedIndex());
+        this.ordens = reg.getOrdemServicos();
         JOptionPane.showMessageDialog(null, "Relatório Salvo!");
     }//GEN-LAST:event_btn_salvarMouseClicked
 
+    private void cmb_OrdemServicoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cmb_OrdemServicoAncestorAdded
+        if (!ordens.isEmpty()) {
+            ordens.forEach(ordem -> {
+                cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+            });
+        }
+    }//GEN-LAST:event_cmb_OrdemServicoAncestorAdded
+
+ 
     public void mostrarDados() {
+
         OrdemServico ordemAux = ordens.get(cmb_OrdemServico.getSelectedIndex());
-        
+
         txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
         txt_id_cliente.setEnabled(false);
         txt_id_cliente.setEditable(false);
@@ -461,18 +453,16 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         txt_animal_servico.setText(ordemAux.getServico().getAnimal());
         txt_animal_servico.setEnabled(false);
         txt_animal_servico.setEditable(false);
-        
-        txt_data_servico.setText(String.valueOf(ordemAux.getServico().getDataHorario().getDia()) + "/" + ordemAux.getServico().getDataHorario().getMes()
-                                + "/" + ordemAux.getServico().getDataHorario().getAno() + "  " + ordemAux.getServico().getDataHorario().getHora() + ":"
-                                + ordemAux.getServico().getDataHorario().getMinuto());
+
+        txt_data_servico.setText(ordemAux.getServico().getDataHorario().toStringHora());
         txt_data_servico.setEnabled(false);
         txt_data_servico.setEditable(false);
 
         txt_valor_servico.setText(String.valueOf(ordemAux.getServico().getValor()));
         txt_valor_servico.setEnabled(false);
         txt_valor_servico.setEditable(false);
-        txt_relatorio_servico.setText(ordemAux.getServico().getRelatorio());
         
+        txt_relatorio_servico.setText(ordemAux.getServico().getRelatorio());
         
         btn_cancelar.setEnabled(true);
         btn_cancelar.setVisible(true);
@@ -480,12 +470,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
 
     public void visualizarOrdem() {
         lbl_titulo.setText("Ordem de Serviço");
-        
-        cmb_OrdemServico.removeAllItems();
-        
-        ordens.forEach(ordem -> {
-            cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
-        });
+
 
         txt_relatorio_servico.setEnabled(false);
         txt_relatorio_servico.setEditable(false);
@@ -497,15 +482,10 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     public void GerarRelatorio_OrdemServico() {
         lbl_titulo.setText("Gerar Relatório da Ordem de Serviço");
 
-        cmb_OrdemServico.removeAllItems();
-        
-        ordens.forEach(ordem -> {
-            cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
-        });
-        
+
         txt_relatorio_servico.setEnabled(true);
         txt_relatorio_servico.setEditable(true);
-        
+
         btn_salvar.setEnabled(true);
         btn_salvar.setVisible(true);
         btn_cancelar.setText("Cancelar");

@@ -74,4 +74,8 @@ public class DataHorario {
     public String toString() {
         return String.format("%d-%d-%d", getDia(), getMes(), getAno());
     }
+    
+    public String toStringHora() {
+        return String.format("%d-%d-%d %d:%d", getDia(), getMes(), getAno(), getHora(), getMinuto());
+    }
 }
