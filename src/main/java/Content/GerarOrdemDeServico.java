@@ -456,8 +456,9 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         int mes = data.getMonthValue();
         int ano = data.getYear();
         
-        DataHorario datatime = new DataHorario(dia, mes, ano, 0, 0);
-   
+        String [] horaMinuto = hora.split(":");
+        
+        DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
         
         if(vend.getClienteById(registros.getClientes(), id, true) != null){
             float valor = (float)0;

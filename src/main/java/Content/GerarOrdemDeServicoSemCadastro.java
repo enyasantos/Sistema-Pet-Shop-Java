@@ -188,7 +188,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         });
 
         combo_box_serv.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        combo_box_serv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_box_serv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Banho e Tosa", "Consulta" }));
         combo_box_serv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combo_box_servActionPerformed(evt);
