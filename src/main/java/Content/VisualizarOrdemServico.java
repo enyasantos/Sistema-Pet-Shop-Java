@@ -42,12 +42,10 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
 
         this.vet = vet;
         this.reg = reg;
-        this.ordens = this.reg.getOrdemServicos();
-        
+        this.ordens = this.reg.getOrdemServicos();       
     }
 
-    
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -416,8 +414,8 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmb_OrdemServicoActionPerformed
 
     private void btn_salvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salvarMouseClicked
+        System.out.println(txt_relatorio_servico.getText());
         vet.cadastrarRelatorioOrdem(reg, txt_relatorio_servico.getText(), cmb_OrdemServico.getSelectedIndex());
-        this.ordens = reg.getOrdemServicos();
         JOptionPane.showMessageDialog(null, "Relatório Salvo!");
     }//GEN-LAST:event_btn_salvarMouseClicked
 
@@ -435,34 +433,33 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         OrdemServico ordemAux = ordens.get(cmb_OrdemServico.getSelectedIndex());
 
         txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
-        txt_id_cliente.setEnabled(false);
+        txt_id_cliente.setEnabled(true);
         txt_id_cliente.setEditable(false);
         txt_nome_cliente.setText(ordemAux.getCliente().getNome());
-        txt_nome_cliente.setEnabled(false);
+        txt_nome_cliente.setEnabled(true);
         txt_nome_cliente.setEditable(false);
         txt_endereco_cliente.setText(ordemAux.getCliente().getEndereco());
-        txt_endereco_cliente.setEnabled(false);
+        txt_endereco_cliente.setEnabled(true);
         txt_endereco_cliente.setEditable(false);
 
         txt_id_servico.setText(String.valueOf(ordemAux.getServico().getId()));
-        txt_id_servico.setEnabled(false);
+        txt_id_servico.setEnabled(true);
         txt_id_servico.setEditable(false);
         txt_nome_servico.setText(ordemAux.getServico().getNome());
-        txt_nome_servico.setEnabled(false);
-        txt_nome_servico.setEditable(false);
-        txt_animal_servico.setText(ordemAux.getServico().getAnimal());
-        txt_animal_servico.setEnabled(false);
+        txt_nome_servico.setEnabled(true);
+        txt_animal_servico.setText(ordemAux.getAnimal());
+        txt_animal_servico.setEnabled(true);
         txt_animal_servico.setEditable(false);
 
-        txt_data_servico.setText(ordemAux.getServico().getDataHorario().toStringHora());
-        txt_data_servico.setEnabled(false);
+        txt_data_servico.setText(ordemAux.getDatatime().toString());
+        txt_data_servico.setEnabled(true);
         txt_data_servico.setEditable(false);
 
         txt_valor_servico.setText(String.valueOf(ordemAux.getServico().getValor()));
-        txt_valor_servico.setEnabled(false);
+        txt_valor_servico.setEnabled(true);
         txt_valor_servico.setEditable(false);
         
-        txt_relatorio_servico.setText(ordemAux.getServico().getRelatorio());
+        txt_relatorio_servico.setText(ordemAux.getRelatorio());
         
         btn_cancelar.setEnabled(true);
         btn_cancelar.setVisible(true);

@@ -6,7 +6,11 @@
 package View;
 
 import Models.Administrador;
+import Models.Cliente;
+import Models.DataHorario;
+import Models.OrdemServico;
 import Models.Registro;
+import Models.Servico;
 import Models.Veterinario;
 import Models.Vendedor;
 import javax.swing.JOptionPane;
@@ -29,6 +33,25 @@ public class Login extends javax.swing.JFrame {
     public Login(Registro registros) {
         initComponents();
         this.setRegistros(registros);
+        Vendedor vend = new Vendedor("admin", "admin", "admin", (float)100.0, "11111111");
+        Veterinario vet = new Veterinario("admin", (float)100.0, "admin", "admin", "11111111");
+        Cliente cliente2 = new Cliente("joão", "11111111");
+        Cliente cliente1 = new Cliente("maria", "11111111");
+        getRegistros().addVendedor(vend);
+        getRegistros().addVeterinario(vet);
+        getRegistros().addCliente(cliente1);
+        getRegistros().addCliente(cliente2);
+        
+        
+        Servico servico = new Servico("Consulta", (float)90);
+        DataHorario datatime = new DataHorario(12, 12, 2020, 12, 0);
+        OrdemServico nOrdem = new OrdemServico(servico, datatime, cliente1, "Cachorro");
+        getRegistros().addOrdemServico(nOrdem);
+        
+        Servico servico1 = new Servico("Banho e tosa", (float)80);
+        DataHorario datatime1 = new DataHorario(12, 12, 2020, 12, 0);
+        OrdemServico nOrdem1 = new OrdemServico(servico1, datatime1, cliente2, "Gato");
+        getRegistros().addOrdemServico(nOrdem1);
     }
 
     public Registro getRegistros() {
