@@ -319,7 +319,7 @@ public class MenuVeterinario extends javax.swing.JFrame {
         resetColor(btn_v_ordem_servico);
         resetColor(btn_gerar_relatorio);
 
-        ListarClientes listarClientes = new ListarClientes();
+        ListarClientes listarClientes = new ListarClientes(reg);
         j_content.removeAll();
         j_content.add(listarClientes).setVisible(true);
     }// GEN-LAST:event_lbl_visualizar_clientesMouseClicked

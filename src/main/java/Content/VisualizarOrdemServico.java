@@ -42,9 +42,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         this.vet = vet;
         this.ordens = reg.getOrdemServicos();
         
-        ordens.forEach(ordem -> {
-            cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
-        });
+        
     }
 
     public static VisualizarOrdemServico getInstance(Veterinario vet, Registro reg) {
@@ -483,6 +481,12 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
 
     public void visualizarOrdem() {
         lbl_titulo.setText("Ordem de Serviço");
+        
+        cmb_OrdemServico.removeAllItems();
+        
+        ordens.forEach(ordem -> {
+            cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+        });
 
         txt_relatorio_servico.setEnabled(false);
         txt_relatorio_servico.setEditable(false);
@@ -494,7 +498,11 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     public void GerarRelatorio_OrdemServico() {
         lbl_titulo.setText("Gerar Relatório da Ordem de Serviço");
 
+        cmb_OrdemServico.removeAllItems();
         
+        ordens.forEach(ordem -> {
+            cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+        });
         
         txt_relatorio_servico.setEnabled(true);
         txt_relatorio_servico.setEditable(true);

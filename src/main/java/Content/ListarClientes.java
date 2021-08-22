@@ -40,6 +40,14 @@ public class ListarClientes extends javax.swing.JInternalFrame {
         setAdministrador(adm);
         setRegistros(registros);
     }
+    
+    public ListarClientes(Registro registros) {
+        initComponents();
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
+        setRegistros(registros);
+    }
 
     private void setAdministrador(Administrador adm) {
         this.adm = adm;
