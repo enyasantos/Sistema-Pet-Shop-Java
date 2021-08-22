@@ -240,7 +240,6 @@ public class Login extends javax.swing.JFrame {
             Administrador adm = new Administrador(usuario, senha);
             if(adm.fazerLogin()) {
                 new MenuAdministrador(adm, registros).setVisible(true);
-                this.dispose();
             } else alertaLogin(usuario, senha);
         } else if(tipoUsuario.equals("Vendedor")){
             if(usuario.equals("vend") && senha.equals("vend")) {
@@ -248,10 +247,14 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
             } else alertaLogin(usuario, senha);
         } else if(tipoUsuario.equals("Veterinário")){
-            Veterinario vet = new Veterinario("nathann", 1232, usuario, senha, "1234");
-            if(usuario.equals("vet") && senha.equals("vet")) {
-                new MenuVeterinario(vet,registros).setVisible(true);
-            } else alertaLogin(usuario, senha);
+            //Veterinario vet = new Veterinario("nathann", 1232, usuario, senha, "1234");
+            //if(usuario.equals("vet") && senha.equals("vet")) {
+                //new MenuVeterinario(vet,registros).setVisible(true);
+            //} else alertaLogin(usuario, senha);
+                Veterinario vet = Models.Login.verificaLogin(registros.getVeterinario(), usuario, senha);
+                if(vet == null)
+                    alertaLogin(usuario, senha);
+                else new MenuVeterinario(vet,registros).setVisible(true);
         }
         
     }//GEN-LAST:event_btn_entrarMouseClicked

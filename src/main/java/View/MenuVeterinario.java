@@ -23,6 +23,8 @@ public class MenuVeterinario extends javax.swing.JFrame {
      */
     private Veterinario vet;
     private Registro reg;
+    VisualizarOrdemServico tela;
+    
 
     public MenuVeterinario() {
         initComponents();
@@ -32,6 +34,7 @@ public class MenuVeterinario extends javax.swing.JFrame {
         initComponents();
         this.vet = vet;
         this.reg = reg;
+        tela = VisualizarOrdemServico.getInstance(vet, reg);
     }
 
     /**
@@ -293,10 +296,10 @@ public class MenuVeterinario extends javax.swing.JFrame {
         resetColor(btn_gerar_relatorio);
         resetColor(btn_v_clientes);
 
-        VisualizarOrdemServico visualizarOrdemServico = new VisualizarOrdemServico();
-        visualizarOrdemServico.visualizarOrdem(reg.getOrdemServicos());
+        tela.visualizarOrdem();
         j_content.removeAll();
-        j_content.add(visualizarOrdemServico).setVisible(true);
+        j_content.add(tela).setVisible(true);
+        
 
     }// GEN-LAST:event_lbl_visualizar_ordem_servicoMouseClicked
 
@@ -305,11 +308,9 @@ public class MenuVeterinario extends javax.swing.JFrame {
         resetColor(btn_v_ordem_servico);
         resetColor(btn_v_clientes);
 
-        VisualizarOrdemServico vet_GerarRelatorio = new VisualizarOrdemServico();
+        tela.GerarRelatorio_OrdemServico();
         j_content.removeAll();
-        vet_GerarRelatorio.GerarRelatorio_OrdemServico(reg.getOrdemServicos());
-
-        j_content.add(vet_GerarRelatorio).setVisible(true);
+        j_content.add(tela).setVisible(true);
 
     }// GEN-LAST:event_lbl_gerar_relatorioMouseClicked
 
