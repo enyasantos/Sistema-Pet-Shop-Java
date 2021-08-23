@@ -189,7 +189,7 @@ public class Comprar extends javax.swing.JInternalFrame {
         jLabel9.setText("Animal:");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, 20));
 
-        input_qtd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        input_qtd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jPanel2.add(input_qtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 110, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -248,6 +248,11 @@ public class Comprar extends javax.swing.JInternalFrame {
         int dia = data.getDayOfMonth();
         int mes = data.getMonthValue();
         int ano = data.getYear();
+        
+        if (nome.isEmpty() || animal.isEmpty() || descricao.isEmpty() || input_valor.getValue().toString().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de cadastrar!", "Alerta",
+                    JOptionPane.WARNING_MESSAGE);
+        }
         
         DataHorario dataVenc = new DataHorario(dia, mes, ano, 0, 0);
         String descricaoConta = "Compra do produto " + nome + " para " + animal;

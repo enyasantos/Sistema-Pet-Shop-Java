@@ -189,9 +189,9 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
 
             getRegistros().getVendedores();
             ArrayList<String[]> veterinarios = new ArrayList<>();
-            String aux[] = new String[6];
 
             for (Veterinario veterinario : getRegistros().getVeterinarios()) {
+                String aux[] = new String[6];
                 aux[0] = String.valueOf(veterinario.getId());
                 aux[1] = veterinario.getNome();
                 aux[2] = veterinario.getCpf();

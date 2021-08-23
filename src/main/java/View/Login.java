@@ -34,7 +34,7 @@ public class Login extends javax.swing.JFrame {
     public Login(Registro registros) {
         initComponents();
         this.setRegistros(registros);
-        Vendedor vend = new Vendedor("admin", "admin", "admin", (float)100.0, "11111111");
+        /*Vendedor vend = new Vendedor("admin", "admin", "admin", (float)100.0, "11111111");
         Veterinario vet = new Veterinario("admin", (float)100.0, "admin", "admin", "11111111");
         Cliente cliente2 = new Cliente("joão", "11111111");
         Cliente cliente1 = new Cliente("maria", "11111111");
@@ -56,7 +56,7 @@ public class Login extends javax.swing.JFrame {
         Venda nVenda2 = new Venda(servico1, (float)80, 0);
         OrdemServico nOrdem1 = new OrdemServico(servico1, datatime1, cliente2, "Gato");
         getRegistros().addOrdemServico(nOrdem1);
-        getRegistros().addVenda(nVenda2);
+        getRegistros().addVenda(nVenda2);*/
     }
 
     public Registro getRegistros() {
@@ -158,11 +158,9 @@ public class Login extends javax.swing.JFrame {
         });
 
         input_senha.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        input_senha.setText("admin");
         input_senha.setToolTipText("");
 
         input_usuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        input_usuario.setText("admin");
 
         combo_box_tipo_usuario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         combo_box_tipo_usuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Administrador", "Vendedor", "Veterinário" }));

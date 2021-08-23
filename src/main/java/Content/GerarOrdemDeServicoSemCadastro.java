@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Content;
+
 import Models.Cliente;
 import Models.DataHorario;
 import Models.OrdemServico;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author Vitoria
@@ -25,17 +27,17 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
     private Vendedor vend;
     private boolean cadastrar;
     private int idCliente;
-    
+
     public GerarOrdemDeServicoSemCadastro() {
         initComponents();
-        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
     }
-    
+
     public GerarOrdemDeServicoSemCadastro(Registro reg, Vendedor vend) {
         initComponents();
-        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         this.vend = vend;
@@ -254,7 +256,11 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         field_data.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
-        field_hora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("##:##"))));
+        try {
+            field_hora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         field_hora.setText("  :  ");
         field_hora.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         field_hora.addActionListener(new java.awt.event.ActionListener() {
@@ -528,7 +534,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_formComponentShown
 
     private void btn_naoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_naoMouseClicked
@@ -561,48 +567,48 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String tipoServ = String.valueOf(combo_box_serv.getSelectedItem());
         String animal = String.valueOf(combo_box_animal.getSelectedItem());
-               
+
         String hora = field_hora.getText();
-        
+
         //Converte o tipo Date para LocalDate
         LocalDate data = LocalDate.ofInstant(field_data.getDate().toInstant(), ZoneId.systemDefault());
         int dia = data.getDayOfMonth();
         int mes = data.getMonthValue();
         int ano = data.getYear();
-        
-        String [] horaMinuto = hora.split(":");
-        
+
+        String[] horaMinuto = hora.split(":");
+
         DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
 
-        
         String nomeCliente = field_nome.getText();
-   
-        float valor = (float)0;
-        
-        if(tipoServ.equals("Banho e Tosa"))
-            valor = (float)80.0;
-        else if (tipoServ.equals("Consulta"))
-            valor = (float)90.0;
+
+        float valor = (float) 0;
+
+        if (tipoServ.equals("Banho e Tosa")) {
+            valor = (float) 80.0;
+        } else if (tipoServ.equals("Consulta")) {
+            valor = (float) 90.0;
+        }
 
         Servico servico = new Servico(tipoServ, valor);
         Venda nVenda = new Venda(servico, valor, vend.getId());
-        
+
         OrdemServico nOrdem;
-        
-        idCliente = cadastraCliente();
-        
-        if (cadastrar)
+
+        if (cadastrar) {
+            idCliente = cadastraCliente();
             nOrdem = new OrdemServico(servico, datatime, vend.getClienteById(registros.getClientes(), idCliente, true), animal);
-        else 
+        } else {
             nOrdem = new OrdemServico(servico, datatime, nomeCliente, animal);
-        
-        if(vend.realizarOrdemServico(registros, nOrdem, nVenda, servico)){
+        }
+
+        if (vend.realizarOrdemServico(registros, nOrdem, nVenda, servico)) {
             JOptionPane.showMessageDialog(null, "Ordem de serviço realizada com sucesso.", "Ordem de serviço realizada", JOptionPane.INFORMATION_MESSAGE);
             cleanInputs();
-        }
-        else 
+        } else {
             JOptionPane.showMessageDialog(null, "Erro no processo de geração de ordem de serviço, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
-       
+        }
+
     }//GEN-LAST:event_btn_gerarMouseClicked
 
     private void lbl_name_scAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lbl_name_scAncestorAdded
@@ -613,25 +619,25 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_field_nome_scActionPerformed
 
-    private void cleanInputs(){
+    private void cleanInputs() {
         combo_box_serv.setSelectedIndex(0);
         combo_box_animal.setSelectedIndex(0);
         field_hora.setText("");
     }
-    
-    private int cadastraCliente(){
+
+    private int cadastraCliente() {
         String nome = field_nome.getText();
         String endereco = field_endereco.getText();
-        
+
         Cliente nCliente = new Cliente(nome, endereco);
-        if (vend.cadastrarCliente(registros, nCliente)){
+        if (vend.cadastrarCliente(registros, nCliente)) {
             cleanInputsCad();
             return nCliente.getId();
         }
-        return -1; 
+        return -1;
     }
-    
-    private void cleanInputsCad(){
+
+    private void cleanInputsCad() {
         field_nome.setText("");
         field_endereco.setText("");
     }

@@ -24,6 +24,7 @@ public class Venda {
         setProduto(produto);
         setValor(valor);
         setIdVendedor(idVendedor);
+        setIsProduto(true);
     }
     
     public Venda(Servico servico, float valor, int idVendedor){
@@ -31,7 +32,7 @@ public class Venda {
         setServico(servico);
         setValor(valor);
         setIdVendedor(idVendedor);
-        
+        setIsProduto(false);
     }
     
     public int getId() {
