@@ -437,15 +437,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_salvarMouseClicked
 
     private void cmb_OrdemServicoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cmb_OrdemServicoAncestorAdded
-        if (!reg.getOrdemServicos().isEmpty()) {
-             reg.getOrdemServicos().forEach(ordem -> {
-                if(ordem.getServico().getNome().equals("Consulta")) {
-                    cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
-                    getOrdens().add(ordem);
-                }
-                
-            });
-        }
+        
         
         if (!ordens.isEmpty())
             mostrarDados();
@@ -493,6 +485,14 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     public void visualizarOrdem() {
         lbl_titulo.setText("Ordem de Serviço");
 
+        cmb_OrdemServico.removeAllItems();
+        
+        if (!reg.getOrdemServicos().isEmpty()) {
+            reg.getOrdemServicos().forEach(ordem -> {
+                cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+                getOrdens().add(ordem);
+            });
+        }
 
         txt_relatorio_servico.setEnabled(false);
         txt_relatorio_servico.setEditable(false);
@@ -503,8 +503,20 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
 
     public void GerarRelatorio_OrdemServico() {
         lbl_titulo.setText("Gerar Relatório da Ordem de Serviço");
+        
+        cmb_OrdemServico.removeAllItems();
 
-
+        getOrdens().removeAll(reg.getOrdemServicos());
+        if (!reg.getOrdemServicos().isEmpty()) {
+             reg.getOrdemServicos().forEach(ordem -> {
+                if(ordem.getServico().getNome().equals("Consulta")) {
+                    cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+                    getOrdens().add(ordem);
+                }
+                
+            });
+        }
+        
         txt_relatorio_servico.setEnabled(true);
         txt_relatorio_servico.setEditable(true);
 
