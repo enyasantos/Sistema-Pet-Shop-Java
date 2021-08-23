@@ -445,6 +445,9 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String tipoServ = String.valueOf(combo_box_serv.getSelectedItem());
         String animal = String.valueOf(combo_box_animal.getSelectedItem());
+                
+                
+                
         int id = Integer.parseInt(field_id.getText());
         
         
