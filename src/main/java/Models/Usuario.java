@@ -13,7 +13,7 @@ public class Usuario {
     private static int INIT_ID = 0;
     private int id;
     private String nome;
-    private Float salario;
+    private float salario;
     private String usuario;
     private String senha;
     private boolean statusLog;
