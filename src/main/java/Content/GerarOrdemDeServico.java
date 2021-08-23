@@ -10,7 +10,6 @@ import Models.Cliente;
 import Models.DataHorario;
 import Models.OrdemServico;
 import Models.Servico;
-import Models.Produto;
 import Models.Venda;
 
 import java.util.ArrayList;
@@ -364,7 +363,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_gerar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_cancelar))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
