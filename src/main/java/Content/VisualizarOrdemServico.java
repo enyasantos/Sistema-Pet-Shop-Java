@@ -453,10 +453,19 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmb_OrdemServicoActionPerformed
 
     private void btn_salvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salvarMouseClicked
-
-        if (!ordens.isEmpty()) {
-            vet.cadastrarRelatorioOrdem(getOrdens().get(cmb_OrdemServico.getSelectedIndex()), txt_relatorio_servico.getText());
-            JOptionPane.showMessageDialog(null, "Relatório Salvo!");
+        String relatorio = txt_relatorio_servico.getText();
+        if (relatorio.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Favor escrever o relatório!");
+        } else {
+            if (!ordens.isEmpty()) {
+                OrdemServico ordemaux = getOrdens().get(cmb_OrdemServico.getSelectedIndex());
+                if (relatorio.equals(ordemaux.getRelatorio())) {
+                    JOptionPane.showMessageDialog(null, "Relatório informado é igual ao cadastrado!");
+                } else {
+                    vet.cadastrarRelatorioOrdem(ordemaux, relatorio);
+                    JOptionPane.showMessageDialog(null, "Relatório Salvo!");
+                }
+            }
         }
 
     }//GEN-LAST:event_btn_salvarMouseClicked
@@ -470,8 +479,8 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     public void mostrarDados() {
 
         OrdemServico ordemAux = ordens.get(cmb_OrdemServico.getSelectedIndex());
-        
-        if(ordemAux.getCliente() != null){
+
+        if (ordemAux.getCliente() != null) {
             txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
             txt_id_cliente.setEnabled(true);
             txt_id_cliente.setEditable(false);
@@ -481,7 +490,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
             txt_endereco_cliente.setText(ordemAux.getCliente().getEndereco());
             txt_endereco_cliente.setEnabled(true);
             txt_endereco_cliente.setEditable(false);
-        }else{
+        } else {
             txt_id_cliente.setText("---");
             txt_id_cliente.setEnabled(true);
             txt_id_cliente.setEditable(false);
@@ -528,8 +537,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
                 if (ordem.getCliente() != null) {
                     cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
                     getOrdens().add(ordem);
-                }
-                else{
+                } else {
                     cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: Não há cliente Cadastrado");
                     getOrdens().add(ordem);
                 }
