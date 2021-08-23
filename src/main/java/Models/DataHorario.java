@@ -66,16 +66,16 @@ public class DataHorario {
         return (getAno() + "-" + mes + "-" +  getDia());
     }
     
+    public String toStringData() {
+        return String.format("%d-%d-%d", getDia(), getMes(), getAno());
+    }
+    
     /**
      *
      * @return
      */
     @Override
     public String toString() {
-        return String.format("%d-%d-%d", getDia(), getMes(), getAno());
-    }
-    
-    public String toStringHora() {
         return String.format("%d-%d-%d %d:%d", getDia(), getMes(), getAno(), getHora(), getMinuto());
     }
 }

@@ -22,7 +22,7 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
     /**
      * Creates new form Cadastro
      */
-    private String tipoFuncionario;
+    private final String tipoFuncionario;
     private Administrador adm;
     private Registro registros;
 
@@ -51,249 +51,182 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-        // Code">//GEN-BEGIN:initComponents
-        private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-                jPanel1 = new javax.swing.JPanel();
-                input_nome = new javax.swing.JTextField();
-                input_usuario = new javax.swing.JTextField();
-                input_senha = new javax.swing.JTextField();
-                jButton1 = new javax.swing.JButton();
-                jLabel1 = new javax.swing.JLabel();
-                jLabel2 = new javax.swing.JLabel();
-                jLabel3 = new javax.swing.JLabel();
-                jLabel4 = new javax.swing.JLabel();
-                input_selario = new javax.swing.JFormattedTextField();
-                jLabel5 = new javax.swing.JLabel();
-                jLabel6 = new javax.swing.JLabel();
-                jLabel7 = new javax.swing.JLabel();
-                jLabel8 = new javax.swing.JLabel();
-                input_cpf = new javax.swing.JTextField();
-                jSeparator1 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
+        input_nome = new javax.swing.JTextField();
+        input_usuario = new javax.swing.JTextField();
+        input_senha = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        input_selario = new javax.swing.JFormattedTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        input_cpf = new javax.swing.JFormattedTextField();
 
-                setBackground(new java.awt.Color(167, 180, 236));
-                setIconifiable(true);
-                setMaximizable(true);
-                setResizable(true);
-                setAutoscrolls(true);
-                setPreferredSize(new java.awt.Dimension(678, 536));
+        setBackground(new java.awt.Color(167, 180, 236));
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setAutoscrolls(true);
+        setPreferredSize(new java.awt.Dimension(678, 536));
 
-                jPanel1.setBackground(new java.awt.Color(240, 240, 240));
+        jPanel1.setBackground(new java.awt.Color(240, 240, 240));
 
-                jButton1.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
-                jButton1.setText("Cadastrar");
-                jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-                        public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                jButton1MouseClicked(evt);
-                        }
-                });
+        jButton1.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
+        jButton1.setText("Cadastrar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
-                jLabel1.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                jLabel1.setForeground(new java.awt.Color(22, 22, 22));
-                jLabel1.setText("Nome:");
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(22, 22, 22));
+        jLabel1.setText("Nome:");
 
-                jLabel2.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                jLabel2.setForeground(new java.awt.Color(22, 22, 22));
-                jLabel2.setText("Usuário:");
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(22, 22, 22));
+        jLabel2.setText("Usuário:");
 
-                jLabel3.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                jLabel3.setForeground(new java.awt.Color(22, 22, 22));
-                jLabel3.setText("Senha:");
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(22, 22, 22));
+        jLabel3.setText("Senha:");
 
-                jLabel4.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                jLabel4.setForeground(new java.awt.Color(22, 22, 22));
-                jLabel4.setText("Salario:");
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(22, 22, 22));
+        jLabel4.setText("Salario:");
 
-                input_selario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
-                                new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
-                input_selario.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                input_selarioActionPerformed(evt);
-                        }
-                });
+        input_selario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        input_selario.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
 
-                jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-                jLabel5.setForeground(new java.awt.Color(41, 52, 55));
-                jLabel5.setText("Cadastrar novo vendedor");
-                jLabel5.addAncestorListener(new javax.swing.event.AncestorListener() {
-                        public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                                jLabel5AncestorAdded(evt);
-                        }
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(41, 52, 55));
+        jLabel5.setText("Cadastrar novo vendedor");
+        jLabel5.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel5AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
-                        public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                        }
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(41, 52, 55));
+        jLabel6.setText("Cadastre um novo vendedor preenchendo o formulário abaixo ");
 
-                        public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-                        }
-                });
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(201, 17, 22));
+        jLabel7.setText("Cancelar");
 
-                jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-                jLabel6.setForeground(new java.awt.Color(41, 52, 55));
-                jLabel6.setText("Cadastre um novo vendedor preenchendo o formulário abaixo ");
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(22, 22, 22));
+        jLabel8.setText("CPF:");
 
-                jLabel7.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-                jLabel7.setForeground(new java.awt.Color(201, 17, 22));
-                jLabel7.setText("Cancelar");
+        try {
+            input_cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-                jLabel8.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-                jLabel8.setForeground(new java.awt.Color(22, 22, 22));
-                jLabel8.setText("CPF:");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jLabel7)
+                .addGap(81, 81, 81)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(200, 200, 200))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(input_nome, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator1))
+                        .addGap(199, 199, 199))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(input_selario, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(input_cpf)
+                                    .addComponent(jLabel8)))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2)
+                                    .addComponent(input_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(input_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(input_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(input_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(input_selario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
 
-                input_cpf.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                input_cpfActionPerformed(evt);
-                        }
-                });
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
-                javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-                jPanel1.setLayout(jPanel1Layout);
-                jPanel1Layout.setHorizontalGroup(jPanel1Layout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup().addGap(86, 86, 86)
-                                                .addGroup(jPanel1Layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                .addComponent(jLabel1).addContainerGap(
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE))
-                                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                .addGroup(jPanel1Layout
-                                                                                                .createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                .addComponent(input_nome,
-                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                .addGroup(jPanel1Layout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addGap(59, 59, 59)
-                                                                                                                .addComponent(jLabel7)
-                                                                                                                .addGap(81, 81, 81)
-                                                                                                                .addComponent(jButton1,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                229,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(1, 1, 1))
-                                                                                                .addComponent(jLabel6,
-                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                Short.MAX_VALUE)
-                                                                                                .addComponent(jSeparator1)
-                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                jPanel1Layout.createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                                jPanel1Layout.createSequentialGroup()
-                                                                                                                                                                .addComponent(input_selario,
-                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                142,
-                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                                .addGap(20, 20, 20)
-                                                                                                                                                                .addGroup(jPanel1Layout
-                                                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                                                                .addComponent(jLabel8)
-                                                                                                                                                                                .addComponent(input_cpf,
-                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                                280,
-                                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                                                .addComponent(jLabel4,
-                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                .addComponent(jLabel5,
-                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING))
-                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                jPanel1Layout.createSequentialGroup()
-                                                                                                                                .addGroup(jPanel1Layout
-                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                                                false)
-                                                                                                                                                .addComponent(jLabel2)
-                                                                                                                                                .addComponent(input_usuario,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                232,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                                .addGap(18, 18, 18)
-                                                                                                                                .addGroup(jPanel1Layout
-                                                                                                                                                .createParallelGroup(
-                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                                .addComponent(jLabel3)
-                                                                                                                                                .addComponent(input_senha,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                193,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                                                .addGap(199, 199, 199)))));
-                jPanel1Layout.setVerticalGroup(jPanel1Layout
-                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout
-                                                .createSequentialGroup().addGap(43, 43, 43).addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel6)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(20, 20, 20).addComponent(jLabel1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(input_nome, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(27, 27, 27)
-                                                .addGroup(jPanel1Layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(jLabel2).addComponent(jLabel3))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(jPanel1Layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(input_usuario,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(input_senha,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(27, 27, 27)
-                                                .addGroup(jPanel1Layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabel8,
-                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addComponent(jLabel4))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(jPanel1Layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addComponent(input_selario,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(input_cpf,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                35,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(41, 41, 41)
-                                                .addGroup(jPanel1Layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(jButton1,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                43,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(jLabel7))
-                                                .addContainerGap(58, Short.MAX_VALUE)));
-
-                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-                getContentPane().setLayout(layout);
-                layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, Short.MAX_VALUE));
-                layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-
-                pack();
-        }// </editor-fold>//GEN-END:initComponents
-
-    private void input_cpfActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_input_cpfActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_input_cpfActionPerformed
-
-    private void input_selarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_input_selarioActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_input_selarioActionPerformed
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel5AncestorAdded(javax.swing.event.AncestorEvent evt) {// GEN-FIRST:event_jLabel5AncestorAdded
         // TODO add your handling code here:
@@ -345,22 +278,22 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
         input_cpf.setText("");
     }
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JTextField input_cpf;
-        private javax.swing.JTextField input_nome;
-        private javax.swing.JFormattedTextField input_selario;
-        private javax.swing.JTextField input_senha;
-        private javax.swing.JTextField input_usuario;
-        private javax.swing.JButton jButton1;
-        private javax.swing.JLabel jLabel1;
-        private javax.swing.JLabel jLabel2;
-        private javax.swing.JLabel jLabel3;
-        private javax.swing.JLabel jLabel4;
-        private javax.swing.JLabel jLabel5;
-        private javax.swing.JLabel jLabel6;
-        private javax.swing.JLabel jLabel7;
-        private javax.swing.JLabel jLabel8;
-        private javax.swing.JPanel jPanel1;
-        private javax.swing.JSeparator jSeparator1;
-        // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFormattedTextField input_cpf;
+    private javax.swing.JTextField input_nome;
+    private javax.swing.JFormattedTextField input_selario;
+    private javax.swing.JTextField input_senha;
+    private javax.swing.JTextField input_usuario;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    // End of variables declaration//GEN-END:variables
 }

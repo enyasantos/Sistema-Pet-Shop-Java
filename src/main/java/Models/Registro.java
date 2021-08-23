@@ -19,7 +19,7 @@ public class Registro {
     private ArrayList<Veterinario> veterinarios = new ArrayList<>();
     private ArrayList<Vendedor> vendedores = new ArrayList<>();
     private ArrayList<Venda> vendas = new ArrayList<>();
-    private final ArrayList<Produto> produtos = new ArrayList<>();
+    private ArrayList<Produto> produtos = new ArrayList<>();
 
     public ArrayList<Veterinario> getVeterinarios() {
         return veterinarios;
@@ -115,9 +115,5 @@ public class Registro {
     
     public void addOrdemServico(OrdemServico ordem){
         this.ordemServicos.add(ordem);
-    }
-    
-    public void addRelatorioOrdem(String relatorio, int index){
-        this.ordemServicos.get(index).setRelatorio(relatorio);
     }
 }

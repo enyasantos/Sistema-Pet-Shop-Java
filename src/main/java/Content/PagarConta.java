@@ -321,7 +321,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
                 if (!conta.isPaga()) {
                     aux[0] = String.valueOf(conta.getId());
                     aux[1] = conta.getDescricao();
-                    aux[2] = conta.getDataVenc().toString();
+                    aux[2] = conta.getDataVenc().toStringData();
                     aux[3] = Float.toString(conta.getValor());
                     aux[4] = conta.isPaga() ? "Paga" : "À pagar";
                     contas.add(aux);

@@ -14,10 +14,10 @@ public class Conta {
     private int id;
     private DataHorario dataVenc, dataPagto;
     private String descricao;
-    private Float valor;
+    private float valor;
     private boolean paga;
     
-    public Conta(DataHorario dataVenc, String descricao, Float valor) {
+    public Conta(DataHorario dataVenc, String descricao, float valor) {
         setDataVenc(dataVenc);
         setDescricao(descricao);
         setValor(valor);
@@ -57,11 +57,11 @@ public class Conta {
         this.descricao = descricao;
     }
 
-    public Float getValor() {
+    public float getValor() {
         return valor;
     }
 
-    public void setValor(Float valor) {
+    public void setValor(float valor) {
         this.valor = valor;
     }
 
