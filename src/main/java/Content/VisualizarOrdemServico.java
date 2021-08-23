@@ -478,7 +478,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         txt_animal_servico.setEnabled(true);
         txt_animal_servico.setEditable(false);
 
-        txt_data_servico.setText(ordemAux.getDatatime().toString());
+        txt_data_servico.setText(ordemAux.getDatatime().toStringHora());
         txt_data_servico.setEnabled(true);
         txt_data_servico.setEditable(false);
 
