@@ -590,7 +590,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         
         String [] horaMinuto = hora.split(":");
         
-        DataHorario datatime = new DataHorario(dia, mes, ano, 12, 21);
+        DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
 
         
         String nomeCliente = field_nome.getText();
