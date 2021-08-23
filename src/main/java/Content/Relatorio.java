@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import Models.Administrador;
 import Models.Conta;
 import Models.Registro;
+import Models.Venda;
 import java.util.ArrayList;
 
 /**
@@ -64,7 +65,7 @@ public class Relatorio extends javax.swing.JInternalFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -74,10 +75,12 @@ public class Relatorio extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tbl_vendas = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_contas = new javax.swing.JTable();
         jSeparator2 = new javax.swing.JSeparator();
+        lbl_total_vendas = new javax.swing.JLabel();
+        lbl_total_contas = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(240, 240, 240));
 
@@ -97,115 +100,198 @@ public class Relatorio extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(41, 52, 55));
         jLabel9.setText("Vendas");
 
-        jTable2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {
+        tbl_vendas.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tbl_vendas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        }, new String[] { "Title 1", "Title 2", "Title 3", "Title 4" }));
-        jScrollPane2.setViewportView(jTable2);
-
-        tbl_contas.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        tbl_contas.setModel(new javax.swing.table.DefaultTableModel(new Object[][] {
-
-        }, new String[] { "ID", "Descrição", "Data de pagamento", "Data de vencimento", "Valor", "Status" }) {
-            Class[] types = new Class[] { java.lang.String.class, java.lang.String.class, java.lang.String.class,
-                    java.lang.String.class, java.lang.String.class, java.lang.String.class };
+            },
+            new String [] {
+                "ID", "Produto", "Serviço", "Vendedor(ID)", "Valor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
 
             public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
+                return types [columnIndex];
+            }
+        });
+        tbl_vendas.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tbl_vendasAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane2.setViewportView(tbl_vendas);
+
+        tbl_contas.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        tbl_contas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Descrição", "Data de pagamento", "Data de vencimento", "Valor", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
         tbl_contas.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 tbl_contasAncestorAdded(evt);
             }
-
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
-
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jScrollPane1.setViewportView(tbl_contas);
 
+        lbl_total_vendas.setText("Total:");
+
+        lbl_total_contas.setText("Total:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(42, Short.MAX_VALUE)
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8).addComponent(jLabel6)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 548,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel7)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel9)
-                                                .addGroup(jPanel1Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jSeparator2,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 545,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jScrollPane2,
-                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 545,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 548,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(37, 37, 37)));
-        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup().addGap(32, 32, 32).addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143,
-                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(74, Short.MAX_VALUE)));
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel6)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel7)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(145, 145, 145))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_total_vendas)
+                        .addGap(99, 99, 99))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_total_contas)
+                        .addGap(104, 104, 104))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_total_contas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_total_vendas)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-                jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                javax.swing.GroupLayout.PREFERRED_SIZE));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-                jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tbl_vendasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tbl_vendasAncestorAdded
+        // TODO add your handling code here:
+        float[] counterValue = new float[1];
+        ArrayList<String[]> vendas = new ArrayList<>();
+        if (registros.getVendas() != null) {
+            registros.getVendas().forEach((Venda venda) -> {
+                if (venda.getIsProduto()) {
+                    String aux[] = new String[5];
+                    aux[0] = String.valueOf(venda.getId());
+                    aux[1] = venda.getProduto().getNome();
+                    aux[2] = "";
+                    aux[3] = String.valueOf(venda.getIdVendedor());
+                    aux[4] = Float.toString(venda.getValor());
+                    vendas.add(aux);
+                } else {
+                    String aux[] = new String[5];
+                    aux[0] = String.valueOf(venda.getId());
+                    aux[1] = "";
+                    aux[2] = venda.getServico().getNome();
+                    aux[3] = String.valueOf(venda.getIdVendedor());
+                    aux[4] = Float.toString(venda.getValor());
+                    vendas.add(aux);
+                }
+                counterValue[0] += venda.getValor();
+            });
+        }
+
+        DefaultTableModel tbl = (DefaultTableModel) tbl_vendas.getModel();
+        vendas.forEach(conta -> {
+            tbl.addRow(conta);
+        });
+        
+        lbl_total_vendas.setText("Total: " + counterValue[0]);
+    }//GEN-LAST:event_tbl_vendasAncestorAdded
+
     private void tbl_contasAncestorAdded(javax.swing.event.AncestorEvent evt) {// GEN-FIRST:event_tbl_contasAncestorAdded
         // TODO add your handling code here:
+        float[] counterValue = new float[1];
         ArrayList<String[]> contas = new ArrayList<>();
         if (registros.getContas() != null) {
             registros.getContas().forEach((Conta conta) -> {
                 String aux[] = new String[6];
                 aux[0] = String.valueOf(conta.getId());
                 aux[1] = conta.getDescricao();
-                aux[2] = conta.getDataVenc().toString();               
-                if(conta.getDataPagto() != null) aux[3] = conta.getDataPagto().toString();
-                else aux[3] = "";
+                aux[2] = conta.getDataVenc().toString();
+                if (conta.getDataPagto() != null) {
+                    aux[3] = conta.getDataPagto().toString();
+                } else {
+                    aux[3] = "";
+                }
                 aux[4] = Float.toString(conta.getValor());
                 aux[5] = conta.isPaga() ? "Paga" : "À pagar";
                 contas.add(aux);
+                counterValue[0] += conta.getValor();
             });
         }
-
+        
         DefaultTableModel tbl = (DefaultTableModel) tbl_contas.getModel();
         contas.forEach(conta -> {
             tbl.addRow(conta);
         });
-
+        
+        lbl_total_contas.setText("Total: " + counterValue[0]);
     }// GEN-LAST:event_tbl_contasAncestorAdded
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -218,7 +304,9 @@ public class Relatorio extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JLabel lbl_total_contas;
+    private javax.swing.JLabel lbl_total_vendas;
     private javax.swing.JTable tbl_contas;
+    private javax.swing.JTable tbl_vendas;
     // End of variables declaration//GEN-END:variables
 }

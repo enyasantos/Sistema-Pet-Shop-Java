@@ -11,6 +11,7 @@ import Models.DataHorario;
 import Models.OrdemServico;
 import Models.Registro;
 import Models.Servico;
+import Models.Venda;
 import Models.Veterinario;
 import Models.Vendedor;
 import javax.swing.JOptionPane;
@@ -45,13 +46,17 @@ public class Login extends javax.swing.JFrame {
         
         Servico servico = new Servico("Consulta", (float)90);
         DataHorario datatime = new DataHorario(12, 12, 2020, 12, 0);
+        Venda nVenda1 = new Venda(servico, (float)90, 0);
         OrdemServico nOrdem = new OrdemServico(servico, datatime, cliente1, "Cachorro");
         getRegistros().addOrdemServico(nOrdem);
+        getRegistros().addVenda(nVenda1);
         
         Servico servico1 = new Servico("Banho e tosa", (float)80);
         DataHorario datatime1 = new DataHorario(12, 12, 2020, 12, 0);
+        Venda nVenda2 = new Venda(servico1, (float)80, 0);
         OrdemServico nOrdem1 = new OrdemServico(servico1, datatime1, cliente2, "Gato");
         getRegistros().addOrdemServico(nOrdem1);
+        getRegistros().addVenda(nVenda2);
     }
 
     public Registro getRegistros() {
