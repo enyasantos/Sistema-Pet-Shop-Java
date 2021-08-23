@@ -250,9 +250,9 @@ public class Login extends javax.swing.JFrame {
 
     void alertaLogin(String usuario, String senha) {
         if (usuario.equals("")) {
-            JOptionPane.showMessageDialog(null, "Tanso, preencha o campo usuário!", "Erro", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Preencha o campo usuário!", "Alerta", JOptionPane.WARNING_MESSAGE);
         } else if (senha.equals("")) {
-            JOptionPane.showMessageDialog(null, "Tanso, preencha o campo senha!", "Erro", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Preencha o campo senha!", "Alerta", JOptionPane.WARNING_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -263,25 +263,29 @@ public class Login extends javax.swing.JFrame {
         String tipoUsuario = String.valueOf(combo_box_tipo_usuario.getSelectedItem());
         String usuario = input_usuario.getText();
         String senha = input_senha.getText();
-        if(tipoUsuario.equals("Administrador")){
-            Administrador adm = new Administrador(usuario, senha);
-            if(adm.fazerLogin()) {
-                new MenuAdministrador(adm, registros).setVisible(true);
-            } else alertaLogin(usuario, senha);
-        } else if(tipoUsuario.equals("Vendedor")){
-            Vendedor vend = Models.Login.verificaLogin(registros.getVendedores(), usuario, senha);
+        
+        switch (tipoUsuario) {
+            case "Administrador":
+                Administrador adm = new Administrador(usuario, senha);
+                if(adm.fazerLogin()) {
+                    new MenuAdministrador(adm, registros).setVisible(true);
+                } else alertaLogin(usuario, senha);
+                break;
+            case "Vendedor":
+                Vendedor vend = Models.Login.verificaLogin(registros.getVendedores(), usuario, senha);
                 if(vend == null)
                     alertaLogin(usuario, senha);
                 else new MenuVendedor(vend, registros).setVisible(true);
-        } else if(tipoUsuario.equals("Veterinário")){
-            //Veterinario vet = new Veterinario("nathann", 1232, usuario, senha, "1234");
-            //if(usuario.equals("vet") && senha.equals("vet")) {
-                //new MenuVeterinario(vet,registros).setVisible(true);
-            //} else alertaLogin(usuario, senha);
+                break;
+            case "Veterinário":
                 Veterinario vet = Models.Login.verificaLogin(registros.getVeterinario(), usuario, senha);
                 if(vet == null)
                     alertaLogin(usuario, senha);
                 else new MenuVeterinario(vet,registros).setVisible(true);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Modo de login não escolhido!", "Alerta", JOptionPane.WARNING_MESSAGE);
+                break;
         }
         
     }//GEN-LAST:event_btn_entrarMouseClicked

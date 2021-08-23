@@ -7,6 +7,7 @@ package Content;
 import Models.Registro;
 import Models.Vendedor;
 import Models.Cliente;
+import Models.Conta;
 import Models.DataHorario;
 import Models.OrdemServico;
 import Models.Servico;
@@ -73,7 +74,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         lbl_subt = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_clientes = new javax.swing.JTable();
-        field_id = new javax.swing.JTextField();
+        combo_cliente = new javax.swing.JComboBox<>();
 
         lbl_titulo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(24, 24, 24));
@@ -202,7 +203,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
 
         lbl_endereco8.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_endereco8.setForeground(new java.awt.Color(24, 24, 24));
-        lbl_endereco8.setText("ID:");
+        lbl_endereco8.setText("Cliente:");
         lbl_endereco8.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 lbl_endereco8AncestorAdded(evt);
@@ -218,7 +219,6 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        field_hora.setText("  :  ");
         field_hora.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         field_hora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,11 +266,13 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table_clientes);
 
-        field_id.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        field_id.setPreferredSize(new java.awt.Dimension(30, 22));
-        field_id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                field_idActionPerformed(evt);
+        combo_cliente.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                combo_clienteAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -307,11 +309,11 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lbl_endereco8)
-                                        .addComponent(field_id, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(259, 259, 259)
+                                        .addComponent(combo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(106, 106, 106)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel9)
-                                        .addComponent(combo_box_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(combo_box_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel9)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lbl_subt)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -354,21 +356,18 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_endereco8)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(combo_box_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(field_id, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_endereco8))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combo_box_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_gerar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_cancelar))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -449,8 +448,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String tipoServ = String.valueOf(combo_box_serv.getSelectedItem());
         String animal = String.valueOf(combo_box_animal.getSelectedItem());
-      
-        int id = Integer.parseInt(field_id.getText());
+        int index = combo_cliente.getSelectedIndex();
                 
         String hora = field_hora.getText();
         
@@ -464,7 +462,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         
         DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
         
-        if(vend.getClienteById(registros.getClientes(), id, true) != null){
+        if(vend.getClienteById(registros.getClientes(), index) != null){
             float valor = (float)0;
         
             if(tipoServ.equals("Banho e Tosa"))
@@ -474,7 +472,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
 
             Servico servico = new Servico(tipoServ, valor);
             Venda nVenda = new Venda(servico, valor, vend.getId());
-            OrdemServico nOrdem = new OrdemServico(servico, datatime, vend.getClienteById(registros.getClientes(), id, true), animal);
+            OrdemServico nOrdem = new OrdemServico(servico, datatime, vend.getClienteById(registros.getClientes(), index), animal);
             if(vend.realizarOrdemServico(registros, nOrdem, nVenda, servico)){
                 JOptionPane.showMessageDialog(null, "Ordem de serviço realizada com sucesso.", "Ordem de serviço realizada", JOptionPane.INFORMATION_MESSAGE);
                 cleanInputs();
@@ -487,14 +485,17 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
    
     }//GEN-LAST:event_btn_gerarMouseClicked
 
-    private void field_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_idActionPerformed
+    private void combo_clienteAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_combo_clienteAncestorAdded
         // TODO add your handling code here:
-    }//GEN-LAST:event_field_idActionPerformed
+        registros.getClientes().forEach(cliente -> {
+            combo_cliente.addItem("ID:" + cliente.getId() + " | " + cliente.getNome());
+        });
+    }//GEN-LAST:event_combo_clienteAncestorAdded
     
     private void cleanInputs(){
         combo_box_serv.setSelectedIndex(0);
         combo_box_animal.setSelectedIndex(0);
-        field_id.setText("");
+        combo_cliente.setSelectedIndex(0);
         field_hora.setText("");
     }
 
@@ -502,9 +503,9 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_gerar;
     private javax.swing.JComboBox<String> combo_box_animal;
     private javax.swing.JComboBox<String> combo_box_serv;
+    private javax.swing.JComboBox<String> combo_cliente;
     private com.toedter.calendar.JDateChooser field_data;
     private javax.swing.JFormattedTextField field_hora;
-    private javax.swing.JTextField field_id;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_cancelar;

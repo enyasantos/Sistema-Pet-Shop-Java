@@ -63,7 +63,7 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        input_selario = new javax.swing.JFormattedTextField();
+        input_salario = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -104,8 +104,8 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(22, 22, 22));
         jLabel4.setText("Salario:");
 
-        input_selario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
-        input_selario.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        input_salario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        input_salario.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(41, 52, 55));
@@ -160,7 +160,7 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(input_selario, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(input_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(input_cpf)
@@ -208,7 +208,7 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(input_selario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(input_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -222,7 +222,7 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
@@ -249,12 +249,18 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
         String nome = input_nome.getText();
         String usuario = input_usuario.getText();
         String senha = input_senha.getText();
-        float salario = Float.parseFloat(input_selario.getValue().toString());
+        float salario = (float)-1;
+        if(input_salario.getValue() != null){
+            salario = Float.parseFloat(input_salario.getValue().toString());
+        }
         String cpf = input_cpf.getText();
 
-        if (nome.isEmpty() || usuario.isEmpty() || input_selario.getValue().toString().isEmpty() || senha.isEmpty() || cpf.isEmpty()) {
+        if (nome.isEmpty() || usuario.isEmpty() || salario == -1 || senha.isEmpty() || cpf.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de cadastrar!", "Alerta",
                     JOptionPane.WARNING_MESSAGE);
+        } else if(cpf.trim().length() < 14){
+            JOptionPane.showMessageDialog(null, "CPF informado não é válido!", "Alerta",
+                        JOptionPane.WARNING_MESSAGE);
         } else {
             if (tipoFuncionario.equals("vendedor")) {
                 Vendedor nVendedor = new Vendedor(nome, usuario, senha, salario, cpf);
@@ -284,14 +290,14 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
         input_nome.setText("");
         input_usuario.setText("");
         input_senha.setText("");
-        input_selario.setValue(0);
+        input_salario.setValue(0);
         input_cpf.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField input_cpf;
     private javax.swing.JTextField input_nome;
-    private javax.swing.JFormattedTextField input_selario;
+    private javax.swing.JFormattedTextField input_salario;
     private javax.swing.JTextField input_senha;
     private javax.swing.JTextField input_usuario;
     private javax.swing.JButton jButton1;

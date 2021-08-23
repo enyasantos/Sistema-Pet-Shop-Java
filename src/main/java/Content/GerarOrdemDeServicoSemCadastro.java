@@ -597,7 +597,8 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         if (cadastrar) {
             idCliente = cadastraCliente();
-            nOrdem = new OrdemServico(servico, datatime, vend.getClienteById(registros.getClientes(), idCliente, true), animal);
+            Cliente lastCliente = registros.getClientes().get(registros.getClientes().size() - 1);
+            nOrdem = new OrdemServico(servico, datatime, lastCliente, animal);
         } else {
             nOrdem = new OrdemServico(servico, datatime, nomeCliente, animal);
         }

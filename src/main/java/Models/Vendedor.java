@@ -18,38 +18,24 @@ public class Vendedor extends Usuario {
         super(nome, salario, usuario, senha, cpf);
     }
 
-    public Cliente getClienteById(ArrayList<Cliente> clientes, int id, boolean flag) {
-        if (super.getStatusLog()) {
-            if (!clientes.isEmpty()) { // há clientes cadastrados
-                for (Cliente cliente : clientes) {
-                    if (cliente.getId() == id) {
-                        flag = true;
-                        return cliente;
-                    }
-                }
+    public Cliente getClienteById(ArrayList<Cliente> clientes, int index) {
+        if (super.getStatusLog()) {            
+            if(clientes.get(index) != null){
+                return clientes.get(index);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Operação não permitida, faça o login para continuar", "Erro", JOptionPane.WARNING_MESSAGE);
         }
-        flag = false;
         return null;
     }
     
         
-    public Produto getProdutoByID(ArrayList<Produto> produtos, int id, boolean flag) {
+    public Produto getProdutoByID(ArrayList<Produto> produtos, int index) {
         if (super.getStatusLog()) {
-            if (!produtos.isEmpty()) { // há produtos cadastrados
-                for (Produto produto : produtos) {
-                    if (produto.getId() == id) {
-                        flag = true;
-                        return produto;
-                    }
-                }
-            }
+           return produtos.get(index);
         } else {
             JOptionPane.showMessageDialog(null, "Operação não permitida, faça o login para continuar", "Erro", JOptionPane.WARNING_MESSAGE);
         }
-        flag = false;
         return null;
     }
 
