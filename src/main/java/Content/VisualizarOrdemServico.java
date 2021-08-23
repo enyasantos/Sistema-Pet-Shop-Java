@@ -42,7 +42,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         ui.setNorthPane(null);
 
         this.vet = vet;
-        this.reg = reg;       
+        this.reg = reg;
     }
 
     public ArrayList<OrdemServico> getOrdens() {
@@ -428,35 +428,45 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmb_OrdemServicoActionPerformed
 
     private void btn_salvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salvarMouseClicked
-        
+
         if (!ordens.isEmpty()) {
             vet.cadastrarRelatorioOrdem(getOrdens().get(cmb_OrdemServico.getSelectedIndex()), txt_relatorio_servico.getText());
             JOptionPane.showMessageDialog(null, "Relatório Salvo!");
         }
-        
+
     }//GEN-LAST:event_btn_salvarMouseClicked
 
     private void cmb_OrdemServicoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cmb_OrdemServicoAncestorAdded
-        
-        
+
         if (!ordens.isEmpty())
             mostrarDados();
     }//GEN-LAST:event_cmb_OrdemServicoAncestorAdded
 
- 
     public void mostrarDados() {
 
         OrdemServico ordemAux = ordens.get(cmb_OrdemServico.getSelectedIndex());
-
-        txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
-        txt_id_cliente.setEnabled(true);
-        txt_id_cliente.setEditable(false);
-        txt_nome_cliente.setText(ordemAux.getCliente().getNome());
-        txt_nome_cliente.setEnabled(true);
-        txt_nome_cliente.setEditable(false);
-        txt_endereco_cliente.setText(ordemAux.getCliente().getEndereco());
-        txt_endereco_cliente.setEnabled(true);
-        txt_endereco_cliente.setEditable(false);
+        
+        if(ordemAux.getCliente() != null){
+            txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
+            txt_id_cliente.setEnabled(true);
+            txt_id_cliente.setEditable(false);
+            txt_nome_cliente.setText(ordemAux.getCliente().getNome());
+            txt_nome_cliente.setEnabled(true);
+            txt_nome_cliente.setEditable(false);
+            txt_endereco_cliente.setText(ordemAux.getCliente().getEndereco());
+            txt_endereco_cliente.setEnabled(true);
+            txt_endereco_cliente.setEditable(false);
+        }else{
+            txt_id_cliente.setText("---");
+            txt_id_cliente.setEnabled(true);
+            txt_id_cliente.setEditable(false);
+            txt_nome_cliente.setText("---");
+            txt_nome_cliente.setEnabled(true);
+            txt_nome_cliente.setEditable(false);
+            txt_endereco_cliente.setText("---");
+            txt_endereco_cliente.setEnabled(true);
+            txt_endereco_cliente.setEditable(false);
+        }
 
         txt_id_servico.setText(String.valueOf(ordemAux.getServico().getId()));
         txt_id_servico.setEnabled(true);
@@ -468,16 +478,16 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         txt_animal_servico.setEnabled(true);
         txt_animal_servico.setEditable(false);
 
-        txt_data_servico.setText(ordemAux.getDatatime().toString());
+        txt_data_servico.setText(ordemAux.getDatatime().toStringHora());
         txt_data_servico.setEnabled(true);
         txt_data_servico.setEditable(false);
 
         txt_valor_servico.setText(String.valueOf(ordemAux.getServico().getValor()));
         txt_valor_servico.setEnabled(true);
         txt_valor_servico.setEditable(false);
-        
+
         txt_relatorio_servico.setText(ordemAux.getRelatorio());
-        
+
         btn_cancelar.setEnabled(true);
         btn_cancelar.setVisible(true);
     }
@@ -486,11 +496,17 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
         lbl_titulo.setText("Ordem de Serviço");
 
         cmb_OrdemServico.removeAllItems();
-        
+
         if (!reg.getOrdemServicos().isEmpty()) {
             reg.getOrdemServicos().forEach(ordem -> {
-                cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
-                getOrdens().add(ordem);
+                if (ordem.getCliente() != null) {
+                    cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+                    getOrdens().add(ordem);
+                }
+                else{
+                    cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: Não há cliente Cadastrado");
+                    getOrdens().add(ordem);
+                }
             });
         }
 
@@ -503,20 +519,25 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
 
     public void GerarRelatorio_OrdemServico() {
         lbl_titulo.setText("Gerar Relatório da Ordem de Serviço");
-        
+
         cmb_OrdemServico.removeAllItems();
 
         getOrdens().removeAll(reg.getOrdemServicos());
         if (!reg.getOrdemServicos().isEmpty()) {
-             reg.getOrdemServicos().forEach(ordem -> {
-                if(ordem.getServico().getNome().equals("Consulta")) {
-                    cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
-                    getOrdens().add(ordem);
+            reg.getOrdemServicos().forEach(ordem -> {
+                if (ordem.getServico().getNome().equals("Consulta")) {
+                    if (ordem.getCliente() != null) {
+                        cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
+                        getOrdens().add(ordem);
+                    } else {
+                        cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: Não há cliente Cadastrado");
+                        getOrdens().add(ordem);
+                    }
                 }
-                
+
             });
         }
-        
+
         txt_relatorio_servico.setEnabled(true);
         txt_relatorio_servico.setEditable(true);
 
