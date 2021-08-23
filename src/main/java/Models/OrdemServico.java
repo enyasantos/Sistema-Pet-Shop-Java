@@ -22,18 +22,18 @@ public class OrdemServico {
 
     public OrdemServico(Servico servico, DataHorario datatime, Cliente cliente, String animal) {
         setId();
-        this.servico = servico;
-        this.datatime = datatime;
-        this.cliente = cliente;
-        this.animal = animal;
+        setServico(servico);
+        setDatatime(datatime);
+        setCliente(cliente);
+        setAnimal(animal);
     }
 
     public OrdemServico(Servico servico, DataHorario datatime, String nomeCliente, String animal) {
         setId();
-        this.servico = servico;
-        this.datatime = datatime;
-        this.nomeCliente = nomeCliente;
-        this.animal = animal;
+        setServico(servico);
+        setDatatime(datatime);
+        setNomeCliente(nomeCliente);
+        setAnimal(animal);
     }
     public int getId() {
         return id;

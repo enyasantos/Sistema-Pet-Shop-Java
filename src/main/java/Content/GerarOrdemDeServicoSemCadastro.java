@@ -79,7 +79,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         lbl_name = new javax.swing.JLabel();
         field_nome = new javax.swing.JTextField();
         lbl_endereco = new javax.swing.JLabel();
-        btn_cadastrar = new javax.swing.JButton();
         lbl_name_sc = new javax.swing.JLabel();
         field_nome_sc = new javax.swing.JTextField();
 
@@ -255,7 +254,8 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         field_data.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
-        field_hora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
+        field_hora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("##:##"))));
+        field_hora.setText("  :  ");
         field_hora.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         field_hora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,19 +305,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_cadastrar.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
-        btn_cadastrar.setText("Cadastrar");
-        btn_cadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_cadastrarMouseClicked(evt);
-            }
-        });
-        btn_cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastrarActionPerformed(evt);
-            }
-        });
-
         lbl_name_sc.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_name_sc.setForeground(new java.awt.Color(24, 24, 24));
         lbl_name_sc.setText("Nome cliente:");
@@ -347,31 +334,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(combo_box_serv, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(field_data, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbl_data))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbl_hora)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(field_hora))
-                            .addGap(6, 6, 6))
-                        .addComponent(lbl_serv)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbl_name)
-                                .addComponent(field_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbl_endereco)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(field_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn_cadastrar))))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
@@ -386,7 +348,35 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(103, 103, 103)
                                     .addComponent(btn_nao)))
-                            .addGap(69, 69, 69)))
+                            .addGap(69, 69, 69))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lbl_serv)
+                            .addGap(181, 181, 181))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_name)
+                                .addComponent(field_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(14, 14, 14)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(field_endereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(6, 6, 6))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lbl_endereco)
+                                    .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(combo_box_serv, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(field_data, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_data))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lbl_hora)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(field_hora))
+                            .addGap(6, 6, 6)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_name_sc)
@@ -444,10 +434,9 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
                             .addComponent(lbl_name)
                             .addComponent(lbl_endereco))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(field_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(field_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(field_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_name_sc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -456,7 +445,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_gerar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_cancelar))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -532,7 +521,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         field_nome.setVisible(true);
         lbl_endereco.setVisible(true);
         field_endereco.setVisible(true);
-        btn_cadastrar.setVisible(true);
         lbl_name_sc.setVisible(false);
         field_nome_sc.setVisible(false);
         cadastrar = true;
@@ -549,7 +537,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         field_nome.setVisible(false);
         lbl_endereco.setVisible(false);
         field_endereco.setVisible(false);
-        btn_cadastrar.setVisible(false);
         lbl_name_sc.setVisible(true);
         field_nome_sc.setVisible(true);
         cadastrar = false;
@@ -561,15 +548,10 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         field_nome.setVisible(false);
         lbl_endereco.setVisible(false);
         field_endereco.setVisible(false);
-        btn_cadastrar.setVisible(false);
         lbl_name_sc.setVisible(true);
         field_nome_sc.setVisible(true);
         cadastrar = false;
     }//GEN-LAST:event_formAncestorAdded
-
-    private void btn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cadastrarActionPerformed
 
     private void btn_gerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gerarActionPerformed
         // TODO add your handling code here:
@@ -607,6 +589,8 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         
         OrdemServico nOrdem;
         
+        idCliente = cadastraCliente();
+        
         if (cadastrar)
             nOrdem = new OrdemServico(servico, datatime, vend.getClienteById(registros.getClientes(), idCliente, true), animal);
         else 
@@ -629,11 +613,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_field_nome_scActionPerformed
 
-    private void btn_cadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cadastrarMouseClicked
-        // TODO add your handling code here:
-        idCliente = cadastraCliente();
-    }//GEN-LAST:event_btn_cadastrarMouseClicked
-
     private void cleanInputs(){
         combo_box_serv.setSelectedIndex(0);
         combo_box_animal.setSelectedIndex(0);
@@ -644,21 +623,12 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         String nome = field_nome.getText();
         String endereco = field_endereco.getText();
         
-        if (nome.isEmpty() || endereco.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de cadastrar!", "Alerta", JOptionPane.WARNING_MESSAGE);
+        Cliente nCliente = new Cliente(nome, endereco);
+        if (vend.cadastrarCliente(registros, nCliente)){
+            cleanInputsCad();
+            return nCliente.getId();
         }
-        else{
-            Cliente nCliente = new Cliente(nome, endereco);
-            if (vend.cadastrarCliente(registros, nCliente)){
-                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso.", "Cliente cadastrado", JOptionPane.INFORMATION_MESSAGE);
-                cleanInputsCad();
-                return nCliente.getId();
-            }
-            else
-                JOptionPane.showMessageDialog(null, "Erro no processo de cadastro, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
-              
-        }
-        return -1;
+        return -1; 
     }
     
     private void cleanInputsCad(){
@@ -667,7 +637,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cadastrar;
     private javax.swing.JButton btn_gerar;
     private javax.swing.JRadioButton btn_nao;
     private javax.swing.JRadioButton btn_sim;

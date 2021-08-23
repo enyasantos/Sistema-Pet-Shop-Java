@@ -21,16 +21,17 @@ public class Venda {
     
     public Venda(Produto produto, float valor, int idVendedor){
         setId();
-        this.produto = produto;
-        this.valor = valor;
-        this.idVendedor = idVendedor;
+        setProduto(produto);
+        setValor(valor);
+        setIdVendedor(idVendedor);
     }
     
     public Venda(Servico servico, float valor, int idVendedor){
         setId();
-        this.servico = servico;
-        this.valor = valor;
-        this.idVendedor = idVendedor;
+        setServico(servico);
+        setValor(valor);
+        setIdVendedor(idVendedor);
+        
     }
     
     public int getId() {
