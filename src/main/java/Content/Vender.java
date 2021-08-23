@@ -348,26 +348,30 @@ public class Vender extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int id = Integer.parseInt(field_id.getText());
         int quant = Integer.parseInt(field_quant.getText());
-      
-        if(vend.getProdutoByID(registros.getProdutos(), id, true) != null){
-            float valor = (vend.getProdutoByID(registros.getProdutos(), id, true)).getValor();
+//        if (id.isEmpty() || quant.isEmpty()){
+//            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de cadastrar!", "Alerta", JOptionPane.WARNING_MESSAGE);
+//        }
+//        else{
+            if(vend.getProdutoByID(registros.getProdutos(), id, true) != null){
+                float valor = (vend.getProdutoByID(registros.getProdutos(), id, true)).getValor();
 
-            Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id, true), valor, vend.getId());
-            if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id)){
-                JOptionPane.showMessageDialog(null, "Venda realizada com sucesso.", "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
-                cleanInputs();
+                Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id, true), valor, vend.getId());
+                if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id)){
+                    JOptionPane.showMessageDialog(null, "Venda realizada com sucesso, recarregue a página para atualizar quantidade.", "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
+                    cleanInputs();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE); 
+            else
+                JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE); 
+        //}
     }//GEN-LAST:event_btn_vendaMousePressed
     
     public void cleanInputs() {
-            field_id.setText("");
-            field_quant.setText("");
+        field_id.setText("");
+        field_quant.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

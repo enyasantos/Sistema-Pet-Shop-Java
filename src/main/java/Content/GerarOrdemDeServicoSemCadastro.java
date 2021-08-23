@@ -206,7 +206,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         lbl_cadastro.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_cadastro.setForeground(new java.awt.Color(24, 24, 24));
-        lbl_cadastro.setText("Deseja cadastrar?");
+        lbl_cadastro.setText("Deseja cadastrar cliente?");
         lbl_cadastro.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 lbl_cadastroAncestorAdded(evt);
@@ -273,7 +273,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         lbl_name.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_name.setForeground(new java.awt.Color(24, 24, 24));
-        lbl_name.setText("Nome:");
+        lbl_name.setText("Nome cliente:");
         lbl_name.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 lbl_nameAncestorAdded(evt);
@@ -294,7 +294,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         lbl_endereco.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_endereco.setForeground(new java.awt.Color(24, 24, 24));
-        lbl_endereco.setText("Endereco:");
+        lbl_endereco.setText("Endereco cliente:");
         lbl_endereco.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 lbl_enderecoAncestorAdded(evt);
@@ -320,7 +320,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         lbl_name_sc.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_name_sc.setForeground(new java.awt.Color(24, 24, 24));
-        lbl_name_sc.setText("Nome:");
+        lbl_name_sc.setText("Nome cliente:");
         lbl_name_sc.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 lbl_name_scAncestorAdded(evt);
@@ -344,68 +344,63 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(combo_box_serv, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(field_data, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_data))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_hora)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(field_hora))
-                                .addGap(46, 46, 46))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(combo_box_animal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(183, 183, 183))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_animal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btn_sim)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(btn_nao))
-                                    .addComponent(lbl_cadastro))
-                                .addGap(66, 66, 66))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_serv)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbl_name)
-                                            .addComponent(field_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbl_endereco)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(field_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btn_cadastrar)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)))
-                        .addComponent(lbl_endereco1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(combo_box_serv, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbl_name_sc)
-                                .addComponent(lbl_titulo)
-                                .addComponent(lbl_subtitulo)
-                                .addComponent(lbl_separador, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(field_nome_sc, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lbl_cancelar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_gerar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(field_data, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_data))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lbl_hora)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(field_hora))
+                            .addGap(6, 6, 6))
+                        .addComponent(lbl_serv)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_name)
+                                .addComponent(field_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_endereco)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(field_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btn_cadastrar))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(combo_box_animal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(140, 140, 140))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lbl_animal)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_cadastro)
+                                .addComponent(btn_sim)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(103, 103, 103)
+                                    .addComponent(btn_nao)))
+                            .addGap(69, 69, 69)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_name_sc)
+                            .addComponent(lbl_titulo)
+                            .addComponent(lbl_subtitulo)
+                            .addComponent(lbl_separador, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(field_nome_sc, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(lbl_cancelar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_gerar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(54, 54, 54)
+                .addComponent(lbl_endereco1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,7 +590,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         
         String [] horaMinuto = hora.split(":");
         
-        DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
+        DataHorario datatime = new DataHorario(dia, mes, ano, 12, 21);
 
         
         String nomeCliente = field_nome.getText();
