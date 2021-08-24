@@ -72,16 +72,16 @@
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="field_quant" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbl_titulo2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbl_titulo3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="combo_produto" min="-2" max="-2" attributes="0"/>
+                      <Component id="combo_produto" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_venda" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
@@ -227,6 +227,7 @@
       </Properties>
       <Events>
         <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="lbl_cancelarAncestorAdded"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_cancelarMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_venda">
@@ -238,7 +239,6 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_vendaMouseClicked"/>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_vendaMousePressed"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_vendaActionPerformed"/>
       </Events>
     </Component>

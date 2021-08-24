@@ -125,16 +125,16 @@
                   <Component id="lbl_endereco8" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="combo_box_animal" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="combo_cliente" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="combo_box_animal" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="combo_cliente" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_gerar" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="lbl_cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -182,6 +182,7 @@
       </Properties>
       <Events>
         <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="lbl_cancelarAncestorAdded"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_cancelarMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_endereco">

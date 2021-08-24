@@ -114,6 +114,11 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        lbl_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_cancelarMouseClicked(evt);
+            }
+        });
 
         lbl_endereco.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_endereco.setForeground(new java.awt.Color(24, 24, 24));
@@ -360,14 +365,14 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_endereco8))
                 .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(combo_box_animal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(combo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_gerar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_cancelar))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -451,38 +456,41 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         int index = combo_cliente.getSelectedIndex();
                 
         String hora = field_hora.getText();
-        
+
         //Converte o tipo Date para LocalDate
         LocalDate data = LocalDate.ofInstant(field_data.getDate().toInstant(), ZoneId.systemDefault());
         int dia = data.getDayOfMonth();
         int mes = data.getMonthValue();
         int ano = data.getYear();
-        
+       
         String [] horaMinuto = hora.split(":");
         
         DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
-        
-        if(vend.getClienteById(registros.getClientes(), index) != null){
-            float valor = (float)0;
-        
-            if(tipoServ.equals("Banho e Tosa"))
-                valor = (float)80.0;
-            else if (tipoServ.equals("Consulta"))
-                valor = (float)90.0;
+//        if (tipoServ.isEmpty() || animal.isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de gerar a ordem de serviço!", "Alerta", JOptionPane.WARNING_MESSAGE);
+//        }
+//        else{ 
+            if(vend.getClienteById(registros.getClientes(), index) != null){
+                float valor = (float)0;
 
-            Servico servico = new Servico(tipoServ, valor);
-            Venda nVenda = new Venda(servico, valor, vend.getId());
-            OrdemServico nOrdem = new OrdemServico(servico, datatime, vend.getClienteById(registros.getClientes(), index), animal);
-            if(vend.realizarOrdemServico(registros, nOrdem, nVenda, servico)){
-                JOptionPane.showMessageDialog(null, "Ordem de serviço realizada com sucesso.", "Ordem de serviço realizada", JOptionPane.INFORMATION_MESSAGE);
-                cleanInputs();
+                if(tipoServ.equals("Banho e Tosa"))
+                    valor = (float)80.0;
+                else if (tipoServ.equals("Consulta"))
+                    valor = (float)90.0;
+
+                Servico servico = new Servico(tipoServ, valor);
+                Venda nVenda = new Venda(servico, valor, vend.getId());
+                OrdemServico nOrdem = new OrdemServico(servico, datatime, vend.getClienteById(registros.getClientes(), index), animal);
+                if(vend.realizarOrdemServico(registros, nOrdem, nVenda, servico)){
+                    JOptionPane.showMessageDialog(null, "Ordem de serviço realizada com sucesso.", "Ordem de serviço realizada", JOptionPane.INFORMATION_MESSAGE);
+                    cleanInputs();
+                }
+                else 
+                    JOptionPane.showMessageDialog(null, "Erro no processo de geração de ordem de serviço, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
-            else 
-                JOptionPane.showMessageDialog(null, "Erro no processo de geração de ordem de serviço, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Cliente não existente, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
-   
+            else
+                JOptionPane.showMessageDialog(null, "Cliente não existente, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
+        //}
     }//GEN-LAST:event_btn_gerarMouseClicked
 
     private void combo_clienteAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_combo_clienteAncestorAdded
@@ -491,6 +499,11 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             combo_cliente.addItem("ID:" + cliente.getId() + " | " + cliente.getNome());
         });
     }//GEN-LAST:event_combo_clienteAncestorAdded
+
+    private void lbl_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cancelarMouseClicked
+        // TODO add your handling code here:
+        cleanInputs();
+    }//GEN-LAST:event_lbl_cancelarMouseClicked
     
     private void cleanInputs(){
         combo_box_serv.setSelectedIndex(0);

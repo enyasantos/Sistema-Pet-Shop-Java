@@ -75,8 +75,8 @@ public class Produto {
     }
     
     public boolean atualizarQuantidade(int quantidade){
-        if((getQuantidade() - quantidade ) >= 0){
-            setQuantidade(getQuantidade() - quantidade);
+        if((getQuantidade() - quantidade ) >= 0){ //verifica se a quantidade após a venda é maior que 0
+            setQuantidade(getQuantidade() - quantidade); //retira a quantidade de produtos a serem vendidos
             return true;
         }
         return false;
