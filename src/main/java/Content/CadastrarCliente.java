@@ -66,6 +66,11 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        lbl_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_cancelarMouseClicked(evt);
+            }
+        });
 
         lbl_name1.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_name1.setForeground(new java.awt.Color(24, 24, 24));
@@ -248,6 +253,11 @@ public class CadastrarCliente extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btn_cadastroMouseClicked
+
+    private void lbl_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cancelarMouseClicked
+        // TODO add your handling code here:
+        cleanInputs();
+    }//GEN-LAST:event_lbl_cancelarMouseClicked
     
     public void cleanInputs() {
             field_nome.setText("");

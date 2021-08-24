@@ -295,7 +295,10 @@ public class MenuVendedor extends javax.swing.JFrame {
             .addComponent(j_content, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
         );
 
-        pack();
+        getAccessibleContext().setAccessibleParent(this);
+
+        setSize(new java.awt.Dimension(880, 542));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     void resetColor(JPanel panel) {
@@ -308,10 +311,12 @@ public class MenuVendedor extends javax.swing.JFrame {
     
     private void lbl_ordem_servico_sem_cadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ordem_servico_sem_cadMouseClicked
         // TODO add your handling code here:
+       
         GerarOrdemDeServicoSemCadastro ordem = new GerarOrdemDeServicoSemCadastro(registros, vend);
         j_content.removeAll();
         j_content.add(ordem).setVisible(true);
-
+        
+        // colorindo o título da janela em que o usuário está
         resetColor(btn_cadastrar_cliente_aux);
         resetColor(btn_venda_aux);
         setColor(btn_gerar_ordem_serv_aux);
@@ -323,6 +328,7 @@ public class MenuVendedor extends javax.swing.JFrame {
         j_content.removeAll();
         j_content.add(venda).setVisible(true);
 
+        // colorindo o título da janela em que o usuário está
         resetColor(btn_cadastrar_cliente_aux);
         setColor(btn_venda_aux);
         resetColor(btn_gerar_ordem_serv_aux);
@@ -334,6 +340,7 @@ public class MenuVendedor extends javax.swing.JFrame {
         j_content.removeAll();
         j_content.add(venda).setVisible(true);
 
+        // colorindo o título da janela em que o usuário está
         resetColor(btn_cadastrar_cliente_aux);
         setColor(btn_venda_aux);
         resetColor(btn_gerar_ordem_serv_aux);
@@ -348,6 +355,7 @@ public class MenuVendedor extends javax.swing.JFrame {
 
     private void btn_gerar_ordem_servMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_gerar_ordem_servMousePressed
         // TODO add your handling code here:
+        // colorindo o título da janela em que o usuário está
         resetColor(btn_cadastrar_cliente_aux);
         resetColor(btn_venda_aux);
         setColor(btn_gerar_ordem_serv_aux);
@@ -358,7 +366,7 @@ public class MenuVendedor extends javax.swing.JFrame {
         GerarOrdemDeServico ordem = new GerarOrdemDeServico(vend, registros);
         j_content.removeAll();
         j_content.add(ordem).setVisible(true);
-
+    // colorindo o título da janela em que o usuário está
         resetColor(btn_cadastrar_cliente_aux);
         resetColor(btn_venda_aux);
         setColor(btn_gerar_ordem_serv_aux);
@@ -369,7 +377,7 @@ public class MenuVendedor extends javax.swing.JFrame {
         CadastrarCliente cadastro = new CadastrarCliente(vend, registros);
         j_content.removeAll();
         j_content.add(cadastro).setVisible(true);
-
+        // colorindo o título da janela em que o usuário está
         setColor(btn_cadastrar_cliente_aux);
         resetColor(btn_venda_aux);
         resetColor(btn_gerar_ordem_serv_aux);
@@ -380,7 +388,7 @@ public class MenuVendedor extends javax.swing.JFrame {
         CadastrarCliente cadastro = new CadastrarCliente(vend, registros);
         j_content.removeAll();
         j_content.add(cadastro).setVisible(true);
-
+        // colorindo o título da janela em que o usuário está
         setColor(btn_cadastrar_cliente_aux);
         resetColor(btn_venda_aux);
         resetColor(btn_gerar_ordem_serv_aux);

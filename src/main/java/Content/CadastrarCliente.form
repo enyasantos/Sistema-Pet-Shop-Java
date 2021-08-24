@@ -81,6 +81,7 @@
       </Properties>
       <Events>
         <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="lbl_cancelarAncestorAdded"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_cancelarMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_name1">

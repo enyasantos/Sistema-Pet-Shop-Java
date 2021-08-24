@@ -128,6 +128,11 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         lbl_cancelar.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         lbl_cancelar.setForeground(new java.awt.Color(201, 17, 22));
         lbl_cancelar.setText("Cancelar");
+        lbl_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_cancelarMouseClicked(evt);
+            }
+        });
 
         lbl_data.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         lbl_data.setForeground(new java.awt.Color(24, 24, 24));
@@ -261,7 +266,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        field_hora.setText("  :  ");
         field_hora.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         field_hora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -580,8 +584,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
 
-        String nomeCliente = field_nome.getText();
-
         float valor = (float) 0;
 
         if (tipoServ.equals("Banho e Tosa")) {
@@ -600,6 +602,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
             Cliente lastCliente = registros.getClientes().get(registros.getClientes().size() - 1);
             nOrdem = new OrdemServico(servico, datatime, lastCliente, animal);
         } else {
+            String nomeCliente = field_nome_sc.getText();
             nOrdem = new OrdemServico(servico, datatime, nomeCliente, animal);
         }
 
@@ -619,6 +622,12 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
     private void field_nome_scActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_nome_scActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_field_nome_scActionPerformed
+
+    private void lbl_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cancelarMouseClicked
+        // TODO add your handling code here:
+        cleanInputs();
+        cleanInputsCad();
+    }//GEN-LAST:event_lbl_cancelarMouseClicked
 
     private void cleanInputs() {
         combo_box_serv.setSelectedIndex(0);

@@ -169,15 +169,17 @@ public class Vender extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        lbl_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_cancelarMouseClicked(evt);
+            }
+        });
 
         btn_venda.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
         btn_venda.setText("Vender");
         btn_venda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_vendaMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_vendaMousePressed(evt);
             }
         });
         btn_venda.addActionListener(new java.awt.event.ActionListener() {
@@ -247,18 +249,17 @@ public class Vender extends javax.swing.JInternalFrame {
                 .addComponent(lbl_titulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(field_quant, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_titulo2)
                             .addComponent(lbl_titulo3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(combo_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(combo_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_cancelar)
                     .addComponent(btn_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -299,22 +300,28 @@ public class Vender extends javax.swing.JInternalFrame {
     private void btn_vendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_vendaMouseClicked
         // TODO add your handling code here:
         int id = combo_produto.getSelectedIndex();
-        int quant = Integer.parseInt(field_quant.getText());
-      
-        if(vend.getProdutoByID(registros.getProdutos(), id) != null){
-            float valor = (vend.getProdutoByID(registros.getProdutos(), id)).getValor();
+        int quant = Integer.parseInt(field_quant.getText());    
+       
+//        if (Integer.toString(id).isEmpty() || Integer.toString(quant).isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de gerar a ordem de serviço!", "Alerta", JOptionPane.WARNING_MESSAGE);
+//        }
+//        else{
+            if(vend.getProdutoByID(registros.getProdutos(), id) != null){
+                float valor = (vend.getProdutoByID(registros.getProdutos(), id)).getValor();
 
-            Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id), valor, vend.getId());
-            if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id)){
-                JOptionPane.showMessageDialog(null, "Venda realizada com sucesso.", "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
-                cleanInputs();
+                Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id), valor, vend.getId());   
+                
+                if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id+1)){
+                    JOptionPane.showMessageDialog(null, "Venda realizada com sucesso, recarregue a página para atualizar a quantidade.", "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
+                    cleanInputs();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE); 
+            else
+                JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE); 
+//        }
     }//GEN-LAST:event_btn_vendaMouseClicked
 
     private void field_quantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field_quantActionPerformed
@@ -343,37 +350,17 @@ public class Vender extends javax.swing.JInternalFrame {
         });
     }//GEN-LAST:event_table_produtosAncestorAdded
 
-    private void btn_vendaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_vendaMousePressed
-        // TODO add your handling code here:
-        int id = combo_produto.getSelectedIndex();
-        int quant = Integer.parseInt(field_quant.getText());
-//        if (id.isEmpty() || quant.isEmpty()){
-//            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de cadastrar!", "Alerta", JOptionPane.WARNING_MESSAGE);
-//        }
-//        else{
-            if(vend.getProdutoByID(registros.getProdutos(), id) != null){
-                float valor = (vend.getProdutoByID(registros.getProdutos(), id)).getValor();
-
-                Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id), valor, vend.getId());
-                if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id)){
-                    JOptionPane.showMessageDialog(null, "Venda realizada com sucesso, recarregue a página para atualizar quantidade.", "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
-                    cleanInputs();
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-            else
-                JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE); 
-        //}
-    }//GEN-LAST:event_btn_vendaMousePressed
-
     private void combo_produtoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_combo_produtoAncestorAdded
         // TODO add your handling code here:
         registros.getProdutos().forEach(produto -> {
             combo_produto.addItem("ID:" + produto.getId() + " | " + produto.getNome());
         });
     }//GEN-LAST:event_combo_produtoAncestorAdded
+
+    private void lbl_cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cancelarMouseClicked
+        // TODO add your handling code here:
+        cleanInputs();
+    }//GEN-LAST:event_lbl_cancelarMouseClicked
     
     public void cleanInputs() {
         combo_produto.setSelectedIndex(0);
