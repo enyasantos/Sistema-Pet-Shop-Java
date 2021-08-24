@@ -353,9 +353,8 @@ public class Vender extends javax.swing.JInternalFrame {
 //        else{
             if(vend.getProdutoByID(registros.getProdutos(), id) != null){
                 float valor = (vend.getProdutoByID(registros.getProdutos(), id)).getValor();
-
                 Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id), valor, vend.getId());
-                if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id)){
+                if(vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, (id + 1))){
                     JOptionPane.showMessageDialog(null, "Venda realizada com sucesso, recarregue a página para atualizar quantidade.", "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
                     cleanInputs();
                 }

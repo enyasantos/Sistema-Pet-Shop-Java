@@ -580,8 +580,6 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
 
-        String nomeCliente = field_nome.getText();
-
         float valor = (float) 0;
 
         if (tipoServ.equals("Banho e Tosa")) {
@@ -600,6 +598,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
             Cliente lastCliente = registros.getClientes().get(registros.getClientes().size() - 1);
             nOrdem = new OrdemServico(servico, datatime, lastCliente, animal);
         } else {
+            String nomeCliente = field_nome.getText();
             nOrdem = new OrdemServico(servico, datatime, nomeCliente, animal);
         }
 

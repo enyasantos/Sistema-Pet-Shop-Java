@@ -198,7 +198,7 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
                 String aux[] = new String[6];
                 aux[0] = String.valueOf(veterinario.getId());
                 aux[1] = veterinario.getNome();
-                aux[2] = veterinario.getCpf();
+                aux[2] = veterinario.getUsuario();
                 aux[3] = veterinario.getSenha();
                 aux[4] = veterinario.getCpf();
                 aux[5] = Float.toString(veterinario.getSalario());
