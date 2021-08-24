@@ -12,7 +12,6 @@ import javax.swing.table.DefaultTableModel;
 
 import Models.Administrador;
 import Models.Registro;
-import Models.Vendedor;
 import Models.Veterinario;
 
 /**
@@ -22,7 +21,6 @@ import Models.Veterinario;
 public class ListarFuncionarios extends javax.swing.JInternalFrame {
 
     private String tipoFuncionario;
-    private Administrador adm;
     private Registro registros;
 
     /**
@@ -42,16 +40,7 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         setTipoFuncionario(funcionario);
-        setAdministrador(adm);
         setRegistros(registros);
-    }
-
-    private void setAdministrador(Administrador adm) {
-        this.adm = adm;
-    }
-
-    private Administrador getAdministrador() {
-        return this.adm;
     }
 
     private void setRegistros(Registro registros) {
@@ -65,11 +54,7 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
     private void setTipoFuncionario(String tipoFuncionario) {
         this.tipoFuncionario = tipoFuncionario;
     }
-
-    private String getTipoFuncionario() {
-        return this.tipoFuncionario;
-    }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,7 +129,7 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +142,7 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -176,13 +161,14 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
 
     private void jLabel5AncestorAdded(javax.swing.event.AncestorEvent evt) {// GEN-FIRST:event_jLabel5AncestorAdded
         // TODO add your handling code here:
-        if (tipoFuncionario.equals("vendedor")) {
+        if (tipoFuncionario.equals("vendedor")) { //se o menu for para o tipo vendedor
             jLabel5.setText("Visualizar vendedores");
             jLabel6.setText("Visualize os vendedores cadastrados no sistema através da tabela abaixo");
 
             getRegistros().getVendedores();
             ArrayList<String[]> vendedores = new ArrayList<>();
 
+            //Criando arrays e adicionado ao ArrayList para a tabela
             getRegistros().getVendedores().forEach(vendedor -> {
                 String aux[] = new String[6];
                 aux[0] = String.valueOf(vendedor.getId());
@@ -194,18 +180,20 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
                 vendedores.add(aux);
             });
             
+            //Adicionado os dados do ArryList a tabela
             DefaultTableModel tbl = (DefaultTableModel) jTable1.getModel();
             vendedores.forEach(vendedor -> {
                 tbl.addRow(vendedor);
             });
 
-        } else if (tipoFuncionario.equals("veterinário")) {
+        } else if (tipoFuncionario.equals("veterinário")) { //se o menu for para o tipo veterinário
             jLabel5.setText("Visualizar veterinários");
             jLabel6.setText("Visualize os veterinários cadastrados no sistema através da tabela abaixo");
 
             getRegistros().getVendedores();
             ArrayList<String[]> veterinarios = new ArrayList<>();
 
+            //Criando arrays e adicionado ao ArrayList para a tabela
             for (Veterinario veterinario : getRegistros().getVeterinarios()) {
                 String aux[] = new String[6];
                 aux[0] = String.valueOf(veterinario.getId());
@@ -217,6 +205,7 @@ public class ListarFuncionarios extends javax.swing.JInternalFrame {
                 veterinarios.add(aux);
             }
 
+            //Adicionado os dados do ArryList a tabela
             DefaultTableModel tbl = (DefaultTableModel) jTable1.getModel();
             for (String[] veterinario : veterinarios) {
                 tbl.addRow(veterinario);

@@ -33,30 +33,7 @@ public class Login extends javax.swing.JFrame {
 
     public Login(Registro registros) {
         initComponents();
-        this.setRegistros(registros);
-        /*Vendedor vend = new Vendedor("admin", "admin", "admin", (float)100.0, "11111111");
-        Veterinario vet = new Veterinario("admin", (float)100.0, "admin", "admin", "11111111");
-        Cliente cliente2 = new Cliente("joão", "11111111");
-        Cliente cliente1 = new Cliente("maria", "11111111");
-        getRegistros().addVendedor(vend);
-        getRegistros().addVeterinario(vet);
-        getRegistros().addCliente(cliente1);
-        getRegistros().addCliente(cliente2);
-        
-        
-        Servico servico = new Servico("Consulta", (float)90);
-        DataHorario datatime = new DataHorario(12, 12, 2020, 12, 0);
-        Venda nVenda1 = new Venda(servico, (float)90, 0);
-        OrdemServico nOrdem = new OrdemServico(servico, datatime, cliente1, "Cachorro");
-        getRegistros().addOrdemServico(nOrdem);
-        getRegistros().addVenda(nVenda1);
-        
-        Servico servico1 = new Servico("Banho e tosa", (float)80);
-        DataHorario datatime1 = new DataHorario(12, 12, 2020, 12, 0);
-        Venda nVenda2 = new Venda(servico1, (float)80, 0);
-        OrdemServico nOrdem1 = new OrdemServico(servico1, datatime1, cliente2, "Gato");
-        getRegistros().addOrdemServico(nOrdem1);
-        getRegistros().addVenda(nVenda2);*/
+        setRegistros(registros);
     }
 
     public Registro getRegistros() {
@@ -269,19 +246,26 @@ public class Login extends javax.swing.JFrame {
                 Administrador adm = new Administrador(usuario, senha);
                 if(adm.fazerLogin()) {
                     new MenuAdministrador(adm, registros).setVisible(true);
+                    cleanInputs();
                 } else alertaLogin(usuario, senha);
                 break;
             case "Vendedor":
                 Vendedor vend = Models.Login.verificaLogin(registros.getVendedores(), usuario, senha);
                 if(vend == null)
                     alertaLogin(usuario, senha);
-                else new MenuVendedor(vend, registros).setVisible(true);
+                else{
+                    cleanInputs();
+                    new MenuVendedor(vend, registros).setVisible(true);
+                }
                 break;
             case "Veterinário":
                 Veterinario vet = Models.Login.verificaLogin(registros.getVeterinario(), usuario, senha);
                 if(vet == null)
                     alertaLogin(usuario, senha);
-                else new MenuVeterinario(vet,registros).setVisible(true);
+                else{
+                    cleanInputs();
+                    new MenuVeterinario(vet,registros).setVisible(true);
+                }
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Modo de login não escolhido!", "Alerta", JOptionPane.WARNING_MESSAGE);
@@ -295,40 +279,9 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_sairMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
+    private void cleanInputs(){
+        input_usuario.setText("");
+        input_senha.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

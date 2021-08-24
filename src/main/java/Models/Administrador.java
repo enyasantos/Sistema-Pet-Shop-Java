@@ -5,8 +5,6 @@
  */
 package Models;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author enya

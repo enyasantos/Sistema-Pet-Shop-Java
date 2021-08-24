@@ -89,32 +89,6 @@ public class PagarConta extends javax.swing.JInternalFrame {
         return diff;
     }
 
-    //Seta os intervalo de datas no combo box
-    private void setDataPagamento(String dataVenc) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");// Formato brasileiro da data
-        LocalDate diaAtual = LocalDate.now(); // Recebe o dia atual
-        long additionalDays = 0;
-
-        try {
-            additionalDays = sub2Dates(diaAtual.toString(), dataVenc);
-        } catch (ParseException ex) {
-            Logger.getLogger(PagarConta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        combo_box_data_pagamento.removeAllItems();
-
-        String diaFormatado;
-        if (additionalDays < 0) {// Caso não haja dias adicionais o pagamento pode ocorrer apenas no dia atual
-            diaFormatado = diaAtual.format(formatter);
-            combo_box_data_pagamento.addItem(diaFormatado);
-        } else {// Adiciona os demais dias no ComboBox
-            for (int i = 0; i <= additionalDays; i++) {
-                diaFormatado = diaAtual.plusDays(i).format(formatter);
-                combo_box_data_pagamento.addItem(diaFormatado);
-            }
-        }
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -175,15 +149,6 @@ public class PagarConta extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        combo_box_id.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                combo_box_idAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         combo_box_id.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 combo_box_idMouseClicked(evt);
@@ -231,11 +196,6 @@ public class PagarConta extends javax.swing.JInternalFrame {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        combo_box_data_pagamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_box_data_pagamentoActionPerformed(evt);
             }
         });
 
@@ -315,6 +275,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
     private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
         // TODO add your handling code here:
         ArrayList<String[]> contas = new ArrayList<>();
+        //Adiciona ao ArrayList contas um array de string para a tabela 
         if (registros.getContas() != null) {
             registros.getContas().forEach((Conta conta) -> {
                 String aux[] = new String[5];
@@ -341,37 +302,44 @@ public class PagarConta extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        cleanInputs();
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         int index = combo_box_id.getSelectedIndex();
         Conta conta = null;
-        conta = getContasAPagar().get(index);
-
-        if (conta != null) {
-            String[] covertDataArray = String.valueOf(combo_box_data_pagamento.getSelectedItem()).split("/");
-            DataHorario dataPagamento = new DataHorario(Integer.parseInt(covertDataArray[0]),
-                    Integer.parseInt(covertDataArray[1]), Integer.parseInt(covertDataArray[2]), 17, 0);
-            if (adm.pagarConta(registros, conta, dataPagamento)) {
-                JOptionPane.showMessageDialog(null, "Compra registrada com sucesso.", "Compra registrada",
-                        JOptionPane.INFORMATION_MESSAGE);
-                cleanInputs();
-            } else {
-                JOptionPane.showMessageDialog(null, "Erro no processo de compra, tente novamente.", "Erro",
-                        JOptionPane.ERROR_MESSAGE);
+        
+        if(index != -1) { //Verificação se foi selecionado algo
+            //Pega a conta no index do combo box selecionado
+            conta = getContasAPagar().get(index); 
+            if (conta != null) { //Verificação se foi encontrado uma conta no index
+                
+                //Split para pegar dia, mês e ano da data de forma separada
+                String[] covertDataArray = String.valueOf(combo_box_data_pagamento.getSelectedItem()).split("/");
+                DataHorario dataPagamento = new DataHorario(Integer.parseInt(covertDataArray[0]),
+                        Integer.parseInt(covertDataArray[1]), Integer.parseInt(covertDataArray[2]), 17, 0);
+                if (adm.pagarConta(registros, conta, dataPagamento)) {
+                    JOptionPane.showMessageDialog(null, "Conta paga com sucesso. Recarregue a página para atualizar as informações.", "Conta paga",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    cleanInputs();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro no processo de compra, tente novamente.", "Erro",
+                            JOptionPane.ERROR_MESSAGE);
+                }
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Não há nanhuma conta para pagar.", "Erro",
+                            JOptionPane.ERROR_MESSAGE);
         }
+            
 
     }// GEN-LAST:event_jButton1MouseClicked
-
-    private void combo_box_data_pagamentoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_combo_box_data_pagamentoActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_combo_box_data_pagamentoActionPerformed
 
     private void combo_box_data_pagamentoAncestorAdded(javax.swing.event.AncestorEvent evt) {// GEN-FIRST:event_combo_box_data_pagamentoAncestorAdded
         // TODO add your handling code here:
         boolean haveItem = false;
+        //Adiciona as contas não paga no atributo (contasAPagar) da classe
         for (Conta conta : registros.getContas()) {
             if (!conta.isPaga()) {
                 combo_box_id.addItem("ID:" + conta.getId() + " | Valor: R$" + conta.getValor());
@@ -380,6 +348,7 @@ public class PagarConta extends javax.swing.JInternalFrame {
             }
         }
 
+        //Se tiver pelo menos uma conta
         if (haveItem) {
             int index = combo_box_id.getSelectedIndex();
             Conta contaSelected = getIndex(index);
@@ -387,13 +356,9 @@ public class PagarConta extends javax.swing.JInternalFrame {
         }
     }// GEN-LAST:event_combo_box_data_pagamentoAncestorAdded
 
-    private void combo_box_idAncestorAdded(javax.swing.event.AncestorEvent evt) {// GEN-FIRST:event_combo_box_idAncestorAdded
-        // TODO add your handling code here:
-
-    }// GEN-LAST:event_combo_box_idAncestorAdded
-
     private void combo_box_idActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_combo_box_idActionPerformed
         // TODO add your handling code here:
+        //Tenta inicializar as datas com o primeiro item do combo box
         if (!getContasAPagar().isEmpty()) {
             int index = combo_box_id.getSelectedIndex();
             Conta contaSelected = getIndex(index);
@@ -401,6 +366,33 @@ public class PagarConta extends javax.swing.JInternalFrame {
         }
     }// GEN-LAST:event_combo_box_idActionPerformed
 
+    //Seta os intervalo de datas no combo box
+    private void setDataPagamento(String dataVenc) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");// Formato brasileiro da data
+        LocalDate diaAtual = LocalDate.now(); // Recebe o dia atual
+        long additionalDays = 0;
+
+        try {
+            //Subtração de dadas
+            additionalDays = sub2Dates(diaAtual.toString(), dataVenc);
+        } catch (ParseException ex) {
+            Logger.getLogger(PagarConta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        combo_box_data_pagamento.removeAllItems();
+
+        String diaFormatado;
+        if (additionalDays < 0) {// Caso não haja dias adicionais o pagamento pode ocorrer apenas no dia atual
+            diaFormatado = diaAtual.format(formatter);
+            combo_box_data_pagamento.addItem(diaFormatado);
+        } else {// Adiciona os demais dias no ComboBox
+            for (int i = 0; i <= additionalDays; i++) {
+                diaFormatado = diaAtual.plusDays(i).format(formatter);
+                combo_box_data_pagamento.addItem(diaFormatado);
+            }
+        }
+    }
+    
     private void cleanInputs(){
         combo_box_id.setSelectedIndex(0);
         combo_box_data_pagamento.setSelectedIndex(0);

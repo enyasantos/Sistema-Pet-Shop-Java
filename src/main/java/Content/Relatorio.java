@@ -20,7 +20,6 @@ import java.util.ArrayList;
  */
 public class Relatorio extends javax.swing.JInternalFrame {
 
-    private Administrador adm;
     private Registro registros;
 
     /**
@@ -38,16 +37,7 @@ public class Relatorio extends javax.swing.JInternalFrame {
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
-        setAdministrador(adm);
         setRegistros(registros);
-    }
-
-    private void setAdministrador(Administrador adm) {
-        this.adm = adm;
-    }
-
-    private Administrador getAdministrador() {
-        return this.adm;
     }
 
     private void setRegistros(Registro registros) {
@@ -233,8 +223,8 @@ public class Relatorio extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         float[] counterValue = new float[1];
         ArrayList<String[]> vendas = new ArrayList<>();
-        if (registros.getVendas() != null) {
-            registros.getVendas().forEach((Venda venda) -> {
+        if (getRegistros().getVendas() != null) {
+            getRegistros().getVendas().forEach((Venda venda) -> {
                 if (venda.getIsProduto()) {
                     String aux[] = new String[5];
                     aux[0] = String.valueOf(venda.getId());
@@ -256,6 +246,7 @@ public class Relatorio extends javax.swing.JInternalFrame {
             });
         }
 
+        //Adicionado os dados do ArryList a tabela
         DefaultTableModel tbl = (DefaultTableModel) tbl_vendas.getModel();
         vendas.forEach(conta -> {
             tbl.addRow(conta);
@@ -268,8 +259,8 @@ public class Relatorio extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         float[] counterValue = new float[1];
         ArrayList<String[]> contas = new ArrayList<>();
-        if (registros.getContas() != null) {
-            registros.getContas().forEach((Conta conta) -> {
+        if (getRegistros().getContas() != null) {
+            getRegistros().getContas().forEach((Conta conta) -> {
                 String aux[] = new String[6];
                 aux[0] = String.valueOf(conta.getId());
                 aux[1] = conta.getDescricao();
@@ -286,6 +277,7 @@ public class Relatorio extends javax.swing.JInternalFrame {
             });
         }
         
+        //Adicionado os dados do ArryList a tabela
         DefaultTableModel tbl = (DefaultTableModel) tbl_contas.getModel();
         contas.forEach(conta -> {
             tbl.addRow(conta);

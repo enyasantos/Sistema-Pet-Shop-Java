@@ -250,11 +250,13 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
         String usuario = input_usuario.getText();
         String senha = input_senha.getText();
         float salario = (float)-1;
-        if(input_salario.getValue() != null){
+        
+        if(input_salario.getValue() != null){ //Se algum valor de salário foi verificado
             salario = Float.parseFloat(input_salario.getValue().toString());
         }
         String cpf = input_cpf.getText();
 
+        //Verifica se todos os dados foram preenchidos
         if (nome.isEmpty() || usuario.isEmpty() || salario == -1 || senha.isEmpty() || cpf.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de cadastrar!", "Alerta",
                     JOptionPane.WARNING_MESSAGE);
@@ -263,6 +265,7 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
                         JOptionPane.WARNING_MESSAGE);
         } else {
             if (tipoFuncionario.equals("vendedor")) {
+                //Cria um novo vendedor com os dados dos inputs
                 Vendedor nVendedor = new Vendedor(nome, usuario, senha, salario, cpf);
                 if (adm.cadastrarVendedor(registros, nVendedor)) {
                     JOptionPane.showMessageDialog(null, "Vendedor cadastrado com sucesso.", "Compra registrada",
@@ -273,6 +276,7 @@ public class CadastrarFuncionarios extends javax.swing.JInternalFrame {
                             JOptionPane.ERROR_MESSAGE);
                 }
             } else if (tipoFuncionario.equals("veterinario")) {
+                //Cria um novo veterinário com os dados dos inputs
                 Veterinario nVeterinario = new Veterinario(nome, salario, usuario, senha, cpf);
                 if (adm.cadastrarVeterinario(registros, nVeterinario)) {
                     JOptionPane.showMessageDialog(null, "Veterinário cadastrado com sucesso.", "Compra registrada",
