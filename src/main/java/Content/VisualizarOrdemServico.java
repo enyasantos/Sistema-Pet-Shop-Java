@@ -453,16 +453,16 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmb_OrdemServicoActionPerformed
 
     private void btn_salvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salvarMouseClicked
-        String relatorio = txt_relatorio_servico.getText();
-        if (relatorio.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Favor escrever o relatório!");
-        } else {
-            if (!ordens.isEmpty()) {
-                OrdemServico ordemaux = getOrdens().get(cmb_OrdemServico.getSelectedIndex());
-                if (relatorio.equals(ordemaux.getRelatorio())) {
+        if (!ordens.isEmpty()) { //verifica se há ordem de serviço no combobox
+            String relatorio = txt_relatorio_servico.getText(); //pega o relatorio digitado na tela
+            if (relatorio.isEmpty()) { //verifica se o relatorio digitado não está vazio
+                JOptionPane.showMessageDialog(null, "Favor escrever o relatório!");
+            } else {
+                OrdemServico ordemaux = getOrdens().get(cmb_OrdemServico.getSelectedIndex()); 
+                if (relatorio.equals(ordemaux.getRelatorio())) { //verifica se a o relatorio digitado é igual ao que já se encontra na ordem
                     JOptionPane.showMessageDialog(null, "Relatório informado é igual ao cadastrado!");
                 } else {
-                    vet.cadastrarRelatorioOrdem(ordemaux, relatorio);
+                    vet.cadastrarRelatorioOrdem(ordemaux, relatorio);//salva o relatorio na ordem selecionada no combobox
                     JOptionPane.showMessageDialog(null, "Relatório Salvo!");
                 }
             }
@@ -472,15 +472,15 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
 
     private void cmb_OrdemServicoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cmb_OrdemServicoAncestorAdded
 
-        if (!ordens.isEmpty())
+        if (!ordens.isEmpty()) //verifica se há ordem de serviço no combobox para mostrar os dados na tela
             mostrarDados();
     }//GEN-LAST:event_cmb_OrdemServicoAncestorAdded
 
-    public void mostrarDados() {
+    public void mostrarDados() { //Função responsável por setar os campos e botões da tela
 
         OrdemServico ordemAux = ordens.get(cmb_OrdemServico.getSelectedIndex());
 
-        if (ordemAux.getCliente() != null) {
+        if (ordemAux.getCliente() != null) { //tratamento para quando há clientes e para quando não há cliente cadastrado na ordem
             txt_id_cliente.setText(String.valueOf(ordemAux.getCliente().getId()));
             txt_id_cliente.setEnabled(true);
             txt_id_cliente.setEditable(false);
@@ -494,7 +494,7 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
             txt_id_cliente.setText("---");
             txt_id_cliente.setEnabled(true);
             txt_id_cliente.setEditable(false);
-            txt_nome_cliente.setText("---");
+            txt_nome_cliente.setText(ordemAux.getNomeCliente());
             txt_nome_cliente.setEnabled(true);
             txt_nome_cliente.setEditable(false);
             txt_endereco_cliente.setText("---");
@@ -527,23 +527,26 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }
 
     public void visualizarOrdem() {
+        //Atualiza os titulos da janela
         lbl_titulo.setText("Ordem de Serviço");
         lbl_subtitulo.setText("Visualize as ordens de serviço através do formulário abaixo.");
 
-        cmb_OrdemServico.removeAllItems();
+        //Atualizando o comboBox
+        cmb_OrdemServico.removeAllItems(); //Remove os itens existentes na lista
 
-        if (!reg.getOrdemServicos().isEmpty()) {
+        if (!reg.getOrdemServicos().isEmpty()) { // verifica se há ordens de serviço
             reg.getOrdemServicos().forEach(ordem -> {
-                if (ordem.getCliente() != null) {
+                if (ordem.getCliente() != null) { // Verifica se a ordem possui ou não cliente cadastrado para preencher corretamente os campos do cliente
                     cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
                     getOrdens().add(ordem);
                 } else {
-                    cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: Não há cliente Cadastrado");
+                    cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getNomeCliente());
                     getOrdens().add(ordem);
                 }
             });
         }
 
+        //seta alguns campos da janela
         txt_relatorio_servico.setEnabled(false);
         txt_relatorio_servico.setEditable(false);
         btn_salvar.setEnabled(false);
@@ -552,30 +555,33 @@ public class VisualizarOrdemServico extends javax.swing.JInternalFrame {
     }
 
     public void GerarRelatorio_OrdemServico() {
+        //Atualiza os titulos da janela
         lbl_titulo.setText("Gerar Relatório da Ordem de Serviço");
         lbl_subtitulo.setText("Gere relatório das consultas através do formulário abaixo.");
 
+        //Atualizando o comboBox
         cmb_OrdemServico.removeAllItems();
 
         getOrdens().removeAll(reg.getOrdemServicos());
-        if (!reg.getOrdemServicos().isEmpty()) {
+        if (!reg.getOrdemServicos().isEmpty()) { // verifica se há ordens de serviço
             reg.getOrdemServicos().forEach(ordem -> {
-                if (ordem.getServico().getNome().equals("Consulta")) {
-                    if (ordem.getCliente() != null) {
+                if (ordem.getServico().getNome().equals("Consulta")) { //Verifica se a ordem é do tipo Consulta, pois é a única que o veterinario pode
+                    //adicionar relatório
+                    if (ordem.getCliente() != null) {// Verifica se a ordem possui ou não cliente cadastrado para preencher corretamente os campos do cliente
                         cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getCliente().getNome());
                         getOrdens().add(ordem);
                     } else {
-                        cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: Não há cliente Cadastrado");
+                        cmb_OrdemServico.addItem("ID:" + ordem.getId() + " | Cliente: " + ordem.getNomeCliente());
                         getOrdens().add(ordem);
                     }
                 }
 
             });
         }
+        //seta alguns campos da janela
 
         txt_relatorio_servico.setEnabled(true);
         txt_relatorio_servico.setEditable(true);
-
         btn_salvar.setEnabled(true);
         btn_salvar.setVisible(true);
         btn_cancelar.setText("Cancelar");
