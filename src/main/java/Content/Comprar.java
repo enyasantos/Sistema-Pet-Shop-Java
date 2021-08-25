@@ -241,32 +241,47 @@ public class Comprar extends javax.swing.JInternalFrame {
         String nome = input_nome.getText();
         String animal = String.valueOf(combo_box_animal.getSelectedItem());
         String descricao = input_text_descricao.getText();
-        int qtd = Integer.parseInt(input_qtd.getText());
-        Float valor = Float.parseFloat(input_valor.getValue().toString());
-        //Converte o tipo Date para LocalDate
-        LocalDate data = LocalDate.ofInstant(input_data.getDate().toInstant(), ZoneId.systemDefault());
-        int dia = data.getDayOfMonth();
-        int mes = data.getMonthValue();
-        int ano = data.getYear();
         
-        if (nome.isEmpty() || animal.isEmpty() || descricao.isEmpty() || input_valor.getValue().toString().isEmpty()) {
+        //Verificação para visualizar se foi digitado algo
+        int qtd = -1;
+        if(!input_qtd.getText().isEmpty())
+            qtd = Integer.parseInt(input_qtd.getText());
+               
+        //Verificação para visualizar se foi digitado algo
+        float valor = (float)-1.0;
+        if(input_valor.getValue() != null)
+            valor = Float.parseFloat(input_valor.getValue().toString());
+        
+        //Verificação para visualizar se foi digitado algo
+        LocalDate data = null;
+        int dia = 0, mes = 0, ano = 0;
+        if(input_data.getDate() != null){
+            //Converte o tipo Date para LocalDate
+            data = LocalDate.ofInstant(input_data.getDate().toInstant(), ZoneId.systemDefault());
+            dia = data.getDayOfMonth();
+            mes = data.getMonthValue();
+            ano = data.getYear();
+        }
+
+        
+        if (combo_box_animal.getSelectedIndex() == 0  || data == null || nome.isEmpty() || animal.isEmpty() || descricao.isEmpty() || qtd == -1 || valor == -1) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de cadastrar!", "Alerta",
                     JOptionPane.WARNING_MESSAGE);
-        }
-        
-        DataHorario dataVenc = new DataHorario(dia, mes, ano, 0, 0);
-        String descricaoConta = "Compra do produto " + nome + " para " + animal;
-        Conta conta = new Conta(dataVenc, descricaoConta, (valor * qtd));
-        Produto produto = new Produto(qtd, valor, nome, animal, descricao);
-
-        if (getAdministrador().comprar(this.getRegistros(), conta, produto)) {
-            JOptionPane.showMessageDialog(null, "Compra registrada com sucesso.", "Compra registrada",
-                    JOptionPane.INFORMATION_MESSAGE);
-            cleanInputs();
         } else {
-            JOptionPane.showMessageDialog(null, "Erro no processo de compra, tente novamente.", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        }
+            DataHorario dataVenc = new DataHorario(dia, mes, ano, 0, 0);
+            String descricaoConta = "Compra do produto " + nome + " para " + animal;
+            Conta conta = new Conta(dataVenc, descricaoConta, (valor * qtd));
+            Produto produto = new Produto(qtd, valor, nome, animal, descricao);
+
+            if (getAdministrador().comprar(this.getRegistros(), conta, produto)) {
+                JOptionPane.showMessageDialog(null, "Compra registrada com sucesso.", "Compra registrada",
+                        JOptionPane.INFORMATION_MESSAGE);
+                cleanInputs();
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro no processo de compra, tente novamente.", "Erro",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }    
     }// GEN-LAST:event_jButton1MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel7MouseClicked
