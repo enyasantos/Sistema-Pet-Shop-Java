@@ -307,31 +307,32 @@ public class Vender extends javax.swing.JInternalFrame {
     private void btn_vendaMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_vendaMouseClicked
         // TODO add your handling code here:
         int id = combo_produto.getSelectedIndex();
-        int quant = Integer.parseInt(field_quant.getText());
+        int quant = -1;
+        if(!field_quant.getText().isEmpty())
+            quant = Integer.parseInt(field_quant.getText());
 
-        // if (Integer.toString(id).isEmpty() || Integer.toString(quant).isEmpty()) {
-        // JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de gerar
-        // a ordem de serviço!", "Alerta", JOptionPane.WARNING_MESSAGE);
-        // }
-        // else{
-        if (vend.getProdutoByID(registros.getProdutos(), id) != null) {
-            float valor = (vend.getProdutoByID(registros.getProdutos(), id)).getValor();
+        if (combo_produto.getSelectedIndex() == -1 || quant == -1) {
+         JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de vender o produto!", "Alerta", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            if (vend.getProdutoByID(registros.getProdutos(), id) != null) {
+                float valor = (vend.getProdutoByID(registros.getProdutos(), id)).getValor();
 
-            Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id), valor, vend.getId());
+                Venda nVenda = new Venda(vend.getProdutoByID(registros.getProdutos(), id), valor, vend.getId());
 
-            if (vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id + 1)) {
-                JOptionPane.showMessageDialog(null,
-                        "Venda realizada com sucesso, recarregue a página para atualizar a quantidade.",
-                        "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
-                cleanInputs();
-            } else {
-                JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro",
+                if (vend.realizarVenda(registros, nVenda, registros.getProdutos(), quant, id + 1)) {
+                    JOptionPane.showMessageDialog(null,
+                            "Venda realizada com sucesso, recarregue a página para atualizar a quantidade.",
+                            "Venda realizada", JOptionPane.INFORMATION_MESSAGE);
+                    cleanInputs();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro no processo de venda, tente novamente.", "Erro",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            } else
+                JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro",
                         JOptionPane.ERROR_MESSAGE);
-            }
-        } else
-            JOptionPane.showMessageDialog(null, "Produto não cadastrado, tente novamente", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        // }
+        }
     }// GEN-LAST:event_btn_vendaMouseClicked
 
     private void field_quantActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_field_quantActionPerformed

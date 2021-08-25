@@ -597,46 +597,59 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
 
         String hora = field_hora.getText();
 
-        // Converte o tipo Date para LocalDate
-        LocalDate data = LocalDate.ofInstant(field_data.getDate().toInstant(), ZoneId.systemDefault());
-        int dia = data.getDayOfMonth();
-        int mes = data.getMonthValue();
-        int ano = data.getYear();
-
-        String[] horaMinuto = hora.split(":");
-
-        DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]),
-                Integer.parseInt(horaMinuto[1]));
-
-        float valor = (float) 0;
-
-        if (tipoServ.equals("Banho e Tosa")) {
-            valor = (float) 80.0;
-        } else if (tipoServ.equals("Consulta")) {
-            valor = (float) 90.0;
+        //Converte o tipo Date para LocalDate
+        LocalDate data = null;
+        DataHorario datatime = null;
+        int dia = 0, mes = 0, ano = 0;
+        if(field_data.getDate() != null){
+            //Converte o tipo Date para LocalDate
+            data = LocalDate.ofInstant(field_data.getDate().toInstant(), ZoneId.systemDefault());
+            dia = data.getDayOfMonth();
+            mes = data.getMonthValue();
+            ano = data.getYear();           
         }
-
-        Servico servico = new Servico(tipoServ, valor);
-        Venda nVenda = new Venda(servico, valor, vend.getId());
-
-        OrdemServico nOrdem;
-
-        if (cadastrar) {
-            idCliente = cadastraCliente();
-            Cliente lastCliente = registros.getClientes().get(registros.getClientes().size() - 1);
-            nOrdem = new OrdemServico(servico, datatime, lastCliente, animal);
-        } else {
-            String nomeCliente = field_nome_sc.getText();
-            nOrdem = new OrdemServico(servico, datatime, nomeCliente, animal);
+        
+        if (combo_box_serv.getSelectedIndex() == 0 || combo_box_animal.getSelectedIndex() == 0 || data == null|| hora.trim().length() <5) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de gerar a ordem de serviço!", "Alerta", JOptionPane.WARNING_MESSAGE);
         }
+        else{
+            float valor = (float) 0;
+            if (tipoServ.equals("Banho e Tosa")) {
+                valor = (float) 80.0;
+            } else if (tipoServ.equals("Consulta")) {
+                valor = (float) 90.0;
+            }
 
-        if (vend.realizarOrdemServico(registros, nOrdem, nVenda, servico)) {
-            JOptionPane.showMessageDialog(null, "Ordem de serviço realizada com sucesso.", "Ordem de serviço realizada",
-                    JOptionPane.INFORMATION_MESSAGE);
-            cleanInputs();
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro no processo de geração de ordem de serviço, tente novamente.",
-                    "Erro", JOptionPane.ERROR_MESSAGE);
+            Servico servico = new Servico(tipoServ, valor);
+            Venda nVenda = new Venda(servico, valor, vend.getId());
+
+            OrdemServico nOrdem = null;
+            String[] horaMinuto = hora.split(":");
+
+            datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
+            if (cadastrar) {
+                idCliente = cadastraCliente();
+                Cliente lastCliente = registros.getClientes().get(registros.getClientes().size() - 1);
+                nOrdem = new OrdemServico(servico, datatime, lastCliente, animal);
+            } else {
+                String nomeCliente = field_nome_sc.getText();
+                if (nomeCliente.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Preencha o nome do dono do Pet!", "Alerta", JOptionPane.WARNING_MESSAGE);
+                }
+                else
+                    nOrdem = new OrdemServico(servico, datatime, nomeCliente, animal);
+                
+            }
+            if(nOrdem != null){
+                if (vend.realizarOrdemServico(registros, nOrdem, nVenda, servico)) {
+                    JOptionPane.showMessageDialog(null, "Ordem de serviço realizada com sucesso.", "Ordem de serviço realizada",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    cleanInputs();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro no processo de geração de ordem de serviço, tente novamente.",
+                            "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
 
     }// GEN-LAST:event_btn_gerarMouseClicked
@@ -664,7 +677,10 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
     private int cadastraCliente() {
         String nome = field_nome.getText();
         String endereco = field_endereco.getText();
-
+        if (nome.isEmpty() || endereco.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de cadastrar!", "Alerta", JOptionPane.WARNING_MESSAGE);
+            return -1;
+        }
         Cliente nCliente = new Cliente(nome, endereco);
         if (vend.cadastrarCliente(registros, nCliente)) {
             cleanInputsCad();
@@ -672,6 +688,7 @@ public class GerarOrdemDeServicoSemCadastro extends javax.swing.JInternalFrame {
         }
         return -1;
     }
+   
 
     private void cleanInputsCad() {
         field_nome.setText("");

@@ -307,30 +307,35 @@ public class PagarConta extends javax.swing.JInternalFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        int index = combo_box_id.getSelectedIndex();
-        Conta conta = null;
-        
-        if(index != -1) { //Verificação se foi selecionado algo
-            //Pega a conta no index do combo box selecionado
-            conta = getContasAPagar().get(index); 
-            if (conta != null) { //Verificação se foi encontrado uma conta no index
-                
-                //Split para pegar dia, mês e ano da data de forma separada
-                String[] covertDataArray = String.valueOf(combo_box_data_pagamento.getSelectedItem()).split("/");
-                DataHorario dataPagamento = new DataHorario(Integer.parseInt(covertDataArray[0]),
-                        Integer.parseInt(covertDataArray[1]), Integer.parseInt(covertDataArray[2]), 17, 0);
-                if (adm.pagarConta(registros, conta, dataPagamento)) {
-                    JOptionPane.showMessageDialog(null, "Conta paga com sucesso. Recarregue a página para atualizar as informações.", "Conta paga",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    cleanInputs();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Erro no processo de compra, tente novamente.", "Erro",
-                            JOptionPane.ERROR_MESSAGE);
+        if(!getContasAPagar().isEmpty()){
+            int index = combo_box_id.getSelectedIndex();
+            Conta conta = null;
+
+            if(index != -1) { //Verificação se foi selecionado algo
+                //Pega a conta no index do combo box selecionado
+                conta = getContasAPagar().get(index); 
+                if (conta != null) { //Verificação se foi encontrado uma conta no index
+
+                    //Split para pegar dia, mês e ano da data de forma separada
+                    String[] covertDataArray = String.valueOf(combo_box_data_pagamento.getSelectedItem()).split("/");
+                    DataHorario dataPagamento = new DataHorario(Integer.parseInt(covertDataArray[0]),
+                            Integer.parseInt(covertDataArray[1]), Integer.parseInt(covertDataArray[2]), 17, 0);
+                    if (adm.pagarConta(registros, conta, dataPagamento)) {
+                        JOptionPane.showMessageDialog(null, "Conta paga com sucesso. Recarregue a página para atualizar as informações.", "Conta paga",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        cleanInputs();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Erro no processo de compra, tente novamente.", "Erro",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Não há nanhuma conta para pagar.", "Erro",
+                                JOptionPane.ERROR_MESSAGE);
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Não há nanhuma conta para pagar.", "Erro",
-                            JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Não há nanhuma conta para pagar.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
             
 
@@ -394,8 +399,14 @@ public class PagarConta extends javax.swing.JInternalFrame {
     }
     
     private void cleanInputs(){
-        combo_box_id.setSelectedIndex(0);
-        combo_box_data_pagamento.setSelectedIndex(0);
+        if (getContasAPagar().isEmpty()) {
+            combo_box_id.setSelectedIndex(-1);
+            combo_box_data_pagamento.setSelectedIndex(-1);
+        }
+        else{
+            combo_box_id.setSelectedIndex(0);
+            combo_box_data_pagamento.setSelectedIndex(0);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

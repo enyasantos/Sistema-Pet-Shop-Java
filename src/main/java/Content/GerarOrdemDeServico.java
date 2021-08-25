@@ -451,6 +451,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
 
     private void btn_gerarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_gerarMouseClicked
         // TODO add your handling code here:
+        
         String tipoServ = String.valueOf(combo_box_serv.getSelectedItem());
         String animal = String.valueOf(combo_box_animal.getSelectedItem());
         int index = combo_cliente.getSelectedIndex();
@@ -458,18 +459,23 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
         String hora = field_hora.getText();
 
         //Converte o tipo Date para LocalDate
-        LocalDate data = LocalDate.ofInstant(field_data.getDate().toInstant(), ZoneId.systemDefault());
-        int dia = data.getDayOfMonth();
-        int mes = data.getMonthValue();
-        int ano = data.getYear();
-       
-        String [] horaMinuto = hora.split(":");
-        
-        DataHorario datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
-//        if (tipoServ.isEmpty() || animal.isEmpty()) {
-//            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de gerar a ordem de serviço!", "Alerta", JOptionPane.WARNING_MESSAGE);
-//        }
-//        else{ 
+        LocalDate data = null;
+        DataHorario datatime = null;
+        int dia = 0, mes = 0, ano = 0;
+        if(field_data.getDate() != null){
+            //Converte o tipo Date para LocalDate
+            data = LocalDate.ofInstant(field_data.getDate().toInstant(), ZoneId.systemDefault());
+            dia = data.getDayOfMonth();
+            mes = data.getMonthValue();
+            ano = data.getYear();           
+        }
+ 
+        if (combo_box_serv.getSelectedIndex() == 0 || combo_box_animal.getSelectedIndex() == 0 || data == null|| hora.trim().length() <5) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de gerar a ordem de serviço!", "Alerta", JOptionPane.WARNING_MESSAGE);
+        }
+        else{ 
+            String [] horaMinuto = hora.split(":");
+            datatime = new DataHorario(dia, mes, ano, Integer.parseInt(horaMinuto[0]), Integer.parseInt(horaMinuto[1]));
             if(vend.getClienteById(registros.getClientes(), index) != null){
                 float valor = (float)0;
 
@@ -490,7 +496,7 @@ public class GerarOrdemDeServico extends javax.swing.JInternalFrame {
             }
             else
                 JOptionPane.showMessageDialog(null, "Cliente não existente, tente novamente", "Erro", JOptionPane.ERROR_MESSAGE);
-        //}
+        }
     }//GEN-LAST:event_btn_gerarMouseClicked
 
     private void combo_clienteAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_combo_clienteAncestorAdded
