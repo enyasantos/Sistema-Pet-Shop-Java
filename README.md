@@ -1,23 +1,24 @@
-
-# Foobar
+<h1 align="center">
+Sistema-Pet-Shop-Java
+</h1>
+<p align="center">💡</p>
 <p align="center">
-Aplicação desktop chamada BioLAB para automatização de exercícios nomeação de espécies de botânica e zoologia.  Requerido pela cadeira BCC322 - Engenharia de Software I do curso de Ciência da Computação da Universidade Federal de Ouro Preto (UFOP).
+Repositório destinado à um trabalho em grupo que consiste no desenvolvimento de um sistema de gestão para petshop,  requerido pela cadeira BCC221 do curso de Ciência da Computação da Universidade Federal de Ouro Preto (UFOP).
 </p>
 
-<h2>💻 Stacks</h2> 
-<ul>
-<li>Qt</li>
-<li>SQLite</li>
-<li>c++</li>
-</ul>
-
-## Integrantes
-
+## 👥 Grupo
 <a href="https://github.com/enyasantos">👩‍💻 - Enya Santos</a>
 
 <a href="https://github.com/Nathannz11">👨‍💻 - Nathann Zini</a>
 
 <a href="https://github.com/vitoriabispo">👩‍💻 - Vitória Bispo</a>
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+<h2>💻 Tecnologias usadas</h2> 
+<ul>
+<li>Java</li>
+<li>GUI Swing</li>
+<li>Netbeans</li>
+</ul>
+
+<h2>📜 Licença</h2> 
+<p>This project is licensed under the MIT License - see the <a href="https://opensource.org/licenses/MIT">page for details.</a></p>
